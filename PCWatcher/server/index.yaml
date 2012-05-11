@@ -1,0 +1,14 @@
+indexes:
+
+- kind: imgitem
+  ancestor: yes
+  properties:
+  - name: pc_name
+  - name: time
+    direction: desc
+
+- kind: imgitem
+  ancestor: yes
+  properties:
+  - name: time
+    direction: desc

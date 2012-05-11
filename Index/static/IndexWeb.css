@@ -1,0 +1,32 @@
+.search .text:hover {
+	box-shadow:0 0 1px 1px rgba(f,0,f,1);
+}
+.ftps{
+	
+}
+
+table {
+    width:100%;
+}
+td.time {
+	width : 200px;
+	text-align:center;
+}
+td.size {
+	width : 110px;
+	text-align:center;
+	
+}
+
+td.name {
+	
+}
+
+.title {
+	background:rgb(255,128,0);
+	border:1px solid;
+}
+
+.page {
+	background:rgb(128,255,255);
+}

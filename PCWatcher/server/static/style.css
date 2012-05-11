@@ -1,0 +1,12 @@
+img.thumbnail{
+    //height:150px;
+    //width:200px;
+}
+img {
+    border:none;
+
+}
+body{
+    background:-moz-linear-gradient(45deg, white, #0efe0e);
+    background:-webkit-gradient(linear, left-top, right-bottom, from(red), to(blue));
+}

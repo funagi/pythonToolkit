@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.1//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile11.dtd">
+<wml>
+    <head>
+    </head>
+    <card id="main" title="Screenshots on {{ pc_name }}">
+        <center>
+            <table>
+                {% for image in imagelist %}
+                <tr>
+                    <td>{{ image.time }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/image?id={{ image.key }}">
+                            <img src="/thumb?id={{ image.key }}"/>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <a href="/main?pc={{ pc_name }}&offset={{ offset_prev }}&count=10">Preivous</a>
+                    <a href="/main?pc={{ pc_name }}&offset={{ offset_next }}&count=10">Next</a>
+                </tr>
+            </table>
+            <p>Program by KeMeGe</p>
+            <p>Powered by Google App Engine</p>
+        </center>       
+    </card>    
+</wml>

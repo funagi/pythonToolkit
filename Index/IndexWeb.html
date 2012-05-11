@@ -1,0 +1,114 @@
+﻿<%
+    attr_list = {
+        'dir' : ['dir'],
+        'archive' : ['rar','zip','7z','bz2','gz'],
+        'dll' : ['dll'],
+        'document' : ['doc','rtf'],
+        'excel' : ['xls','xlsx'],
+        'execute' : ['exe','cmd','bat'],
+        'image' : ['jpg','png','bmp','uci','ico'],
+        'iso' : ['iso','mdf','mds','bin','img'],
+        'video' : ['mkv','mp4','avi','ogm','flv','m2ts','mpg','rmvb','wmv'],
+        'pdf' : ['pdf'],
+        'sound' : ['wav','tta','tak','flac','ape','m4a','mp3','ogg','wma'],
+        'text' : ['txt','srt','ssa','ass','log','cue','lrc'],
+        'torrent' : ['torrent']
+        }
+%>
+<%def name="GetType(string)">\
+    <% 
+        assoc = string[string.rindex('.')+1:]
+        result = 'else'
+    %>
+    % for attr in attr_list:
+        % if assoc.lower() in attr_list[attr]:
+            <% result = attr %>
+        % endif
+    % endfor
+/static/img/${result}.ico
+</%def>
+
+<%def name="Path(info)">\
+% if info[3]=='':
+ftp://${info[1]}:${str(info[2])}\
+% else:
+ftp://${info[3]}:${info[4]}@${info[1]}:${str(info[2])}\
+% endif
+</%def>
+
+<%def name="FileSize(size)">\
+% if size<1024:
+${size}B\
+% else:
+    % if size/1024<1024:
+${'{:.2f}'.format(float(size)/1024)}KB\
+    % else:
+        % if size/1024/1024<1024:
+${'{:.2f}'.format(float(size)/1024/1024)}MB\
+        %else:
+${'{:.2f}'.format(float(size)/1024/1024/1024)}GB\
+        % endif
+    % endif
+% endif
+</%def>
+
+<HTML>
+    <head>
+        <meta http-equiv="Content-Type" content="text/HTML; charset=utf-8" />
+        <title>Web Index</title>
+        <link rel="stylesheet" href="./static/IndexWeb.css"/>
+        <script language="Javascript" src="./static/IndexWeb.js"></script>
+    </head>
+    <body>
+        <form method="post" action="/search" onsubmit="check_submit()">
+            <div class="search">
+                <input type="text" class="text" name="keyword"/>
+                <input type="submit" value="Search" />
+            </div>
+            % if mode=="query":
+            <div class="ftps">
+                <div class="title">Available FTPs:</div>
+            % for result in ftps:
+                <input type="checkbox" name="ftp" value="${result[0]}"/>${Path(result)}<br/>
+            % endfor
+            </div>
+            % endif
+        </form>
+        % if results:
+            % for result in results:
+            % if len(result[1])!=0:
+            <a href="#" onclick="toggle_div('${result[0][0]}')">
+                <div class="title">${Path(result[0])}(${len(result[1])})<br/></div> 
+            </a>
+            <div class="page" id="${result[0][0]}" style="display:none;">
+                <div class="results">
+                    <table class="items">
+                        <tr class="itemtitle">
+                            <td class = "name">文件路径</td>
+                            <td class = "time">修改时间</td>
+                            <td class = "size">文件大小</td>
+                        </tr>
+                    % for item in result[1]:
+                        <tr class="item">
+                            % if item[0] == 'd' :
+                            <td class = "name"><img src="/static/img/dir.ico"/>${item[1][1:]}</td>
+                            % else:
+                            <td class = "name"><img src="${GetType(item[1])}"/>${item[1][1:]}</td>
+                            % endif
+                            <td class = "time">${str(item[2])[:4]}/${str(item[2])[4:6]}/${str(item[2])[6:8]} ${str(item[2])[8:10]}:${str(item[2])[10:12]}:${str(item[2])[12:14]}</td>
+                            <td class = "size">${FileSize(item[3])}</td>
+                        </tr>
+                    % endfor
+                    </table>
+                </div>
+            </div>
+            % endif
+            % if len(result[1])==0:
+            <div class="title">
+                ${Path(result[0])}(0)<br/>
+            </div> 
+            % endif
+            % endfor
+        % endif
+    </body>
+</HTML>

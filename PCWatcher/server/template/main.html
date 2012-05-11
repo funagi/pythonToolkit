@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Screenshots on {{ pc_name }}</title>
+        <link rel="stylesheet" href="/style.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    	<script>
+    		!window.jQuery && document.write('<script src="/fancybox/jquery-1.4.3.min.js"><\/script>');
+    	</script>
+    	<script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    	<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    	<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
+    	<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+        <script type="text/javascript">
+    		$(document).ready(function() {
+    			
+    			$("a[rel=gallery]").fancybox({
+    				'transitionIn'		: 'elastic',
+    				'transitionOut'		: 'elastic',
+    				'type'			: 'image',
+    				'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+    				    var before = '<table id="" cellspacing="0" cellpadding="0"><tbody><tr><td id="fancybox-title-float-left"></td>';
+    				    var after = '<td id="fancybox-title-float-right"></td></tr></tbody></table>'
+    					return before+'<td id="fancybox-title-float-main">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</td>'+after;
+    				}
+    			});
+    
+    		});
+    	</script>
+    </head>
+    <body>
+        <center><h1>Screenshots on {{ pc_name }}</h1>
+        <table>
+            <tbody>
+            {% for slist in imagelist %}
+            <tr class="gallery row">
+                {% for image in slist %}
+                <td class="gallery cell"><a rel="gallery" title="{{ image.time }}" href="/image?id={{ image.key }}"><img class="thumbnail" src="/thumb?id={{ image.key }}"/></a></td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            <tr>
+                <td width=200>
+                    <a href="/main?pc={{ pc_name }}&offset={{ offset_prev }}&count=25">
+                        <img src="/fancy_nav_left.png"/>
+                    </a>
+                </td>
+                <td width=200></td>
+                <td width=200 align="center" valign="middle">Page {{ offset_next/25 }}</td>
+                <td width=200></td>
+                <td width=200 align="right" valign="middle">
+                    <a href="/main?pc={{ pc_name }}&offset={{ offset_next }}&count=25">
+                        <img src="/fancy_nav_right.png"/>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </center>
+    </body>
+</html>

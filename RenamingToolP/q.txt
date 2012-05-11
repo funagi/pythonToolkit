@@ -1,0 +1,87 @@
+方法篇：css3画图所用到的属性（围观绕行）
+
+注：#jubailan 为ID选择器示例。
+
+01. border-radius（圆角）
+这个用的应该是最多的了，要不然看到的就只是正方形、长方形、正方形….。示例：
+
+#jubalan {border-radius:55px 55px 55px 55px / 25px 25px 25px 25px;}
+
+斜线前面的值分别对应左上、右上、右下、左下的圆角的X轴半径的值，后面的四个值则为Y轴半径的值。如下图：
+
+border-radius
+
+当然上图这样四个角都相同的情况也可以写成：
+
+#jubalan {border-radius:55px / 25px;}
+
+更进一步如果X轴半径和Y轴半径相同还可以省略斜杠和之后的内容，如：
+
+#jubalan {border-radius:55px 65px; }
+
+表示的是左上角和右下角X轴Y轴半径均为55px，右上角和左下角XY轴半径均为65px。
+
+如果只有一个参数则四个角均为相同半径的正圆。如：
+
+#jubalan {border-radius:55px;}
+
+如果只想让左上角变为圆角，可以这样写：
+
+#jubalan {border-top-left-radius:55px 25px;}
+
+同理还有bottom-left、top-right、bottom-roght。兼容wekit、FireFox、Opera浏览器的写法
+
+#jubailan {
+border-top-left-radius:55px 25px;   /*标准写法Opera、Chrome*/
+-weblit-border-top-left-radius:55px 25px;   /*Safari*/
+-moz-border-radius-topleft:55px 25px;   /*FireFox*/
+}
+
+02. rotate（旋转）scale（缩放）
+
+#jubalan {
+transform: rotate(25deg) scale(0.8);
+-webkit-transform: rotate(25deg) scale(0.8);
+-moz-transform: rotate(25deg) scale(0.8);
+-o-transform: rotate(25deg) scale(0.8); /*Opera*/
+}
+
+以上代码表示ID为jubailan的元素顺时针旋转25度，缩小为原来的0.8倍大小。
+
+rotate很容易理解了，负值即为逆时针。
+
+scale可以有两个参数，分别代表横向和纵向的缩放比例，负值则形成翻转，例如：
+
+#jubalan {transform:scale(1,-1);}
+
+表示垂直翻转。
+
+03. skew(倾斜)
+与rotate不同的是， skew可以只对X轴或者Y轴旋转似的元素倾斜，很可能变成菱形。能像上面的rotate和scale那样连着写在一起，单独用法：
+
+#jubailan {
+transform: skew(-19deg, 10deg);
+-webkit-transform:skew(-19deg, 10deg);
+-moz-transform: skew(-19deg, 10deg);
+-o-transform: skew(-19deg, 10deg);
+}
+
+04. box-shadow（阴影）
+
+#jubailan {
+box-shadow:0px 0px 5px 3px rgba(0,0,0,0.5);
+-webkit-box-shadow:0px 0px 5px 3px rgba(0,0,0,0.5);
+-moz-box-shadow:0px 0px 5px 3px rgba(0,0,0,0.5);
+}
+
+6个参数分别代表：X轴偏移量、Y轴偏移量、阴影羽化扩展量、阴影大小、阴影颜色。
+
+rgba(0,0,0,0.5)为颜色，表示50%透明的黑色。rgba(255,255,255,1)为纯白色。当然使用别的颜色表示方法也没问题，如：#f00；
+
+05. gradient(渐变)
+
+#jubailan {background:-webkit-gradient(linear, left bottom, left 80%, from(#bbb), to(white)); 
+
+background:-moz-linear-gradient(bottom, #bbb, white 20%);}
+
+表示从元素底部往上的渐变，渐变延伸高度为元素高的20%，颜色由#bbb变为白色。

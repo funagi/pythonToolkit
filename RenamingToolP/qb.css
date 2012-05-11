@@ -1,0 +1,77 @@
+* {margin: 0;padding: 0;}
+
+body {background:#fff;-webkit-perspective: 1200px;/*-webkit-transform-style: preserve-3d;*/}
+.eye {width:50px;height:50px;
+	border:28px #AE0066 solid;
+	border-radius:53px / 53px;
+	background:#650729;
+	-moz-transition: box-shadow 1s;
+}
+.eye:hover {
+	box-shadow:0 0 5px 5px rgba(f,0,0,0.5);
+}
+.eyes {width:28px;height:28px;
+	border:0;
+	border-radius:14px / 14px;
+	background:#fff
+}
+.leftA {left:100px;top:100px;position:absolute;}
+.rightA {left:500px;top:100px;position:absolute;}
+.leftB {left:114px;top:114px;position:absolute;}
+.rightB {left:514px;top:114px;position:absolute;}
+
+.mouth{width:52px;height:70px;
+	border:1px #000000 solid;
+	border-top:0;;border-right:0;border-left:0;
+	position:absolute;
+	border-radius:25px / 30px;
+}
+
+.L {left:295px;top:300px}
+.R {left:342px;top:300px}
+
+.words {left:450px;top:300px;
+	position:absolute;
+	-moz-transform: rotate(-45deg) scale(2,3);
+	color:-moz-linear-gradient(bottom,#bbb,#2b2 100%);
+	text-shadow:0px 0px 2px #77ff00;
+	-moz-transition: text-shadow 1s;
+}
+.words:hover {
+	text-shadow: 0px 0px 3px #7700cc;
+}
+.test {left:100px;top:100px;position:absolute;
+	width:82px;height:70px;
+	border:1px #000000 solid;
+	border-radius:48px / 30px;
+	border-top:0;;border-right:0;border-left:0;
+}
+.test2 {left:100px;top:100px;position:absolute;
+	width:82px;height:70px;
+	border:1px #FF0000 solid;
+	
+}
+.flower {left:550px;top:-10px;position:absolute;
+	width:240px;height:240px;
+	-moz-transform: rotate(35deg) scale(0.5,0.5);
+	/*background:#0000f1;*/
+	border:6px solid #ff0000£»
+}
+.flower .f {width:60px;height:120px;
+	border-radius:30px 30px 30px 30px / 30px 30px 80px 80px;
+	border:2px solid #000;border-bottom:0px;
+	background:#aabb00;
+}
+.flower .center{width:40px;height:40px;
+	top:-385px;left:102px;position:relative;
+	background:#eeee00;
+	border:2px solid #000;
+	border-radius:35px;z-index:50}
+.flower .line{width:5px;height:300px;
+	left:215px;top:-460px;position:relative;
+	background:#000;
+	-moz-transform: rotate(-45deg);}
+.flower .A{left:90px;top:0px;position:relative;z-index:10}
+.flower .B{left:150px;top:-60px;position:relative;-moz-transform: rotate(90deg);z-index:20}
+.flower .C{left:90px;top:-120px;position:relative;-moz-transform: rotate(180deg);z-index:30}
+.flower .D{left:30px;top:-300px;position:relative;-moz-transform: rotate(270deg);z-index:40}

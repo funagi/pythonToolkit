@@ -1,0 +1,61 @@
+<table class="info">
+	<tr>
+		<td rowspan="7" valign="top">
+			<img src="/data?key={{ game.Poster.key }}">
+		</td>
+		<td>
+			Name
+		</td>
+		<td>
+			{{ game.Name }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Company
+		</td>
+		<td>
+			{{ game.Company }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Release Date
+		</td>
+		<td>
+			{{ game.rDate }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Playing Date
+		</td>
+		<td>
+			{{ game.pDate1 }} --> {{ game.pDate2 }}
+		</td>
+	</tr>
+	<tr>
+		<td valign="top">
+			Seiyuu
+		</td>
+		<td id="seiyuu">
+			{{ game.Seiyuu }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Memo
+		</td>
+		<td id="memo" align="left">
+			{{ game.Memo }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Attachment Link
+		</td>
+		<td>
+			<a href="/data?key={{ game.Attachment.key }}">{{ game.Name }} Attachment File</a>
+		</td>
+	</tr>
+</table>

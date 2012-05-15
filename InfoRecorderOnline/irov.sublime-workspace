@@ -1,0 +1,410 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"in",
+				"infoxmlreqest"
+			],
+			[
+				"re",
+				"response"
+			],
+			[
+				"s",
+				"self"
+			],
+			[
+				"get",
+				"get_uploads"
+			],
+			[
+				"g",
+				"get_uploads"
+			],
+			[
+				"Upload",
+				"UploadBinary"
+			],
+			[
+				"gam",
+				"game_temp"
+			],
+			[
+				"require",
+				"require_once"
+			],
+			[
+				"data",
+				"datatable"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "template/frame.html",
+			"settings":
+			{
+				"buffer_size": 863,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "static/style.css",
+			"settings":
+			{
+				"buffer_size": 286,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "static/script.js",
+			"settings":
+			{
+				"buffer_size": 1280,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 386.0,
+		"selected_items":
+		[
+			[
+				"",
+				"SublimeREPL: Python"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/app.yaml",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/Info.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/List.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/template/info.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/template/intro.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/template/guide.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/template/index.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/template/list.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/Viewer.py",
+		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/template/main.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/DataServe.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/basetypes.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/template/upload.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/UploadBinary.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/Upload.py",
+		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/ImageViewer.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/static/upload.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/index.yaml",
+		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/Upload.py",
+		"/C/php/Apache2.2/htdocs/Themes/default/Rss.template.php",
+		"/C/php/Apache2.2/htdocs/Themes/default/index.template.php",
+		"/C/php/Apache2.2/htdocs/Sources/Rss.php",
+		"/C/php/Apache2.2/htdocs/Themes/default/BoardIndex.template.php",
+		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/app.yaml",
+		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/index.yaml",
+		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/Thumb.py",
+		"/C/Users/KeMeGe/Desktop/pyinstaller-1.5.1/README.txt",
+		"/C/php/Apache2.2/htdocs/Sources/shoutbox.php",
+		"/C/php/Apache2.2/htdocs/Sources/simple_html_dom.php",
+		"/C/php/Apache2.2/htdocs/Sources/Staff2.php",
+		"/C/php/Apache2.2/htdocs/Sources/sphinxapi.php",
+		"/E/Program Files/oommf12a4pre-20051118/app/oxs/examples/StringSearch.py",
+		"/E/Program Files/Sublime Text 2/Data/Packages/wuub-SublimeREPL-1e368f4/SublimeREPL.sublime-settings",
+		"/E/Program Files/oommf12a4pre-20051118/app/oxs/examples/stdprob1.mif",
+		"/E/Program Files/Sublime Text 2/Data/Packages/TCL/Tcl.tmLanguage",
+		"/C/php/Apache2.2/htdocs/index.php",
+		"/C/Users/KeMeGe/Desktop/1.html",
+		"/C/Users/KeMeGe/Desktop/excandydat/excandydat.cpp",
+		"/C/Users/KeMeGe/Desktop/excandydat/DataExtract.py",
+		"/C/Users/KeMeGe/Desktop/excandydat/15_commands",
+		"/C/Users/KeMeGe/Desktop/excandydat/14_commands",
+		"/C/Users/KeMeGe/Desktop/excandydat/14_prepared",
+		"/C/Users/KeMeGe/Desktop/excandydat/ep_op0112",
+		"/C/Users/KeMeGe/Desktop/python/Index/IndexGenerator.py",
+		"/C/Users/KeMeGe/Desktop/excandydat/00_title_op",
+		"/C/Users/KeMeGe/Desktop/excandydat/IndexGenerator.py",
+		"/C/php/Apache2.2/htdocs/Sources/Subs-Editor.php",
+		"/C/php/Apache2.2/htdocs/Sources/Subs.php",
+		"/C/php/Apache2.2/htdocs/Themes/default/scripts/suggest.js",
+		"/C/php/Apache2.2/htdocs/Sources/Profile-Modify.php",
+		"/C/php/Apache2.2/htdocs/Sources/Tags2.php",
+		"/C/php/Apache2.2/htdocs/Themes/default/scripts/script.js",
+		"/C/php/Apache2.2/htdocs/Themes/default/scripts/index.php",
+		"/C/php/Apache2.2/htdocs/Themes/default/scripts/gpbp.js",
+		"/C/php/Apache2.2/htdocs/Themes/default/scripts/profile.js",
+		"/C/php/Apache2.2/htdocs/Themes/smf4mobile-1/scripts/script.js",
+		"/C/php/Apache2.2/htdocs/Themes/smf4mobile-1/scripts/compiled.js",
+		"/C/php/Apache2.2/htdocs/Settings.php",
+		"/C/php/Apache2.2/htdocs/ut - 副本.php",
+		"/C/php/Apache2.2/htdocs/subscriptions.php",
+		"/C/php/Apache2.2/conf/httpd.conf",
+		"/C/PHP/htdocs/pt/Sources/PortalMain.php",
+		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/clean.py",
+		"/E/Program Files/Google/Google SketchUp 8/Plugins/omfimporter.rb",
+		"/C/Users/KeMeGe/Desktop/Else/P1=P2=1C1=-1C2=1/CG uncouple disk filein surface exchange.mif",
+		"/E/Program Files/oommf12a4pre-20051118/test2.omf",
+		"/C/Users/KeMeGe/Desktop/4e-4.omf",
+		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/template/main_wap.wml",
+		"/C/PHP/htdocs/pt/Settings.php",
+		"/C/PHP/htdocs/pt/Sources/Subs.php",
+		"/C/PHP/htdocs/pt/index.php",
+		"/C/PHP/htdocs/pt/Sources/Subs-List.php",
+		"/C/PHP/htdocs/pt/Sources/Subs-inet6.php",
+		"/C/PHP/htdocs/test.php",
+		"/C/PHP/htdocs/pt/Sources/ManageMembers.php",
+		"/C/PHP/htdocs/pt/Sources/Profile-Actions.php",
+		"/C/PHP/htdocs/smf/InstallShowHook.php",
+		"/C/PHP/htdocs/pt/Sources/Profile.php",
+		"/C/PHP/htdocs/pt/announce.php",
+		"/C/PHP/htdocs/smf/InstallTestMenu.php",
+		"/C/PHP/htdocs/smf/Sources/Subs.php",
+		"/C/PHP/htdocs/smf/Sources/ShowHook.php",
+		"/C/PHP/htdocs/smf/Sources/Test.php",
+		"/C/PHP/htdocs/smf/InstallCustomBBC.php",
+		"/C/PHP/htdocs/pt/SSI.php",
+		"/C/PHP/htdocs/pt/Sources/QueryString.php",
+		"/C/PHP/htdocs/pt/Sources/Aeva-Subs.php",
+		"/C/PHP/htdocs/pt/Sources/Subs-IMDB.php",
+		"/C/PHP/htdocs/pt/Sources/Subs-IP.php",
+		"/C/PHP/htdocs/pt/Sources/Profile-View.php",
+		"/C/PHP/htdocs/pt/Sources/Subs-TrackerAdmin.php",
+		"/C/PHP/htdocs/pt/Sources/Profile-Tracker.php",
+		"/C/PHP/htdocs/smf/Sources/Subs-ShowHook.php",
+		"/C/PHP/htdocs/smf/Settings.php",
+		"/E/Program Files/oommf12a4pre-20051118/ss.omf",
+		"/C/Users/KeMeGe/Desktop/test.omf",
+		"/E/Program Files/Google/Google SketchUp 8/Plugins/examples.rb",
+		"/E/Program Files/Google/Google SketchUp 8/Plugins/Examples/examplescripts.rb",
+		"/C/Users/KeMeGe/Desktop/import.rb",
+		"/E/Program Files/oommf12a4pre-20051118/diple VS spacer/RKKY uncouple disk C1=C2=-1P1=1P2=-1.mif",
+		"/E/Program Files/oommf12a4pre-20051118/mywork/square - 副本.mif",
+		"/E/Program Files/oommf12a4pre-20051118/mywork/anisotropy.mif"
+	],
+	"find":
+	{
+		"height": 94.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"body",
+			"<td></td>\n                    <td></td>",
+			"table>tr*12>td",
+			"td",
+			"smf_main",
+			"br ",
+			"KEY_VERSION",
+			"key",
+			"button",
+			"glow",
+			"teletyp",
+			"input",
+			"auto",
+			"buddy",
+			"inet6_pton",
+			"inet_pton",
+			"inet6_pton",
+			"parse_bbc",
+			"require",
+			"inet6",
+			"inet",
+			"require",
+			"inet_pton",
+			"inet6_pton"
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"body",
+			"<td>Name:</td>\n                    <td><input type=\"text\" name=\"name\"/></td>",
+			"br",
+			"br\ninet6_aton",
+			"\ninet6_aton"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "template/frame.html",
+					"settings":
+					{
+						"buffer_size": 863,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								146,
+								146
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "static/style.css",
+					"settings":
+					{
+						"buffer_size": 286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								283,
+								283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "static/script.js",
+					"settings":
+					{
+						"buffer_size": 1280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								591,
+								591
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 135.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 150.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

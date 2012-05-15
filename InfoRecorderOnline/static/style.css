@@ -1,0 +1,27 @@
+.link {
+  color:black;
+  text-decoration:none;
+  margin:1px;
+  -moz-transition: box-shadow 1s;
+}
+
+.link:hover {
+  box-shadow:0px 0px 4px #222222;
+}
+
+.info{
+  text-align:center;
+}
+
+ul.list {
+  height:560px;
+}
+
+ul.list li {
+  list-style: none;
+  height:80px;
+}
+
+td.list {
+  width:160px;
+}

@@ -1,0 +1,15 @@
+indexes:
+
+- kind: game
+  properties:
+  - name: Company
+  - name: Name
+  - name: rDate
+    direction: desc
+  - name: pDate1
+    direction: desc
+
+- kind: game
+  properties:
+  - name: Hidden
+  - name: Name

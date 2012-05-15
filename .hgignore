@@ -3,5 +3,5 @@ syntax:glob
 *.db3
 
 relre:gae
-relre:InfoRecorder
+relre:InfoRecorder/
 

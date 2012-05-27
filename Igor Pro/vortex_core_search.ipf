@@ -32,13 +32,20 @@ Function OpenOMFBatch2()
 	ValDisplay valdisp0, mode=3, frame=0
 	ValDisplay valdisp0, value=_NUM:0
 	Button bStop, pos={375,32}, size={50,20}, title="Stop"
+	TitleBox message, pos={18,12}, Title="Searching for vortex cores ... ", frame=0
+	TitleBox timebox, pos={18,57}, Title="", frame=0
 	DoUpdate /W=Progress /E=1
+	variable time0 = ticks,timeelapsed,timeremaining
 	For (i=minvalue;i<maxvalue;i+=step)
 		sprintf filename, "%s%07d.omf", basename, i
 		parseData(filename, (i-minvalue)/step, datatable, z)
 		//更新进度条的值
 		ValDisplay valdisp0, value=_NUM:i+1, win=Progress
 		DoUpdate /W=Progress
+		timeelapsed = ticks-time0
+		timeremaining = timeelapsed*(maxvalue-i)/i
+		TitleBox message, Title="Searching for vortex cores ... ("+num2str((i-minvalue)/step)+"/"+num2str((maxvalue-minvalue)/step)+")"
+		TitleBox timebox, Title="Time Elapsed: "+Secs2Time(timeelapsed/60,5)+"  Time Remaining: "+Secs2Time(timeremaining/60,5)
 		if (V_Flag == 2)
 			break
 		Endif

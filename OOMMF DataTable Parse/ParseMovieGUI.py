@@ -91,6 +91,7 @@ class Application(Frame):
         Frame.__init__(self, master)
         self.pack(expand = YES, fill = BOTH)
         self.master.title('Index Local Version')
+        self.master.iconbitmap('ParseMovieGUI.ico')
         self.createWidgets()
         
     def ParseFileName(dir,str1,str2,ext):

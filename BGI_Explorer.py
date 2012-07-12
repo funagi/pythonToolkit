@@ -8,6 +8,8 @@ def GetType(string):
         return'Bitmap'
     if 'DSC\x00FORMAT\x001.00' in string:
         return 'DSC FORMAT 1.00'
+    if 'DSC FORMAT 1.00' in string:
+        return 'DSC FORMAT 1.00'
     return 'Unknown'
     
 if len(sys.argv)==1:

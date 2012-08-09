@@ -15,6 +15,8 @@ else:
             name = item[:pos]
             sname = item[item.rindex('\\')+1:pos]
             img = Image.open(item)
+            width,height = img.size
+            img = img.crop((6,28,width-6,height-6))
             img.save(name+'jpg',quality=80)
             printc(('[%' + str(length) +'d/%' + str(length) + 'd] ') % (lst.index(item)+1,count), 'green', end='')
             print sname+'jpg'

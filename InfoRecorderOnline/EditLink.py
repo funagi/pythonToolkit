@@ -27,9 +27,10 @@ class EditText(webapp.RequestHandler):
         #----end------------------------------------------------------------------------------------------
         game = result[0]
         self.response.out.write('''
+<!DOCTYPE html>
 <html>
     <head>
-        <title>%s</title>
+        <title>ExtLinks for %s</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     </head>
     <body>
@@ -42,7 +43,7 @@ class EditText(webapp.RequestHandler):
         </center>
     </body>
 </html>
-            ''' % (game.Name+' - Links',game.Memo,game.Id))
+            ''' % (game.Name+' - Links',game.ExtLinks,game.Id))
 
     def post(self):
         Id = self.request.get('Id','0')
@@ -62,7 +63,7 @@ class EditText(webapp.RequestHandler):
 
         newdata = self.request.get('memo')
 
-        game.Memo = db.Text(newdata)
+        game.ExtLinks = db.Text(newdata)
         game.put()
         return
 

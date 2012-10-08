@@ -6,9 +6,13 @@ from google.appengine.ext.webapp import template
 
 class Upload(webapp.RequestHandler):
     def get(self):
-        self.response.out.write('upload_url')
-        template_values = {'upload_url' : blobstore.create_upload_url('/upload/bin')}
-        path = os.path.join(os.path.dirname(__file__), './template/upload.html')
+        uptype = self.request.get('type','')
+        if uptype=='simple':
+            template_values = {'upload_url' : blobstore.create_upload_url('/upload/simple')}
+            path = os.path.join(os.path.dirname(__file__), './template/upload_simple.html')
+        else:
+            template_values = {'upload_url' : blobstore.create_upload_url('/upload/bin')}
+            path = os.path.join(os.path.dirname(__file__), './template/upload.html')
         self.response.out.write(template.render(path,template_values))
 
 def main():

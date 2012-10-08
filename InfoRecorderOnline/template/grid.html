@@ -1,0 +1,13 @@
+<center>
+	<table>
+		{% for game in gamelist %}
+		<tr>
+			<td>
+				<a href="javascript:void(0);" onclick="loadInfo({{ game.Id }})" class="link">
+					<img src="/data?key={{ game.Icon.key }}"/><br/>{{ game.Name }}
+				</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>

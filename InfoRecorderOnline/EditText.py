@@ -40,7 +40,7 @@ class EditText(webapp.RequestHandler):
         </form>
     </body>
 </html>
-            ''' % (game.Name+' - Seiyuu',game.Seiyuu,game.Id))
+            ''' % (game.Name+' - Seiyuu',','.join(game.Characters),game.Id))
 
     def post(self):
         Id = self.request.get('Id','0')
@@ -60,7 +60,7 @@ class EditText(webapp.RequestHandler):
 
         newdata = self.request.get('seiyuu')
 
-        game.Seiyuu = db.Text(newdata)
+        game.Characters = [int(x) for x in newdata.split(',')]
         game.put()
         return
 

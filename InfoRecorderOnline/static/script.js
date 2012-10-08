@@ -1,7 +1,6 @@
 function parseSeiyuu(txt) {
 	var output, obj;
 	output = '<table>\n';
-	output += '<tr><td>Character</td><td>Name</td><td>Alias</td></tr>\n';
 	obj = jQuery.parseJSON(txt);
 	$.each(obj, function(index,value) {
 		output += '<tr><td>'+value.chara+'</td><td>'+value.name+'</td><td>'+value.alias+'</td></tr>\n'

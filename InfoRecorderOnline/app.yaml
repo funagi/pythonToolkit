@@ -25,6 +25,9 @@ handlers:
 - url: /upload/bin
   script: UploadBinary.py
 
+- url: /upload/simple
+  script: UploadSimple.py
+
 - url: /data
   script: DataServe.py
 
@@ -37,3 +40,12 @@ handlers:
 
 - url: /editlink
   script: EditLink.py
+
+- url: /search
+  script: Search.py
+
+- url: /adds
+  script: AddSeiyuu.py
+
+- url: /addc
+  script: AddChara.py

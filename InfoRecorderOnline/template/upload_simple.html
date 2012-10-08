@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Very Simple Blob Data Upload</title>
+        <script type="text/javascript">
+            function check(formdata){
+                with(formdata){
+                    if(name.value==''){
+                        alert('Name can\'t be empty!');
+                        name.focus();
+                        return false;
+                    }
+                }
+            }
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <body>
+        <center>
+            <form action="{{upload_url}}" enctype="multipart/form-data" method="post" onsubmit="return check(this);">
+                <h2>Very Simple Blob Data Upload</h2>
+                <table>
+                    <tr class="row">
+                        <td>Icon:</td>
+                        <td><input type="file" name="Icon" multiple/></td>
+                    </tr>
+                </table>
+                <div>
+                    <input type="submit" value="Upload" />
+                </div>
+            </form>
+        </center>
+    </body>
+</html>

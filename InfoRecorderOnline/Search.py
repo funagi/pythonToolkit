@@ -10,10 +10,15 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 from google.appengine.dist import use_library
 use_library('django', '0.96')
     
-class List(webapp.RequestHandler):
+class Search(webapp.RequestHandler):
     def get(self):
-        Id = self.request.get('hidden','1')
+        
         showhidden = self.request.get('hidden','0')
+        dataid = self.request.get('id','0')
+        if dataid != '0':
+            dataname = self.request.get('name','')
+
+
         if showhidden == '1':
             showhidden = True
         else:
@@ -26,18 +31,23 @@ class List(webapp.RequestHandler):
         if gamelist.count()==0: self.error(404)
         #----end------------------------------------------------------------------------------------------
         
+        searchlist = []
+        for game in gamelist:
+            if dataid in game.Seiyuu:
+                searchlist.append(game)
+
         #----generate parameter list----------------------------------------------------------------------
         template_values = {
-            'gamelist' : gamelist,
-            'Id' : Id
+            'gamelist' : searchlist,
+            'name' : dataname
             }
-        path = os.path.join(os.path.dirname(__file__), './/template//frame.html')
+        path = os.path.join(os.path.dirname(__file__), './/template//search.html')
         #----end------------------------------------------------------------------------------------------
         self.response.out.write(template.render(path,template_values))
 
 
 def main():
-    application = webapp.WSGIApplication([(r'/.*', List)],debug=True)
+    application = webapp.WSGIApplication([(r'/.*', Search)],debug=True)
     run_wsgi_app(application)
 
 if __name__ == "__main__":

@@ -23,6 +23,7 @@ class UploadBinary(blobstore_handlers.BlobstoreUploadHandler):
         poster = self.get_uploads('Poster')[0]
         attachment = self.get_uploads('Attachment')[0]
         
+        
         #get all the infomation
         args = self.request.arguments()
         data = {}
@@ -41,8 +42,10 @@ class UploadBinary(blobstore_handlers.BlobstoreUploadHandler):
         game_temp.Name = data['Name'].decode('utf-8')
         logging.info(repr(data['Name']))
         game_temp.Company = data['Company'].decode('utf-8')
-        game_temp.Seiyuu = db.Text(data['Seiyuu'])
-        game_temp.Memo = db.Text(data['Seiyuu'])
+        game_temp.Characters = data['Characters'].split(',')
+        game_temp.ExtLinks = db.Text(data['Memo'])
+        game_temp.VADB = int(data['VADB'])
+        game_temp.VNDB = int(data['VNDB'])
         #parse dates
         game_temp.rDate = datefromiso(data['rDate'])
         game_temp.pDate1 = datefromiso(data['pDate1'])
@@ -51,6 +54,7 @@ class UploadBinary(blobstore_handlers.BlobstoreUploadHandler):
         game_temp.Icon = icon
         game_temp.Poster = poster
         game_temp.Attachment = attachment
+        game_temp.Logo = logo
         #parse booleans
         if 'Hidden' in data.keys():
             game_temp.Hidden = True

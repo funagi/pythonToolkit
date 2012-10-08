@@ -13,7 +13,7 @@ def Path(info):
 
 def Walk (path):
     try:
-        print path
+        print path.decode('utf-8')
         global counts,errors;counts+=1
         temp=[]
         stage=0
@@ -22,7 +22,7 @@ def Walk (path):
         locallist = []
         dirlist = []
         #path = path.decode('gbk')
-        stat = connection.retrlines('MLSD '+path,locallist.append)
+        stat = connection.retrlines('MLSD '+path.decode('utf-8').encode('gbk'),locallist.append)
         stage=1
         #path = path.decode('gb18030')
         re_type = re.compile(ur'(?<=type=)\w+(?=;)')
@@ -41,17 +41,17 @@ def Walk (path):
                     
                 if u'type=dir' in localline:
                     dirlist.append(localline[localline.rindex('; ')+2:])
-                    fp = path.decode('gbk')+'/'+localline[localline.rindex('; ')+2:]
+                    fp = path.decode('utf-8')+'/'+localline[localline.rindex('; ')+2:]
                     c.execute(u'insert into '+site[0]+u' values (?,?,?,?)',(u'd',fp,date,0))
                 elif u'type=file' in localline:
                     size = re_size.search(localline).group(0)
-                    fp = path.decode('gbk')+'/'+localline[localline.rindex('; ')+2:]
+                    fp = path.decode('utf-8')+'/'+localline[localline.rindex('; ')+2:]
                     c.execute(u'insert into '+site[0]+u' values (?,?,?,?)',(u'f',fp,date,size))
             for dirs in dirlist:
                 stage=4
-                pathtemp = (path.decode('gbk')+'/'+dirs)
+                pathtemp = (path.decode('utf-8')+'/'+dirs)
                 
-                Walk(pathtemp.encode('gbk'))
+                Walk(pathtemp.encode('utf-8'))
             db.commit()
         else:
             print site,path,stat

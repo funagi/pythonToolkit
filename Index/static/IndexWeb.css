@@ -30,3 +30,7 @@ td.name {
 .page {
 	background:rgb(128,255,255);
 }
+
+body {
+	width:90%;
+}

@@ -144,7 +144,12 @@
 	},
 	"file_history":
 	[
+		"/C/Users/KeMeGe/Desktop/read.py",
+		"/C/Users/KeMeGe/Desktop/read2.py",
+		"/C/Users/KeMeGe/Desktop/read - 副本.py",
 		"/E/Program Files/wallproxy-plus/local/config.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/basetypes.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/index.yaml",
 		"/E/Program Files/Google/Google SketchUp 8/Plugins/omfimporter.rb",
 		"/C/Users/KeMeGe/AppData/Roaming/Mozilla/Firefox/Profiles/dtuzx7px.default/gm_scripts/ss/ss",
 		"/E/Program Files/oommf12a4pre-20051118/app/oxs/ext/rungekuttaevolve.cc",
@@ -182,7 +187,6 @@
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/EditLink.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/upload_simple.html",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Upload.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/basetypes.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddChara.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/app.yaml",
 		"/C/Users/KeMeGe/Desktop/BatchOMF.py",
@@ -267,11 +271,7 @@
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/template/list.html",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/Viewer.py",
 		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/template/main.html",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/DataServe.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/basetypes.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/template/upload.html",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/UploadBinary.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/Upload.py"
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/DataServe.py"
 	],
 	"find":
 	{
@@ -358,7 +358,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -373,8 +373,8 @@
 						"selection":
 						[
 							[
-								1305,
-								1305
+								1038,
+								1038
 							]
 						],
 						"settings":
@@ -384,7 +384,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 15.0,
+						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

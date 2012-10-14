@@ -1,13 +1,14 @@
 application: 75bnin
 version: 1
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: false
 
 handlers:
 
 - url: /(.*\.(js|gif|png|jpg|css|ico))
   static_files: static/\1
-  upload: static/(.*\.(js|gif|png|jpg|css))
+  upload: static/(.*\.(js|gif|png|jpg|css|ico))
 
 - url: /
   static_files: static/index.gif
@@ -44,8 +45,15 @@ handlers:
 - url: /search
   script: Search.py
 
-- url: /adds
+- url: /add/seiyuu
   script: AddSeiyuu.py
 
-- url: /addc
+- url: /add/character
   script: AddChara.py
+
+- url: /add/company
+  script: AddCompany.py
+
+libraries:
+- name: django
+  version: latest

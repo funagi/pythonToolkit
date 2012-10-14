@@ -11,7 +11,14 @@ class Upload(webapp.RequestHandler):
             template_values = {'upload_url' : blobstore.create_upload_url('/upload/simple')}
             path = os.path.join(os.path.dirname(__file__), './template/upload_simple.html')
         else:
-            template_values = {'upload_url' : blobstore.create_upload_url('/upload/bin')}
+            company2 = Company.all()
+            company = []
+            for com in company2:
+                company.append({"key":com.key(),"Name":com.Name})
+            template_values = {
+            'upload_url' : blobstore.create_upload_url('/upload/bin'),
+            'company' : company
+            }
             path = os.path.join(os.path.dirname(__file__), './template/upload.html')
         self.response.out.write(template.render(path,template_values))
 

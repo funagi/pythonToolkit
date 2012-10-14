@@ -20,13 +20,13 @@ indexes:
   - name: Name
   - name: isMain
 
+- kind: Seiyuu
+  properties:
+  - name: snum
+  - name: Name
+
 - kind: Character
   properties:
   - name: cid
   - name: Name
   - name: sid
-
-- kind: Company
-  properties:
-  - name: cpid
-  - name: Name

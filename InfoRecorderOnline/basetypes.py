@@ -1,9 +1,9 @@
 from google.appengine.ext import db,blobstore
 
 class game(db.Model):
-    ID          = db.IntegerProperty()
+    #ID          = db.IntegerProperty()
     Name        = db.StringProperty()
-    Company     = db.IntegerProperty()
+    Company     = db.StringProperty()
     rDate       = db.DateProperty()
     pDate1      = db.DateProperty()
     pDate2      = db.DateProperty()
@@ -39,5 +39,4 @@ class Character(db.Model):
             return sy.Name
 
 class Company(db.Model):
-    cpid        = db.IntegerProperty()
     Name        = db.StringProperty()

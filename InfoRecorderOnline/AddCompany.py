@@ -17,34 +17,25 @@ class EditText(webapp.RequestHandler):
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     </head>
     <body>
-        <form method="POST" action="/add/character">
-            <div>Name,sid,imagekey</div>
-            <textarea rows="20" cols="90" name="text"></textarea><br>
+        <form method="POST" action="/add/company">
+            <textarea rows="20" cols="90" name="text"></textarea><br/>
             <input type="submit" value="Submit"/>
         </form>
     </body>
 </html>
-            ''' % ('Add New CHaracters'))
+            ''' % ('Add New Company'))
 
     def post(self):
         rawdata = self.request.get('text').replace('\r\n','\n')
         for dataline in rawdata.split('\n'):
-            data = dataline.split(',')
-            charainfo = db.GqlQuery("SELECT * FROM Character WHERE name='%s' AND sid=%s"% (data[0], data[1]))
-            result = charainfo.fetch(1)
+            logging.info(repr(dataline))
+            compinfo = db.GqlQuery("SELECT * FROM Company WHERE Name='%s'"% dataline)
+            result = compinfo.fetch(1)
         
-            if len(result)==0: 
-                newchara = Character()
-                newchara.Name = data[0]
-                newchara.sid = int(data[1])
-                dbquery = db.GqlQuery('SELECT * FROM Character ORDER BY cid DESC')
-                if dbquery.fetch(1):
-                    new_id = dbquery.fetch(1)[0].cid+1
-                else:
-                    new_id = 0
-                newchara.cid = new_id
-                newchara.image = data[2]
-                newchara.put()
+            if len(result)==0 and dataline!='': 
+                newcomp = Company()
+                newcomp.Name = dataline
+                newcomp.put()
             else:
                 continue
         return

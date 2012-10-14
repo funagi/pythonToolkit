@@ -6,9 +6,6 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 from basetypes import *
 import os,datetime,logging
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-from google.appengine.dist import use_library
-use_library('django', '0.96')
     
 class EditText(webapp.RequestHandler):
     def get(self):
@@ -20,8 +17,9 @@ class EditText(webapp.RequestHandler):
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     </head>
     <body>
-        <form method="POST" action="/adds">
-            <textarea rows="20" cols="90" name="text"></textarea>
+        <form method="POST" action="/add/seiyuu">
+            <div>Name,snum</div>
+            <textarea rows="20" cols="90" name="text"></textarea><br/>
             <input type="submit" value="Submit"/>
         </form>
     </body>
@@ -29,8 +27,8 @@ class EditText(webapp.RequestHandler):
             ''' % ('Add New Seiyuus'))
 
     def post(self):
-        rawdata = self.request.get('text')
-        for dataline in rawdata.split(';'):
+        rawdata = self.request.get('text').replace('\r\n','\n')
+        for dataline in rawdata.split('\n'):
             data = dataline.split(',')
             charainfo = db.GqlQuery("SELECT * FROM Seiyuu WHERE Name='%s' AND snum=%s"% (data[0], data[1]))
             result = charainfo.fetch(1)

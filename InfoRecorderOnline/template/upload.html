@@ -30,7 +30,14 @@
                     </tr>
                     <tr class="row">
                         <td>Company:</td>
-                        <td><input type="text" name="Company"/></td>
+                        <td>
+                            <select name="Company">
+                                {% for com in company %}
+                                <option value="{{com.key}}">{{com.Name}}</option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
                     </tr>
                     <tr class="row">
                         <td>Release Date:</td>

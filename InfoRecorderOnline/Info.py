@@ -2,31 +2,39 @@ from google.appengine.ext import webapp
 from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
+from google.appengine.ext.db import BadKeyError
+from google.appengine.ext.db import Query
 from basetypes import *
 import os,datetime,logging
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-from google.appengine.dist import use_library
-use_library('django', '0.96')
     
 class Info(webapp.RequestHandler):
     def get(self):
-        Id = self.request.get('Id','0')
+        key = self.request.get('key','0')
         ifhidden = self.request.get('hidden','0')
         
-        if Id=='0':return
+        if key=='0':return
         #Switch with Ajax
         #----begin----------------------------------------------------------------------------------------
-        gameinfo = db.GqlQuery('SELECT * FROM game WHERE Id=%s'%Id)
-        
-        result = gameinfo.fetch(1)
-        logging.info(str(result))
-        if len(result)==0: 
+        try:
+            gameinfo = db.get(key)
+        except BadKeyError:
             self.error(404)
             return
         #----end------------------------------------------------------------------------------------------
         
         #----generate parameter list----------------------------------------------------------------------
-        template_values = {'game' : result[0],}
+        Characters = []
+        for c in gameinfo.Characters:
+            cquery = Query(Character)
+            chara = cquery.filter('cid =',c).get()
+            if chara != None:
+                Characters.append([chara,chara.getSeiyuuName()])
+
+        template_values = {
+            'game' : gameinfo,
+            'Company' : db.get(gameinfo.Company).Name,
+            'Characters' : Characters
+        }
         path = os.path.join(os.path.dirname(__file__), './/template//info.html')
         #----end------------------------------------------------------------------------------------------
         self.response.out.write(template.render(path,template_values))

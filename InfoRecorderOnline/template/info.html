@@ -15,7 +15,7 @@
 			Company
 		</td>
 		<td>
-			{{ game.Company }}
+			{{ Company }}
 		</td>
 	</tr>
 	<tr>
@@ -38,16 +38,25 @@
 		<td valign="top">
 			Seiyuu
 		</td>
-		<td id="seiyuu">
-			{{ game.Seiyuu }}
+		<td id="characters">
+			{% for c in Characters %}
+			<div class="character">
+				<div class="img">
+	            <img src="/data?key={{ c.0.image.key }}">
+		        </div>
+		        <div class="text">{{ c.0.Name }}<br/>{{ c.1 }}</div>
+	    	</div>
+	    	<div class="clear"></div>
+	    	<br/>
+	        {% endfor %}
 		</td>
 	</tr>
 	<tr>
 		<td>
-			Memo
+			ExtLinks
 		</td>
-		<td id="memo" align="left">
-			{{ game.Memo }}
+		<td id="ExtLinks" align="left">
+			{{ game.ExtLinks }}
 		</td>
 	</tr>
 	<tr>

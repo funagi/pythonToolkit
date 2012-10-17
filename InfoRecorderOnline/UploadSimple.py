@@ -23,7 +23,13 @@ class UploadBinary(blobstore_handlers.BlobstoreUploadHandler):
 
         #parse binaries blobstore
         for img in imgs:
-            self.response.out.write('%s %s<br/>' % (img.filename,img.key()))
+            logging.info(img.filename)
+            filename = img.filename
+            if filename[:2]=='=?':
+                filenamearray = img.filename.split('?')
+                filename = filenamearray[3].decode('base64').decode(filenamearray[1])
+            
+            self.response.out.write('%s %s<br/><hr>' % (filename,img.key()))
 
 def main():
     application = webapp.WSGIApplication([('/.*', UploadBinary)],debug=True)

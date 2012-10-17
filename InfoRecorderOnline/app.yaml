@@ -36,11 +36,11 @@ handlers:
   static_files: static/upload.html
   upload: static/upload.html
 
-- url: /edit
+- url: /edit/.*
   script: EditText.py
 
-- url: /editlink
-  script: EditLink.py
+- url: /show/.*
+  script: ShowSimple.py
 
 - url: /search
   script: Search.py
@@ -53,6 +53,9 @@ handlers:
 
 - url: /add/company
   script: AddCompany.py
+
+- url: /main
+  script: Main.py
 
 libraries:
 - name: django

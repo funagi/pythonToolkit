@@ -6,3 +6,5 @@ syntax:glob
 relre:gae
 relre:InfoRecorder/
 
+syntax: glob
+Index/desktop.ini

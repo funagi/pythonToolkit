@@ -18,7 +18,7 @@ class EditText(webapp.RequestHandler):
     </head>
     <body>
         <form method="POST" action="/add/seiyuu">
-            <div>Name,snum</div>
+            <div>Name,snum,isMain</div>
             <textarea rows="20" cols="90" name="text"></textarea><br/>
             <input type="submit" value="Submit"/>
         </form>
@@ -37,6 +37,10 @@ class EditText(webapp.RequestHandler):
                 newseiyuu = Seiyuu()
                 newseiyuu.Name = data[0]
                 newseiyuu.snum = int(data[1])
+                if data[2]=="1":
+                    newseiyuu.isMain = True
+                else:
+                    newseiyuu.isMain = False
                 dbquery = db.GqlQuery('SELECT * FROM Seiyuu ORDER BY sid DESC')
                 if dbquery.fetch(1):
                     new_id = dbquery.fetch(1)[0].sid+1

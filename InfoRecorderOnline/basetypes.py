@@ -1,5 +1,5 @@
 from google.appengine.ext import db,blobstore
-
+from google.appengine.ext.db import Query
 class game(db.Model):
     #ID          = db.IntegerProperty()
     Name        = db.StringProperty()
@@ -15,6 +15,7 @@ class game(db.Model):
     Hidden      = db.BooleanProperty(False)
     VNDB        = db.IntegerProperty(0)
     VADB        = db.IntegerProperty(0)
+    EGS         = db.IntegerProperty(0)
 
     def getSeiyuu(self):
         return Seiyuu
@@ -35,8 +36,14 @@ class Character(db.Model):
     image       = blobstore.BlobReferenceProperty()
     def getSeiyuuName(self):
         syquery = Query(Seiyuu)
-        for sy in syquery.filter('sid =',self.sid):
-            return sy.Name
+        sy = syquery.filter('sid =',self.sid).get()
+        if sy!=None:return sy.Name
 
 class Company(db.Model):
     Name        = db.StringProperty()
+    def getAllGames(self):
+        glist = []
+        query = Query(game)
+        for g in query.filter('Company =',self.key()):
+            glist.append(g.key())
+        return glist

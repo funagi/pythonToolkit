@@ -21,9 +21,11 @@ class UploadBinary(blobstore_handlers.BlobstoreUploadHandler):
     def post(self):
         icon = self.get_uploads('Icon')[0]
         poster = self.get_uploads('Poster')[0]
-        attachment = self.get_uploads('Attachment')[0]
-        
-        
+        try:
+            attachment = self.get_uploads('Attachment')[0]
+        except:
+            attachment = 0
+
         #get all the infomation
         args = self.request.arguments()
         data = {}
@@ -46,6 +48,7 @@ class UploadBinary(blobstore_handlers.BlobstoreUploadHandler):
         game_temp.ExtLinks = db.Text(data['Memo'])
         game_temp.VADB = int(data['VADB'])
         game_temp.VNDB = int(data['VNDB'])
+        game_temp.EGS = int(data['EGS'])
         #parse dates
         game_temp.rDate = datefromiso(data['rDate'])
         game_temp.pDate1 = datefromiso(data['pDate1'])

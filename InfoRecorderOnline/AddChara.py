@@ -20,7 +20,8 @@ class EditText(webapp.RequestHandler):
         <form method="POST" action="/add/character">
             <div>Name,sid,imagekey</div>
             <textarea rows="20" cols="90" name="text"></textarea><br>
-            <input type="submit" value="Submit"/>
+            <input type="submit" value="Submit"/><br/>
+            <p>AMIfv95okg1m9KhvbYhXEHcqEhnOflFSj4paCzbWDq_qDwjvuK-_rYsgveF5ehqMp-rmxZfuYC47x4kXmkrfTcdfJ2u4O3aYAuNaHZoKi8QfhrSLN_xMsd7tjgtGxkdEQkp-JzZjqR0Cd5gMWesygGikVUEljJFCRQ</p>
         </form>
     </body>
 </html>

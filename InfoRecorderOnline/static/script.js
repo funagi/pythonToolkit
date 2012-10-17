@@ -48,7 +48,7 @@ function loadInfo(Id) {
 }
 
 $(function(){
-    var _wrap=$('ul.list');//定义滚动区域
+    var _wrap=$('ul.list.a');//定义滚动区域
     var _interval=2000;//定义滚动间隙时间
     var _moving;//需要清除的动画
     _wrap.hover(function(){

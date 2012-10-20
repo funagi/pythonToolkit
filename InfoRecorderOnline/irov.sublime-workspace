@@ -116,50 +116,10 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/KeMeGe/Desktop/test.html",
+			"file": "/C/Users/KeMeGe/Desktop/RemoveAlpha.py",
 			"settings":
 			{
-				"buffer_size": 1575,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/E/Program Files/oommf12a4pre-20051118/app/oxs/local/uniformexchangedmi.cc",
-			"settings":
-			{
-				"buffer_size": 4814,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.yaml",
-			"settings":
-			{
-				"buffer_size": 918,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ShowSimple.py",
-			"settings":
-			{
-				"buffer_size": 2818,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "template/showtable.html",
-			"settings":
-			{
-				"buffer_size": 693,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "template/info.html",
-			"settings":
-			{
-				"buffer_size": 1065,
+				"buffer_size": 1633,
 				"line_ending": "Windows"
 			}
 		}
@@ -192,30 +152,40 @@
 	},
 	"file_history":
 	[
+		"/C/Users/KeMeGe/Desktop/test.html",
+		"/E/Program Files/oommf12a4pre-20051118/app/oxs/local/uniformexchangedmi.cc",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/main.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Upload.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Main.py",
+		"/C/Users/KeMeGe/Desktop/ul/r11/Remember11_CG_Combine.py",
+		"/C/Users/KeMeGe/Desktop/UploadBinary.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Edit.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/EditGame.html",
+		"/C/Users/KeMeGe/Desktop/python/gae/google_appengine/appcfg.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Add.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/ShowSimple.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/showtable.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/app.yaml",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddSeiyuu.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddCompany.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddChara.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/UploadSimple.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/UploadBinary.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/info.html",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Info.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/static/style.css",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/List.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/EditText.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Upload.py",
 		"/C/Users/KeMeGe/Desktop/rd/show.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/UploadBinary.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/upload.html",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/EditLink.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddChara.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddSeiyuu.py",
 		"/C/Users/KeMeGe/Desktop/rd/read.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Main.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/main.html",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/static/script.js",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/app.yaml",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/info.html",
 		"/C/php/Apache2.2/htdocs/Sources/Load.php",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/basetypes.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/UploadSimple.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/index.yaml",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/DataServe.py",
 		"/C/Users/KeMeGe/Desktop/ul/ResizeTo700JPG.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddCompany.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/list.html",
 		"/C/Users/KeMeGe/Desktop/read.py",
 		"/C/Users/KeMeGe/Desktop/read2.py",
@@ -264,12 +234,10 @@
 		"/C/Users/KeMeGe/AppData/Roaming/Mozilla/Firefox/Profiles/dtuzx7px.default/gm_scripts/JPDDL_HotKeys/jpddl.user.js",
 		"/E/Program Files/Privoxy/default.action",
 		"/E/Program Files/Privoxy/gfw - 副本.action",
-		"/E/Program Files/oommf12a4pre-20051118/app/oxs/local/uniformexchangedmi.cc",
 		"/C/Users/KeMeGe/Desktop/proxy.py",
 		"/C/Users/KeMeGe/Desktop/bookmarks.html",
 		"/C/Users/KeMeGe/Desktop/testttt.py",
 		"/C/Users/KeMeGe/Desktop/IndexLocal.pyw",
-		"/C/Users/KeMeGe/Desktop/test.html",
 		"/C/Users/KeMeGe/Desktop/CutWindowJPG.py",
 		"/C/Users/KeMeGe/Desktop/Contacts/潘亚奇.vcf",
 		"/C/Users/KeMeGe/Desktop/Contacts/王贵莲.vcf",
@@ -311,15 +279,7 @@
 		"/C/php/Apache2.2/htdocs/Sources/Subs.php",
 		"/C/php/Apache2.2/htdocs/hg/Sources/Subs.php",
 		"/C/php/Apache2.2/htdocs/Themes/default/Display.template.php",
-		"/C/php/Apache2.2/htdocs/Themes/default/TrackerProfile.template.php",
-		"/C/Users/KeMeGe/Desktop/python/CPS2PNG.py",
-		"/C/Users/KeMeGe/Desktop/jpddl.user.js",
-		"/C/Users/KeMeGe/Desktop/fdupt_custom_menu.user.js",
-		"/C/Users/KeMeGe/Desktop/python/BGI_Explorer.py",
-		"/C/Users/KeMeGe/Desktop/cps.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/frame - 副本.html",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/app.yaml",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorder/OnlineVersion/Info.py"
+		"/C/php/Apache2.2/htdocs/Themes/default/TrackerProfile.template.php"
 	],
 	"find":
 	{
@@ -337,6 +297,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sys.",
 			"/add/seiyuu",
 			"DBL_MAX",
 			"timestep",
@@ -407,107 +368,23 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/KeMeGe/Desktop/test.html",
+					"file": "/C/Users/KeMeGe/Desktop/RemoveAlpha.py",
 					"settings":
 					{
-						"buffer_size": 1575,
+						"buffer_size": 1633,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								782,
-								793
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 180.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/E/Program Files/oommf12a4pre-20051118/app/oxs/local/uniformexchangedmi.cc",
-					"settings":
-					{
-						"buffer_size": 4814,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3935,
-								3949
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2183.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app.yaml",
-					"settings":
-					{
-						"buffer_size": 918,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								608,
-								608
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "ShowSimple.py",
-					"settings":
-					{
-						"buffer_size": 2818,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1099,
-								1099
+								177,
+								177
 							]
 						],
 						"settings":
@@ -517,61 +394,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "template/showtable.html",
-					"settings":
-					{
-						"buffer_size": 693,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								605,
-								605
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "template/info.html",
-					"settings":
-					{
-						"buffer_size": 1065,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 450.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

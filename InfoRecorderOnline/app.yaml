@@ -20,14 +20,8 @@ handlers:
 - url: /info
   script: Info.py
 
-- url: /upload
+- url: /upload.*
   script: Upload.py
-
-- url: /upload/bin
-  script: UploadBinary.py
-
-- url: /upload/simple
-  script: UploadSimple.py
 
 - url: /data
   script: DataServe.py
@@ -36,23 +30,17 @@ handlers:
   static_files: static/upload.html
   upload: static/upload.html
 
-- url: /edit/.*
-  script: EditText.py
+- url: /edit.*
+  script: Edit.py
 
-- url: /show/.*
+- url: /show.*
   script: ShowSimple.py
 
 - url: /search
   script: Search.py
 
-- url: /add/seiyuu
-  script: AddSeiyuu.py
-
-- url: /add/character
-  script: AddChara.py
-
-- url: /add/company
-  script: AddCompany.py
+- url: /add.*
+  script: Add.py
 
 - url: /main
   script: Main.py

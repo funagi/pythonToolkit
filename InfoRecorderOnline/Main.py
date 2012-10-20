@@ -19,7 +19,7 @@ class List(webapp.RequestHandler):
         if showhidden:
             gamelist = db.GqlQuery('SELECT * FROM game ORDER BY Name ASC')
         else:
-            gamelist = db.GqlQuery('SELECT * FROM game WHERE Hidden = FALSE ORDER BY Name ASC')
+            gamelist = db.GqlQuery('SELECT * FROM game WHERE Hidden = FALSE ORDER BY rDate ASC')
         if gamelist.count()==0: self.error(404)
         #----end------------------------------------------------------------------------------------------
         
@@ -28,7 +28,7 @@ class List(webapp.RequestHandler):
             'gamelist' : gamelist,
             'Id' : Id
             }
-        path = os.path.join(os.path.dirname(__file__), './/template//frame.html')
+        path = os.path.join(os.path.dirname(__file__), './/template//main.html')
         #----end------------------------------------------------------------------------------------------
         self.response.out.write(template.render(path,template_values))
 

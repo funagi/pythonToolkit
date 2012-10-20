@@ -27,6 +27,14 @@
 			</tr>
 			{% endfor %}
 		</table>
+		<hr>
+		<table width="80%">
+			{% for link in links %}
+			<tr>
+				<td><a href="{{link.link}}">{{link.name}}</a></td>
+			</tr>
+			{% endfor %}
+		</table>
 	</center>
 </body>
 </html>

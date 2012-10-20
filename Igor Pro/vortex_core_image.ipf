@@ -56,14 +56,13 @@ Function ParseOMF()
 	//---------------------Gather infomation from omf file---------------------------
 	Grep /E="((xnodes|ynodes|znodes|ValueRangeMaxMag): )\d+" /LIST /P=Data Filename
 	If(V_value==4)
-		sscanf S_value, "# xnodes: %d;# ynodes: %d;# znodes: %d;# ValueRangeMaxMag: %d;", x,y,z,maxvalue
+		sscanf S_value, "# xnodes: %d;# ynodes: %d;# znodes: %d;# ValueRangeMaxMag: %f;", x,y,z,maxvalue
 	Else
 		Print "Can't load basic properties from target file."
-		return 0
 	Endif
 	
 	If((x==0)||(y==0)||(z==0)||(maxvalue==0))
-		sscanf S_value, "# ValueRangeMaxMag: %d;# xnodes: %d;# ynodes: %d;# znodes: %d;", maxvalue,x,y,z
+		sscanf S_value, "# ValueRangeMaxMag: %f;# xnodes: %d;# ynodes: %d;# znodes: %d;", maxvalue,x,y,z
 	Endif
 	
 	If((x==0)||(y==0)||(z==0)||(maxvalue==0))

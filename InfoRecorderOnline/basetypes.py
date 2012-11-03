@@ -17,7 +17,7 @@ class game(db.Model):
     VADB        = db.IntegerProperty(0)
     EGS         = db.IntegerProperty(0)
 
-    def getSeiyuu(self):
+    def getCharacters(self):
         return Seiyuu
 
     def getLinks(self):
@@ -28,16 +28,28 @@ class Seiyuu(db.Model):
     snum        = db.IntegerProperty()
     Name        = db.StringProperty()
     isMain      = db.BooleanProperty(False)
+    Games       = db.StringListProperty()
+    GamesCount  = db.IntegerProperty()
     
 class Character(db.Model):
     cid         = db.IntegerProperty()
     Name        = db.StringProperty()
     sid         = db.IntegerProperty()
     image       = blobstore.BlobReferenceProperty()
+    Games       = db.StringListProperty()
     def getSeiyuuName(self):
         syquery = Query(Seiyuu)
         sy = syquery.filter('sid =',self.sid).get()
         if sy!=None:return sy.Name
+    def getMain(self):
+        syquery = Query(Seiyuu)
+        syquery.filter('snum =',self.snum)
+        syquery.filter('isMain = True')
+        sy = syquery.get()
+        if sy!=None:
+            return sy.Name
+        else:
+            return None
 
 class Company(db.Model):
     Name        = db.StringProperty()

@@ -45,6 +45,9 @@ handlers:
 - url: /main
   script: Main.py
 
+- url: /maintain.*
+  script: Maintain.py
+
 libraries:
 - name: django
   version: latest

@@ -1,0 +1,5 @@
+cron:
+- description: daily update game list in Character and Seiyuu
+  url: /maintain
+  schedule: every 24 hours
+

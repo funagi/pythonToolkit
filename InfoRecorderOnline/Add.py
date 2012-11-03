@@ -29,25 +29,29 @@ class AddCharacter(webapp.RequestHandler):
 
     def post(self):
         rawdata = self.request.get('text').replace('\r\n','\n')
+        # get latest id
+        dbquery = db.GqlQuery('SELECT * FROM Character ORDER BY cid DESC')
+        if dbquery.fetch(1):
+            new_id = dbquery.fetch(1)[0].cid+1
+        else:
+            new_id = 1
+
         for dataline in rawdata.split('\n'):
             data = dataline.split(',')
-            charainfo = db.GqlQuery("SELECT * FROM Character WHERE name='%s' AND sid=%s"% (data[0], data[1]))
-            result = charainfo.fetch(1)
+            # charainfo = db.GqlQuery("SELECT * FROM Character WHERE name='%s' AND sid=%s"% (data[0], data[1]))
+            # result = charainfo.fetch(1)
         
-            if len(result)==0: 
-                newchara = Character()
-                newchara.Name = data[0]
-                newchara.sid = int(data[1])
-                dbquery = db.GqlQuery('SELECT * FROM Character ORDER BY cid DESC')
-                if dbquery.fetch(1):
-                    new_id = dbquery.fetch(1)[0].cid+1
-                else:
-                    new_id = 0
-                newchara.cid = new_id
-                newchara.image = data[2]
-                newchara.put()
-            else:
-                continue
+            # if len(result)==0: 
+            newchara = Character()
+            newchara.Name = data[0]
+            newchara.sid = int(data[1])
+            
+            newchara.cid = new_id
+            newchara.image = data[2]
+            newchara.put()
+            new_id += 1
+            # else:
+            #     continue
         self.redirect('/show/character')
         return
 
@@ -105,6 +109,13 @@ class AddSeiyuu(webapp.RequestHandler):
 
     def post(self):
         rawdata = self.request.get('text').replace('\r\n','\n')
+        # get latest id
+        dbquery = db.GqlQuery('SELECT * FROM Seiyuu ORDER BY sid DESC')
+        if dbquery.fetch(1):
+            new_id = dbquery.fetch(1)[0].sid+1
+        else:
+            new_id = 1
+
         for dataline in rawdata.split('\n'):
             data = dataline.split(',')
             charainfo = db.GqlQuery("SELECT * FROM Seiyuu WHERE Name='%s' AND snum=%s"% (data[0], data[1]))
@@ -118,13 +129,10 @@ class AddSeiyuu(webapp.RequestHandler):
                     newseiyuu.isMain = True
                 else:
                     newseiyuu.isMain = False
-                dbquery = db.GqlQuery('SELECT * FROM Seiyuu ORDER BY sid DESC')
-                if dbquery.fetch(1):
-                    new_id = dbquery.fetch(1)[0].sid+1
-                else:
-                    new_id = 0
+                
                 newseiyuu.sid = new_id
                 newseiyuu.put()
+                new_id += 1
             else:
                 continue
         self.redirect('/show/seiyuu')

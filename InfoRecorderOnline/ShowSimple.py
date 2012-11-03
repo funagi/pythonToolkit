@@ -13,10 +13,8 @@ class ShowCharacters(webapp.RequestHandler):
         start = self.request.get('start','0')
         count = self.request.get('count','0')
         charagql = 'SELECT __key__ FROM Character ORDER BY cid ASC'
-        if start!='0':
-            charagql += ' OFFSET %d' % int(start)
         if count!='0':
-            charagql += ' LIMIT %d' % int(count)
+            charagql += ' LIMIT %d,%d' % (int(start),int(count))
         logging.info(charagql)
         charaquery = db.GqlQuery(charagql)
         Characters = []

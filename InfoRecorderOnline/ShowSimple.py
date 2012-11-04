@@ -11,26 +11,28 @@ import os,datetime,logging
 class ShowCharacters(webapp.RequestHandler):
     def get(self):
         start = self.request.get('start','0')
-        count = self.request.get('count','0')
+        count = self.request.get('count','50')
         charagql = 'SELECT __key__ FROM Character ORDER BY cid ASC'
         if count!='0':
             charagql += ' LIMIT %d,%d' % (int(start),int(count))
+        else:
+            charagql += ' OFFSET %d' % int(start)
         logging.info(charagql)
         charaquery = db.GqlQuery(charagql)
         Characters = []
         for item in charaquery:
             chara = db.get(item)
             Characters.append([
+                '<img src="/data?key=%s" width=50 height=50/>'%chara.image.key(),
                 chara.cid,
                 chara.Name,
                 chara.getSeiyuuName(),
-                chara.sid,
-                '<a href="/data?key=%s">link</a>'%chara.image.key()
+                chara.sid
                 ])
 
         template_values = {
             'title' : 'Characters',
-            'Headers' : ['CID', 'Name', 'Seiyuu', 'SID', 'Image'],
+            'Headers' : ['Image', 'CID', 'Name', 'Seiyuu', 'SID'],
             'Data' : Characters,
             'links' : [
             {'link':'/add/character','name':'Add new characters'},
@@ -50,10 +52,10 @@ class ShowSeiyuu(webapp.RequestHandler):
         start = self.request.get('start','0')
         count = self.request.get('count','0')
         seiyuugql = 'SELECT __key__ FROM Seiyuu ORDER BY sid ASC'
-        if start!='0':
-            seiyuugql += ' OFFSET %d' % int(start)
         if count!='0':
-            seiyuugql += ' LIMIT %d' % int(count)
+            charagql += ' LIMIT %d,%d' % (int(start),int(count))
+        else:
+            charagql += ' OFFSET %d' % int(start)
         logging.info(seiyuugql)
         charaquery = db.GqlQuery(seiyuugql)
         seiyuu = []
@@ -88,28 +90,29 @@ class ShowGame(webapp.RequestHandler):
         start = self.request.get('start','0')
         count = self.request.get('count','0')
         gamegql = 'SELECT __key__ FROM game ORDER BY rDate ASC'
-        if start!='0':
-            gamegql += ' OFFSET %d' % int(start)
         if count!='0':
-            gamegql += ' LIMIT %d' % int(count)
+            charagql += ' LIMIT %d,%d' % (int(start),int(count))
+        else:
+            charagql += ' OFFSET %d' % int(start)
         logging.info(gamegql)
         gamequery = db.GqlQuery(gamegql)
         games = []
         for item in gamequery:
             gm = db.get(item)
             games.append([
+                '<img src="/data?key=%s" width=50 height=50/>'%gm.Icon.key(),
                 gm.Name,
                 db.get(gm.Company).Name,
                 gm.rDate.strftime('%Y-%m-%d'),
                 gm.pDate1.strftime('%Y-%m-%d'),
                 gm.pDate2.strftime('%Y-%m-%d'),
-                '<a href="/edit?key=%s">Edit</a>'%item
+                '<a href="/edit?key=%s">Edit</a><br/><a href="/edit/character?key=%s">Edit Characters</a>'%(item,item)
                 ])
 
         # logging.info(games)
         template_values = {
             'title' : 'Games',
-            'Headers' : ['Name', 'Company', 'Release', 'Start', 'Finish', 'Edit'],
+            'Headers' : ['Icon','Name', 'Company', 'Release', 'Start', 'Finish', 'Edit'],
             'Data' : games,
             'links' : [
             {'link':'/add/character','name':'Add new characters'},

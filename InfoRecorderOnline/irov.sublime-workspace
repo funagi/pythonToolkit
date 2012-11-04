@@ -131,38 +131,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Maintain.py",
-			"settings":
-			{
-				"buffer_size": 2177,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.yaml",
-			"settings":
-			{
-				"buffer_size": 760,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ShowSimple.py",
-			"settings":
-			{
-				"buffer_size": 5251,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "basetypes.py",
-			"settings":
-			{
-				"buffer_size": 1985,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -192,7 +160,28 @@
 	},
 	"file_history":
 	[
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/ShowSimple.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/static/style.css",
+		"/G/Soft/Academic/Lab/oommf-1.2a5/app/mmdisp/wintel/appindex.tcl",
+		"/E/Program Files/oommf-1.2a5/app/oxs/mifchanges.txt",
+		"/E/Program Files/oommf-1.2a5/pkg/vf/vecfile.cc",
+		"/E/Program Files/oommf-1.2a5/pkg/nb/evoc.cc",
+		"/E/Program Files/oommf-1.2a5/pkg/nb/evoc.h",
+		"/E/Program Files/oommf-1.2a5/pkg/nb/stopwatch.h",
+		"/E/Program Files/oommf-1.2a5/pkg/nb/stopwatch.cc",
+		"/E/Program Files/oommf-1.2a5/pkg/oc/autobuf.h",
+		"/E/Program Files/oommf-1.2a5/cl/stl/string",
+		"/E/Program Files/oommf-1.2a5/cl/stl312/string",
+		"/E/Program Files/oommf-1.2a5/pkg/oc/autobuf.cc",
+		"/E/Program Files/oommf-1.2a5/pkg/oc/imports.cc",
+		"/E/Program Files/oommf-1.2a5/pkg/oc/imports.h",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/showtable.html",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Maintain.py",
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/basetypes.py",
+		"/E/Program Files/oommf-1.2a5/Rebuild.bat",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/app.yaml",
+		"/E/Program Files/oommf-1.2a5/config/platforms/linalp.tcl",
+		"/E/Program Files/oommf-1.2a5/config/platforms/wintel.tcl",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Add.py",
 		"/C/Users/KeMeGe/Desktop/a.c",
 		"/C/php/Apache2.2/htdocs/hg/Sources/shop/ShopAdmin.php",
@@ -242,7 +231,6 @@
 		"/C/php/Apache2.2/htdocs/hg/Sources/shop/Shop-Buy.php",
 		"/C/php/Apache2.2/htdocs/Themes/default/Shop.template.php",
 		"/C/php/Apache2.2/htdocs/Sources/shop/Shop.php",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Maintain.py",
 		"/C/Users/KeMeGe/Desktop/Shop.english.php",
 		"/C/php/Apache2.2/htdocs/Themes/default/index.template.php",
 		"/C/php/Apache2.2/htdocs/Sources/Profile-Modify.php",
@@ -298,28 +286,8 @@
 		"/C/Users/KeMeGe/Desktop/RemoveAlpha.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Upload.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Info.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/basetypes.py",
 		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/List.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/cron.yaml",
-		"/C/Users/KeMeGe/Desktop/python/gae/PCWatcher/cron.yaml",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/MaintainGameList.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/ShowSimple.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/index.yaml",
-		"/C/Users/KeMeGe/Desktop/test.html",
-		"/E/Program Files/oommf12a4pre-20051118/app/oxs/local/uniformexchangedmi.cc",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/main.html",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Main.py",
-		"/C/Users/KeMeGe/Desktop/ul/r11/Remember11_CG_Combine.py",
-		"/C/Users/KeMeGe/Desktop/UploadBinary.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/Edit.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/EditGame.html",
-		"/C/Users/KeMeGe/Desktop/python/gae/google_appengine/appcfg.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/template/showtable.html",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddSeiyuu.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddCompany.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/AddChara.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/UploadSimple.py",
-		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/UploadBinary.py"
+		"/C/Users/KeMeGe/Desktop/python/InfoRecorderOnline/cron.yaml"
 	],
 	"find":
 	{
@@ -334,9 +302,16 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"clear",
+			"clear()",
+			"std",
+			"len",
+			"oc_use",
+			"cl ",
+			"cl",
 			"<span class=\"lowerframe\"><span></span></span>\n				<div id=\"upd",
 			"p class",
 			"class=\"description",
@@ -480,121 +455,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Maintain.py",
-					"settings":
-					{
-						"buffer_size": 2177,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1929,
-								1929
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 405.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app.yaml",
-					"settings":
-					{
-						"buffer_size": 760,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								693,
-								693
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 405.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ShowSimple.py",
-					"settings":
-					{
-						"buffer_size": 5251,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								647,
-								647
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 315.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "basetypes.py",
-					"settings":
-					{
-						"buffer_size": 1985,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1096,
-								1096
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 135.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

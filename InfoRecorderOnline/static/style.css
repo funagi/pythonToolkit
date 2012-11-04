@@ -63,9 +63,12 @@ td#characters div .img img {
 div.character {float:none}
 
 .colorentry:nth-child(2n+1){
-  background-color: #CCF;
+  background-color: #DDF;
 }
 
 .colorentry:nth-child(2n){
-  background-color: #DDF;
+  background-color: #FFF;
+}
+.colorentry:hover{
+  background-color: #CCF;
 }

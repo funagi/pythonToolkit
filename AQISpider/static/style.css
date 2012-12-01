@@ -1,0 +1,74 @@
+.link {
+  color:black;
+  text-decoration:none;
+  margin:1px;
+  -moz-transition: box-shadow 1s;
+}
+
+.link:hover {
+  box-shadow:0px 0px 4px #222222;
+}
+
+.info{
+  text-align:center;
+}
+
+ul.list {
+  height:560px;
+}
+
+ul.list li {
+  list-style: none;
+  height:80px;
+}
+
+td.list {
+  width:160px;
+}
+
+/*table {width:100%;}*/
+
+td#characters div.character:nth-child(2n+1){
+  float:left;
+  width:100%;
+  background-color: #CCF;
+}
+
+td#characters div.character:nth-child(2n){
+  float:right;
+  width:100%;
+  background-color: #DDF;
+}
+
+td#characters div.character:nth-child(2n+1) .img img{
+  float:left;
+}
+
+td#characters div.character:nth-child(2n) .img img{
+  float:right;
+}
+
+td#characters div .text{
+  width:calc(100% - 120px - 120px);
+}
+
+td#characters div:nth-child(2n) .text{
+  text-align: right;position: relative;top:0px;
+}
+
+td#characters div .img img {
+  width:100px; height:100px;
+}
+
+div.character {float:none}
+
+.colorentry:nth-child(2n+1){
+  background-color: #DDF;
+}
+
+.colorentry:nth-child(2n){
+  background-color: #FFF;
+}
+.colorentry:hover{
+  background-color: #CCF;
+}

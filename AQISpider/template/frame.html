@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>IR Viewer Online Version</title>
+	<link rel="stylesheet" href="/style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script src="/script.js"></script>
+</head>
+<body onLoad="loadInfo({{ Id }})">
+	<center>
+		<table width="90%">
+			<tr>
+				<td id="list" valign="top" align="center">
+					<center>
+						<ul class="list">
+							{% for game in gamelist %}
+							<li>
+								<a href="javascript:void();" onclick="loadInfo({{ game.Id }})" class="link">
+									<img width="64" height="64" src="/data?key={{ game.Icon.key }}"/>
+								</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</center>
+				</td>
+				<td id="detail" valign="top" width=80%>
+				</td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

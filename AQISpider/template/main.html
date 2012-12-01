@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IR Viewer Online Version</title>
+	<link rel="stylesheet" href="/style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<!--script src="/script.js"></script-->
+</head>
+<body>
+	<center>
+		<table width="90%">
+			<tr>
+				<td valign="top" align="center">
+					<center>
+						<ul class="alist">
+							{% for game in gamelist %}
+							<li style="float:left;">
+								<a href="/info?key={{game.key}}" class="link">
+									<img width="64" height="64" src="/data?key={{ game.Icon.key }}"/>
+								</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</center>
+				</td>
+				<td id="detail" valign="top" width=80%>
+				</td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

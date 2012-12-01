@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }} - IR Viewer Online Version</title>
+	<link rel="stylesheet" href="/style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<!--script src="/script.js"></script-->
+</head>
+<body>
+	<center>
+		<table width="80%">
+			<!-- Header /-->
+			<tr>
+				{% for header in Headers %}
+				<td valign="top" align="center">
+					{{ header }}
+				</td>
+				{% endfor %}
+			</tr>
+
+			<!-- Body /-->
+			{% for entry in Data %}
+			<tr class="colorentry">
+				{% for item in entry %}
+				<td valign="middle" align="center">{{ item|safe }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
+		<hr>
+		<table width="80%">
+			{% for link in links %}
+			<tr>
+				<td><a href="{{link.link}}">{{link.name}}</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+	</center>
+</body>
+</html>

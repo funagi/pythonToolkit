@@ -1,0 +1,28 @@
+application: jiangsuaqi
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: false
+
+handlers:
+
+- url: /(.*\.(js|gif|png|jpg|css|ico))
+  static_files: static/\1
+  upload: static/(.*\.(js|gif|png|jpg|css|ico))
+
+- url: /
+  static_files: static/index.gif
+  upload: static/index.gif
+
+- url: /fetch.*
+  script: Fetch.py
+
+- url: /query
+  script: Query.py
+
+libraries:
+- name: django
+  version: latest
+
+- name: pycrypto
+  version: latest

@@ -1,0 +1,70 @@
+<table class="info">
+	<tr>
+		<td rowspan="7" valign="top">
+			<img src="/data?key={{ game.Poster.key }}">
+		</td>
+		<td>
+			Name
+		</td>
+		<td>
+			{{ game.Name }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Company
+		</td>
+		<td>
+			{{ Company }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Release Date
+		</td>
+		<td>
+			{{ game.rDate }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Playing Date
+		</td>
+		<td>
+			{{ game.pDate1 }} --> {{ game.pDate2 }}
+		</td>
+	</tr>
+	<tr>
+		<td valign="top">
+			Seiyuu
+		</td>
+		<td id="characters">
+			{% for c in Characters %}
+			<div class="character">
+				<div class="img">
+	            <img src="/data?key={{ c.0.image.key }}">
+		        </div>
+		        <div class="text">{{ c.0.Name }}<br/>{{ c.1 }}</div>
+	    	</div>
+	    	<div class="clear"></div>
+	    	<br/>
+	        {% endfor %}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			ExtLinks
+		</td>
+		<td id="ExtLinks" align="left">
+			{{ game.ExtLinks }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Attachment Link
+		</td>
+		<td>
+			<a href="/data?key={{ game.Attachment.key }}">{{ game.Name }} Attachment File</a>
+		</td>
+	</tr>
+</table>

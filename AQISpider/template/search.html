@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>搜索“{{ name }}”的结果 - IRViewer</title>
+	<link rel="stylesheet" href="/style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script src="/script.js"></script>
+</head>
+<body>
+	<center>
+		<table width="90%">
+			<tr>
+				<td>
+					<div class="title2">搜索“{{ name }}”的结果：</div>
+				</td>
+			</tr>
+			<tr>
+				<td id="list" valign="top" align="center">
+					<center>
+						<ul class="list">
+							{% for game in gamelist %}
+							<li>
+								<a href="javascript:void();" onclick="loadInfo({{ game.Id }})" class="link">
+									<img width="64" height="64" src="/data?key={{ game.Icon.key }}"/><br/>{{ game.Name }}
+								</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</center>
+				</td>
+				<td id="detail" valign="top">
+				</td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

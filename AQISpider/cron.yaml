@@ -1,0 +1,5 @@
+cron:
+- description: Fetch AQI Data every hour
+  url: /fetch
+  schedule: every 24 hours
+

@@ -1,2 +1,7 @@
 indexes:
 
+- kind: AQIData
+  properties:
+  - name: Station
+  - name: Date
+    direction: desc

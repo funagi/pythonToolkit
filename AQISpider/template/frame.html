@@ -1,33 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<title>IR Viewer Online Version</title>
-	<link rel="stylesheet" href="/style.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<title>AQI Query</title>
+	<link rel="stylesheet" href="./style.css" />
+	<link rel="stylesheet" href="./jquery.mobile-1.2.0.css" />
+	<script src="/jquery.mobile-1.2.0.js"></script>
+	<script src="/jquery-1.8.3.js"></script>
+	<script src="/jquery.mobile-1.2.0.js"></script>
 	<script src="/script.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#aqi-now").click(function() {
+				$.get("/query/now", function(data){
+					$("#aqi-content").html(data);
+					$("#aqi-content").trigger('create');
+					$("#aqi-now").addClass('ui-btn-active');
+				});
+			});
+
+			$("#aqi-history").click(function() {
+				$.get("/query/history", function(data){
+					$("#aqi-content").html(data);
+					$("#aqi-content").trigger('create');
+					$("#aqi-history").addClass('ui-btn-active');
+					$("#aqi-now").removeClass('ui-btn-active');
+				});
+			});
+
+			$("#aqi-now").click();
+		});
+	</script>
 </head>
-<body onLoad="loadInfo({{ Id }})">
-	<center>
-		<table width="90%">
-			<tr>
-				<td id="list" valign="top" align="center">
-					<center>
-						<ul class="list">
-							{% for game in gamelist %}
-							<li>
-								<a href="javascript:void();" onclick="loadInfo({{ game.Id }})" class="link">
-									<img width="64" height="64" src="/data?key={{ game.Icon.key }}"/>
-								</a>
-							</li>
-							{% endfor %}
-						</ul>
-					</center>
-				</td>
-				<td id="detail" valign="top" width=80%>
-				</td>
-			</tr>
-		</table>
-	</center>
+<body>
+	<div data-role="page" id="main" data-title="AQI Query History">
+	<div data-role="header" data-position="fixed">
+		<h1>AQI Query History</h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a id="aqi-now" href="javascript:void(0);">当前数值</a></li>
+				<li><a id="aqi-history" href="/query/history">历史数值</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div>
+	<div data-role="content" id="aqi-content">
+		
+	</div><!-- /content -->
+	</div><!-- /page -->
 </body>
 </html>

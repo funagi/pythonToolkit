@@ -1,0 +1,17 @@
+
+<ul data-role="listview" data-theme="c" data-transition="inset">
+	{% for city in citylist.items %}
+	<li>
+		<h3>{{ city.0 }}</h3>
+		<!--p>Description Here</p-->
+		<ul data-theme="c">
+			{% for station in city.1 %}
+			<li>
+				<h3>{{ station.Name }}</h3>
+				<p>AQI: {{ station.AQI }}  等级: {{ station.Level }}  评定: {{ station.Assess }}</p>
+			</li>
+			{% endfor %}
+		</ul>
+	</li>
+	{% endfor %}
+</ul>

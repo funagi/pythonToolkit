@@ -26,10 +26,11 @@ try:
 except:
 	txt = txt.replace(txt[len(txt)-1],'')
 	d = json.loads(txt)
-print d.keys(),type(d['day'])
-a=datetime.date(2012,11,27)
-b=datetime.date(2012,11,27)
-print a==b
+print d['month'],d['day']
+os.system('pause >nul')
+# a=datetime.date(2012,11,27)
+# b=datetime.date(2012,11,27)
+# print a==b
 # for q in d['data']:
 # 	print q['xzqmc'],q['xzqdm']
 

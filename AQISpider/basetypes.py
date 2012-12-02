@@ -11,7 +11,12 @@ class AQIData(db.Model):
 class Settings(db.Model):
     Name        = db.StringProperty()
     Value       = db.StringProperty()
-
-class Alias(db.Model):
+    
+class City(db.Model):
     Name        = db.StringProperty()
     Code        = db.IntegerProperty()
+
+class Station(db.Model):
+    Name        = db.StringProperty()
+    Code        = db.IntegerProperty()
+    City        = db.ReferenceProperty(City)

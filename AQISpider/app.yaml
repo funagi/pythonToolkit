@@ -17,7 +17,7 @@ handlers:
 - url: /fetch.*
   script: Fetch.py
 
-- url: /query
+- url: /query.*
   script: Query.py
 
 libraries:

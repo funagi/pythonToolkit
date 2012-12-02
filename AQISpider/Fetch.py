@@ -120,24 +120,26 @@ class UpdateAlias(webapp.RequestHandler):
             jsondata = jsondata.replace(jsondata[len(jsondata)-1],'')
             data = json.loads(jsondata)
 
+        citylist = {}
+        cityobj = {}
+        stationlist = {}
         for entry in data['data']:
-            qcity = Query(Alias)
-            qcity.filter('Code=',int(entry['xzqdm']))
-            city = qcity.get()
-            if city==None:
-                ncity = Alias()
-                ncity.Name = entry['xzqmc']
-                ncity.Code = int(entry['xzqdm'])
-                ncity.put()
+            citylist[entry['xzqdm']] = entry['xzqmc']
+            stationlist[entry['zddm']] = entry['zdmc']
 
-            qstation = Query(Alias)
-            qstation.filter('Code=',int(entry['zddm']))
-            station = qstation.get()
-            if station==None:
-                nstation = Alias()
-                nstation.Name = entry['zdmc']
-                nstation.Code = int(entry['zddm'])
-                nstation.put()
+        for city in citylist:
+            ncity = City()
+            ncity.Name = citylist[city]
+            ncity.Code = int(city)
+            ncity.put()
+            cityobj[city] = ncity
+
+        for entry in data['data']:
+            nstation = Station()
+            nstation.Name = entry['zdmc']
+            nstation.Code = int(entry['zddm'])
+            nstation.City = cityobj[entry['xzqdm']]
+            nstation.put()
 
 def main():
     application = webapp.WSGIApplication([

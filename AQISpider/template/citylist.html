@@ -1,14 +1,15 @@
-
 <ul data-role="listview" data-theme="c" data-transition="inset">
 	{% for city in citylist.items %}
 	<li>
+		<img src="/city/{{ city.1.0 }}.png" height=80 width=80/>
 		<h3>{{ city.0 }}</h3>
 		<!--p>Description Here</p-->
 		<ul data-theme="c">
-			{% for station in city.1 %}
+			{% for station in city.1.1 %}
 			<li>
 				<h3>{{ station.Name }}</h3>
-				<p>AQI: {{ station.AQI }}  等级: {{ station.Level }}  评定: {{ station.Assess }}</p>
+				<p>AQI: {{ station.AQI }}  &nbsp;&nbsp;等级: {{ station.Level }}  &nbsp;&nbsp;评定: {{ station.Assess}}</p>
+				<p>主要污染物: {{ station.Majority }}</p>
 			</li>
 			{% endfor %}
 		</ul>

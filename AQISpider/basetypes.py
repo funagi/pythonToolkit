@@ -7,6 +7,7 @@ class AQIData(db.Model):
     AQI         = db.IntegerProperty()
     AQILevel    = db.StringProperty()
     AQIAssess   = db.StringProperty()
+    Majority    = db.StringProperty()
 
 class Settings(db.Model):
     Name        = db.StringProperty()

@@ -63,8 +63,10 @@ class Fetch(webapp.RequestHandler):
         datequery.order('-Date')
         item = datequery.get()
         if item!= None and item.Date==datetime.date(int(year),int(month),int(day)):
+            logging.info('Old data for %4d-%02d-%02d'%(int(year),int(month),int(day)));
             return
 
+        logging.info('Updating data for %4d-%02d-%02d, %d entries'%(int(year),int(month),int(day),len(data['data'])));
         for entry in data['data']:
             dbentry = AQIData()
             dbentry.City = int(entry['xzqdm'])
@@ -73,6 +75,7 @@ class Fetch(webapp.RequestHandler):
             dbentry.AQI = int(entry['aqiz'])
             dbentry.AQILevel = entry['aqidj']
             dbentry.AQIAssess = entry['aqipd']
+            dbentry.Majority = entry['sywrw']
             dbentry.put()
 
 class UpdateAlias(webapp.RequestHandler):

@@ -1,0 +1,62 @@
+{% if citylist != None %}
+<script type="text/javascript">
+	{% for city in citylist.items %}
+	$(".city_{{ city.1.0 }}").click(function() {
+		$.get("/query/history?city={{ city.1.0 }}", function(data){
+			$("#aqi-content").html(data);
+			$("#aqi-content").trigger('create');
+		});
+	});
+	{% endfor %}
+</script>
+<ul data-role="listview" data-theme="c" data-transition="inset">
+	{% for city in citylist.items %}
+	<li>
+		<a class="city_{{ city.1.0 }}" href="">
+			<img src="/city/{{ city.1.1 }}.png" height=80 width=80/>
+			<h3>{{ city.0 }}</h3>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+{% if stationlist != None %}
+<script type="text/javascript">
+	{% for station in stationlist.items %}
+	$(".station_{{ station.0 }}").click(function() {
+		$('#chartdiv').html('');
+		$.jqplot('chartdiv',  [[ {{ station.1|safe }} ]], {
+			title:'AQI指数 ({{ station.0 }})',
+			axes:{
+				xaxis:{
+					label : '日期',
+					renderer : $.jqplot.DateAxisRenderer,
+					// labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+					tickOptions:{formatString:'%m-%#d'},
+				},
+				yaxis:{
+					label : '&nbsp;&nbsp;',
+					// labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+				}
+			},
+			series:[{lineWidth:4}]
+		});
+	});
+	{% endfor %}
+
+	$("#aqi-history-return").click(function() {
+		$.get("/query/history", function(data){
+			$("#aqi-content").html(data);
+			$("#aqi-content").trigger('create');
+		});
+	});
+</script>
+{% for station in stationlist.items %}
+<a href="javascript:void(0);" class="station_{{ station.0 }}" data-role="button" data-inline="true">{{ station.0 }}</a>
+{% endfor %}
+<div id="chartdiv" style="height:400px;width:90%; "></div>
+<div data-role="footer" data-position="fixed">
+	<a id="aqi-history-return" href="javascript:void(0);" data-role="button" data-theme="c">返回</a>
+</div><!-- /footer -->
+{% endif %}

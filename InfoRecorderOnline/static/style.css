@@ -26,41 +26,46 @@ td.list {
   width:160px;
 }
 
-/*table {width:100%;}*/
-
-td#characters div.character:nth-child(2n+1){
+td#characters div.card .left{
   float:left;
-  width:100%;
   background-color: #CCF;
 }
 
-td#characters div.character:nth-child(2n){
+td#characters div.card .right{
   float:right;
-  width:100%;
   background-color: #DDF;
 }
 
-td#characters div.character:nth-child(2n+1) .img img{
+td#characters div.card .img.left{
   float:left;
 }
 
-td#characters div.character:nth-child(2n) .img img{
+td#characters div.card .img.right{
   float:right;
 }
 
-td#characters div .text{
-  width:calc(100% - 120px - 120px);
+td#characters div.card .text.left{
+  float:left;
+  height: 49px;
+  width:calc(100% - 218px);
 }
 
-td#characters div:nth-child(2n) .text{
-  text-align: right;position: relative;top:0px;
+td#characters div.card .text.right{
+  float:right;
+  height: 49px;
+  text-align: right;
+  position: relative;
+  top:0px;
+  width:calc(100% - 218px);
 }
 
 td#characters div .img img {
   width:100px; height:100px;
 }
 
-div.character {float:none}
+div.card {float:none}
+
+.img img, .text{padding: 3px;}
 
 .colorentry:nth-child(2n+1){
   background-color: #DDF;

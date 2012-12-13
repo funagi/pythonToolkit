@@ -2,22 +2,46 @@
 <html>
 <head>
 	<title>{{ title }} - IR Viewer Online Version</title>
-	<link rel="stylesheet" href="/style.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<!--script src="/script.js"></script-->
+	<script src="/jquery-1.8.3.min.js"></script>
+	<script src="/jquery-ui-1.9.2.custom.min.js"></script>
+	<script src="/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" href="/jquery.dataTables.css" />
+	<link rel="stylesheet" href="/jquery-ui-1.9.2.custom.min.css" />
+	<script>
+		$(document).ready(function(){
+			$("#maintable").dataTable();
+		
+			{% for link in links %}
+			$(".{{ link.ID }}").button({
+				icons: {
+					primary: "ui-icon-plusthick"
+				}
+			});
+			$(".{{ link.ID }}").click( function() {
+				location.href='{{ link.link }}';
+			});
+			{% endfor %}
+			
+			$(".content").position({
+				at: "center top",
+				my: "center top"
+			});
+		});
+	</script>
 </head>
 <body>
-	<center>
-		<table width="80%">
+	<div class="content">
+		<table id="maintable">
 			<!-- Header /-->
-			<tr>
-				{% for header in Headers %}
-				<td valign="top" align="center">
-					{{ header }}
-				</td>
-				{% endfor %}
-			</tr>
-
+			<thead>
+				<tr>
+					{% for header in Headers %}
+					<th valign="top" align="center">
+						{{ header }}
+					</th>
+					{% endfor %}
+				</tr>
+			</thead>
 			<!-- Body /-->
 			{% for entry in Data %}
 			<tr class="colorentry">
@@ -26,15 +50,25 @@
 				{% endfor %}
 			</tr>
 			{% endfor %}
+			<!-- Footer /-->
+			<tfoot>
+				<tr>
+					{% for header in Headers %}
+					<th valign="top" align="center">
+						{{ header }}
+					</th>
+					{% endfor %}
+				</tr>
+			</tfoot>
 		</table>
 		<hr>
-		<table width="80%">
+		<div>
 			{% for link in links %}
-			<tr>
-				<td><a href="{{link.link}}">{{link.name}}</a></td>
-			</tr>
+			<button class="{{ link.ID }}">
+				{{link.name}}
+			</button>
 			{% endfor %}
-		</table>
-	</center>
+		</div>
+	</div>
 </body>
 </html>

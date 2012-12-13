@@ -1,7 +1,7 @@
 <table class="info">
 	<tr>
 		<td rowspan="7" valign="top">
-			<img src="/data?key={{ game.Poster.key }}">
+			<img src="/data?key={{ game.Poster.key }}" style="width:300px;height:auto;"/>
 		</td>
 		<td>
 			Name
@@ -23,7 +23,7 @@
 			Release Date
 		</td>
 		<td>
-			{{ game.rDate }}
+			{{ game.rDate|date:"Y-m-d" }}
 		</td>
 	</tr>
 	<tr>
@@ -31,23 +31,29 @@
 			Playing Date
 		</td>
 		<td>
-			{{ game.pDate1 }} --> {{ game.pDate2 }}
+			{{ game.pDate1|date:"Y-m-d" }} --> {{ game.pDate2|date:"Y-m-d" }}
 		</td>
 	</tr>
 	<tr>
 		<td valign="top">
 			Seiyuu
 		</td>
-		<td id="characters">
+		<td id="characters" style="width:500px;">
 			{% for c in Characters %}
-			<div class="character">
-				<div class="img">
-	            <img src="/data?key={{ c.0.image.key }}">
+			{% if not forloop.counter|divisibleby:2 %}
+			<div class="card">
+				<div class="img left">
+	            	<img src="/data?key={{ c.0.image.key }}">
 		        </div>
-		        <div class="text">{{ c.0.Name }}<br/>{{ c.1 }}</div>
+		        <div class="text left">{{ c.0.Name }}<br/>{{ c.1 }}</div>
+	    	{% else %}
+	    		<div class="img right">
+	            	<img src="/data?key={{ c.0.image.key }}">
+		        </div>
+		        <div class="text right">{{ c.0.Name }}<br/>{{ c.1 }}</div>
 	    	</div>
-	    	<div class="clear"></div>
-	    	<br/>
+	    	<div class="clear"><br/></div>
+	    	{% endif %}
 	        {% endfor %}
 		</td>
 	</tr>

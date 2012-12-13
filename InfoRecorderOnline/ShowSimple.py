@@ -35,10 +35,11 @@ class ShowCharacters(webapp.RequestHandler):
             'Headers' : ['Image', 'CID', 'Name', 'Seiyuu', 'SID'],
             'Data' : Characters,
             'links' : [
-            {'link':'/add/character','name':'Add new characters'},
-            {'link':'/add/seiyuu','name':'Add new seiyuu'},
-            {'link':'/add/company','name':'Add new company'},
-            {'link':'/upload?type=simple','name':'Simple upload'}
+            {'link':'/add/character','name':'Add new characters','ID':'addcharacter'},
+            {'link':'/add/seiyuu','name':'Add new seiyuu','ID':'addseiyuu'},
+            {'link':'/add/company','name':'Add new company','ID':'addcompany'},
+            {'link':'/upload','name':'Add new game','ID':'upload'},
+            {'link':'/upload?type=simple','name':'Simple upload','ID':'simpupload'}
             ]
         }
 
@@ -53,9 +54,9 @@ class ShowSeiyuu(webapp.RequestHandler):
         count = self.request.get('count','0')
         seiyuugql = 'SELECT __key__ FROM Seiyuu ORDER BY sid ASC'
         if count!='0':
-            charagql += ' LIMIT %d,%d' % (int(start),int(count))
+            seiyuugql += ' LIMIT %d,%d' % (int(start),int(count))
         else:
-            charagql += ' OFFSET %d' % int(start)
+            seiyuugql += ' OFFSET %d' % int(start)
         logging.info(seiyuugql)
         charaquery = db.GqlQuery(seiyuugql)
         seiyuu = []
@@ -74,10 +75,11 @@ class ShowSeiyuu(webapp.RequestHandler):
             'Headers' : ['SID', 'Name', 'isMain', 'VADB Link'],
             'Data' : seiyuu,
             'links' : [
-            {'link':'/add/character','name':'Add new characters'},
-            {'link':'/add/seiyuu','name':'Add new seiyuu'},
-            {'link':'/add/company','name':'Add new company'},
-            {'link':'/upload?type=simple','name':'Simple upload'}
+            {'link':'/add/character','name':'Add new characters','ID':'addcharacter'},
+            {'link':'/add/seiyuu','name':'Add new seiyuu','ID':'addseiyuu'},
+            {'link':'/add/company','name':'Add new company','ID':'addcompany'},
+            {'link':'/upload','name':'Add new game','ID':'upload'},
+            {'link':'/upload?type=simple','name':'Simple upload','ID':'simpupload'}
             ]
         }
 
@@ -91,9 +93,9 @@ class ShowGame(webapp.RequestHandler):
         count = self.request.get('count','0')
         gamegql = 'SELECT __key__ FROM game ORDER BY rDate ASC'
         if count!='0':
-            charagql += ' LIMIT %d,%d' % (int(start),int(count))
+            gamegql += ' LIMIT %d,%d' % (int(start),int(count))
         else:
-            charagql += ' OFFSET %d' % int(start)
+            gamegql += ' OFFSET %d' % int(start)
         logging.info(gamegql)
         gamequery = db.GqlQuery(gamegql)
         games = []
@@ -115,11 +117,11 @@ class ShowGame(webapp.RequestHandler):
             'Headers' : ['Icon','Name', 'Company', 'Release', 'Start', 'Finish', 'Edit'],
             'Data' : games,
             'links' : [
-            {'link':'/add/character','name':'Add new characters'},
-            {'link':'/add/seiyuu','name':'Add new seiyuu'},
-            {'link':'/add/company','name':'Add new company'},
-            {'link':'/upload','name':'Add new game'},
-            {'link':'/upload?type=simple','name':'Simple upload'}
+            {'link':'/add/character','name':'Add new characters','ID':'addcharacter'},
+            {'link':'/add/seiyuu','name':'Add new seiyuu','ID':'addseiyuu'},
+            {'link':'/add/company','name':'Add new company','ID':'addcompany'},
+            {'link':'/upload','name':'Add new game','ID':'upload'},
+            {'link':'/upload?type=simple','name':'Simple upload','ID':'simpupload'}
             ]
         }
 

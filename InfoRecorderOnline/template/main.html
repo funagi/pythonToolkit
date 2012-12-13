@@ -2,31 +2,50 @@
 <html>
 <head>
 	<title>IR Viewer Online Version</title>
+	<script src="/jquery-1.8.3.min.js"></script>
+	<script src="/jquery-ui-1.9.2.custom.min.js"></script>
 	<link rel="stylesheet" href="/style.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<!--script src="/script.js"></script-->
+	<link rel="stylesheet" href="/jquery-ui-1.9.2.custom.min.css" />
+	<script>
+		$(document).ready(function(){
+			$("button").button();
+			$("#return").button({
+				icons: {
+					primary: "ui-icon-home"
+				}
+			});
+			$("#return").hide();
+
+			{% for game in gamelist %}
+			$("#{{ game.key }}").click( function() {
+				$.get("/info?key={{ game.key }}", function(data){
+					$("#detail").html(data);
+					$("#detail").trigger('create');
+					$("#detail").css({"width":$(window).width()*0.7+'px',"float":"right"});
+					$("#detail").show(400);
+					$("#list").css({"width":$(window).width()*0.2+'px',"float":"left"});
+					$("#return").fadeIn(300);
+				});
+			});
+			{% endfor %}
+
+			$("#return").click( function() {
+				$("#detail").hide(400);
+				$("#list").css({"width":$(window).width()+'px',"float":"none"});
+				$("#return").fadeOut(300);
+			});
+		});
+	</script>
 </head>
 <body>
-	<center>
-		<table width="90%">
-			<tr>
-				<td valign="top" align="center">
-					<center>
-						<ul class="alist">
-							{% for game in gamelist %}
-							<li style="float:left;">
-								<a href="/info?key={{game.key}}" class="link">
-									<img width="64" height="64" src="/data?key={{ game.Icon.key }}"/>
-								</a>
-							</li>
-							{% endfor %}
-						</ul>
-					</center>
-				</td>
-				<td id="detail" valign="top" width=80%>
-				</td>
-			</tr>
-		</table>
-	</center>
+	<div id="list">
+		{% for game in gamelist %}
+		<button id="{{ game.key }}">
+			<img width="64" height="64" src="/data?key={{ game.Icon.key }}"/>
+		</button>
+		{% endfor %}
+		<button id="return" title="返回"><span class="ui-icon ui-icon-carat-1-n"></span>返回</button>
+	</div>
+	<div id="detail" style="width:0px"></div>
 </body>
 </html>

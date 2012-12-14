@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }} - IR Viewer Online Version</title>
+    <script type="text/javascript" src="/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="/plugins/jqplot.barRenderer.min.js"></script>
+    <script type="text/javascript" src="/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script type="text/javascript" src="/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+    <script type="text/javascript" src="/plugins/jqplot.canvasTextRenderer.min.js"></script>
+    <script type="text/javascript" src="/plugins/jqplot.pointLabels.min.js"></script>
+    <link rel="stylesheet" href="/jquery.jqplot.min.css" />
+    <link rel="stylesheet" href="/jquery-ui-1.9.2.custom.min.css" />
+    <script>
+        $(document).ready(function(){
+            $("#tabs").tabs({
+                activate: function( event, ui ) {
+                    selector = ui.newPanel.selector;
+
+                    {% for name,plot in bar.items %}
+                    if (selector=='#{{ name }}') {
+                        var data_{{ name }} = [{% for entry in plot.data.items %}{{ entry.1 }},{% endfor %}];
+                        var tick_{{ name }} = ['{{ plot.data.keys|join:"','" }}'];
+                        drawbar('plot_{{ name }}', '{{ plot.caption }}', data_{{ name }}, tick_{{ name }});
+                    };
+                    {% endfor %}
+
+                    {% for name,plot in hist.items %}
+                    if (selector=='#{{ name }}') {
+                        var data_{{ name }} = [{{ plot.data|join:"," }}];
+                        drawhist('{{ name }}', '{{ plot.caption }}' ,data_{{ name }}, 6);
+                    };
+                    {% endfor %}
+                }
+            });
+            
+            $.jqplot.config.enablePlugins = true;
+
+            //--------------------------start bar plot ---------------------------//
+            function drawbar(id, caption, data, ticks) {
+                
+                plot = $.jqplot(id, [data], {
+                    title : caption,
+                    seriesColors:['rgba(75,178,197,0.9)'],
+                    animate : !$.jqplot.use_excanvas,
+                    seriesDefaults:{
+                        renderer:$.jqplot.BarRenderer,
+                        pointLabels: { show: true }
+                    },
+                    axes: {
+                        xaxis: {
+                            renderer: $.jqplot.CategoryAxisRenderer,
+                            tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+                            ticks: ticks,
+                            tickOptions: {
+                                angle: -20
+                            } 
+                        }
+                    },
+                    highlighter: { show: false }
+                });
+            }
+            //--------------------------finish bar plot---------------------------//
+
+
+            //--------------------------start histogram---------------------------//
+            function drawhist(id, caption, data, buckets) {
+                var maxval = Math.max.apply(null,data);
+                var minval = Math.min.apply(null,data);
+                var step = Math.round(maxval/buckets);
+
+                var ranges = [];
+                var values = [];
+                var next = 0;
+
+                for (i=0; i<=buckets; i++){ 
+                    if(i<buckets-1){
+                        var first = next;
+                        var next = first + step;
+                        var bin = first + "-" + next;
+                    } else {
+                        var first = next;
+                        var mylast = next + step;
+                        var bin = next + "-" + mylast;
+                        var next = mylast;
+                    }
+
+                    var count = 0;
+                    for (var j = 0; j < data.length; j++) {
+                        if (data[j]>first&&data[j]<next) {
+                            count++;
+                        }
+                    };
+
+                    values.push(count);
+                    ranges.push(bin);
+                }
+                $('#'+id).empty();
+                plot = $.jqplot(id, [values], {
+                    title : caption,
+                    animate: !$.jqplot.use_excanvas,
+                    seriesDefaults:{
+                        renderer:$.jqplot.BarRenderer,
+                        rendererOptions: {
+                            barWidth: null,
+                            barPadding: 0,
+                            barMargin: 5,
+                            varyBarColor: true
+                        },
+                        pointLabels: { show: true }
+                    },
+                    axesDefaults: {
+                        tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
+                        tickOptions: {
+                            fontSize: '14px'
+                        }
+                    },
+                    axes: {
+                        xaxis: {
+                            renderer: $.jqplot.CategoryAxisRenderer,
+                            ticks: ranges
+                        }
+                    },
+                    highlighter: { show: false }
+                });
+            }
+            //--------------------------finish histogram---------------------------//
+
+            $(".content").position({
+                at: "center top",
+                my: "center top"
+            });
+
+            var data_{{ bar.items.0.0 }} = [{% for entry in bar.items.0.1.data.items %}{{ entry.1 }},{% endfor %}];
+            var tick_{{ bar.items.0.0 }} = ['{{ bar.items.0.1.data.keys|join:"','" }}'];
+            drawbar('plot_{{ bar.items.0.0 }}', '{{ bar.items.0.1.caption }}', data_{{ bar.items.0.0 }}, tick_{{ bar.items.0.0 }});
+        });
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div id="tabs">
+            <ul>
+                {% for name,plot in bar.items %}
+                <li><a href="#{{ name }}">{{ plot.caption }}</a></li>
+                {% endfor %}
+                {% for name,plot in hist.items %}
+                <li><a href="#{{ name }}">{{ plot.caption }}</a></li>
+                {% endfor %}
+            </ul>
+            {% for name,plot in bar.items %}
+            <div id="{{ name }}">
+                <div id="plot_{{ name }}" style="width:90%;height:90%"></div>
+            </div>
+            {% endfor %}
+            {% for name,plot in hist.items %}
+            <div id="{{ name }}">
+                <div id="plot_{{ name }}" style="width:90%;height:90%"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

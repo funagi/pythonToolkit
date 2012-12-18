@@ -1,0 +1,48 @@
+{% comment %}
+	parameters: 
+	string name;
+	string hint1;
+	string submit_url;
+	string hint2;
+{% endcomment %}
+<script>
+	var url = '{{ submit_url }}';
+	var input = $('#{{ name }}input').val();
+	$('button').button().click( function() {
+		$.post( url, { text : $('#{{ name }}input').val() },
+			function( data ) {
+				$('#interact').html('<div id="message"title="提交成功"><p><span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>数据提交成功！</p><p>已添加'+data.number+'条记录</p></div>');
+				$('#message').dialog({
+					modal: true,
+					buttons : {
+		                Ok: function() {
+		                    $( this ).dialog( "close" );
+		                }
+		            }
+				});
+			}, "json")
+		.error(function() {
+			$('#interact').html('<div id="message" title="错误"><p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>提交过程中发生错误！</p></div>');
+			$('#message').dialog({
+				modal: true,
+				buttons : {
+	                Ok: function() {
+	                    $( this ).dialog( "close" );
+	                }
+	            }
+			});
+		});
+	});
+	$(".addcontent").position({
+		at: "center top",
+		my: "center top"
+	});
+</script>
+
+<div class="addcontent">
+    <div>{{ hint1 }}</div>
+    <textarea rows="20" cols="90" name="text" id="{{ name }}input"></textarea><br/>
+    <button id="Submit">提交</button><br/>
+    <div>{{ hint2 }}</div>
+    <div id="interact"></div>
+</div>

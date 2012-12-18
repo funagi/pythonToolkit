@@ -1,0 +1,45 @@
+{% comment %}
+	parameters: 
+	int columns;
+	list headers;
+	string serve_url;
+{% endcomment %}
+<script>
+	
+		$("#{{ serve_url|cut:"/" }}maintable").dataTable({
+			"bProcessing": true,
+	        "bServerSide": false,
+	        "sAjaxSource": "{{ serve_url }}"
+			});
+
+</script>
+<div class="showcontent">
+	<table id="{{ serve_url|cut:"/" }}maintable">
+		<!-- Header /-->
+		<thead>
+			<tr>
+				{% for header in headers %}
+				<th valign="top" align="center">
+					{{ header }}
+				</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<!-- Body /-->
+		<tbody>
+			<tr>
+				<td colspan="{{ columns }}" class="dataTables_empty">从服务器读取数据……</td>
+			</tr>
+		</tbody>
+		<!-- Footer /-->
+		<tfoot>
+			<tr>
+				{% for header in headers %}
+				<th valign="top" align="center">
+					{{ header }}
+				</th>
+				{% endfor %}
+			</tr>
+		</tfoot>
+	</table>
+</div>

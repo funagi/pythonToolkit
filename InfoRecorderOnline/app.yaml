@@ -11,8 +11,7 @@ handlers:
   upload: static/(.*\.(js|gif|png|jpg|css|ico))
 
 - url: /
-  static_files: static/index.gif
-  upload: static/index.gif
+  script: Index.py
 
 - url: /list
   script: List.py

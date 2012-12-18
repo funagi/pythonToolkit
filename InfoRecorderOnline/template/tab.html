@@ -1,0 +1,61 @@
+{% comment %}
+	parameters: 
+	bool ajax;
+	string title;
+	list tab{
+		string href,name;
+	};
+{% endcomment %}
+{% if not ajax %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }} - IR Viewer Online Version</title>
+	<script src="/jquery-1.8.3.min.js"></script>
+	<script src="/jquery-ui-1.9.2.custom.min.js"></script>
+	<link rel="stylesheet" href="/jquery-ui-1.9.2.custom.min.css" />
+{% endif %}
+	{% if type == 'stat' %}
+	<script type="text/javascript" src="/jquery.jqplot.min.js"></script>
+	<script type="text/javascript" src="/plugins/jqplot.barRenderer.min.js"></script>
+	<script type="text/javascript" src="/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+	<script type="text/javascript" src="/plugins/jqplot.canvasTextRenderer.min.js"></script>
+	<script type="text/javascript" src="/plugins/jqplot.pointLabels.min.js"></script>
+	<link rel="stylesheet" href="/jquery.jqplot.min.css" />
+	{% endif %}
+	{% if type == 'show' %}
+	<script src="/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" href="/jquery.dataTables.css" />
+	{% endif %}
+	<script>
+		{% if not ajax %}
+		$(document).ready(function(){
+		{% endif %}
+			$("#child-tab").tabs();
+			
+			$(".content").position({
+				at: "center top",
+				my: "center top"
+			});
+		{% if not ajax %}
+		});
+		{% endif %}
+	</script>
+{% if not ajax %}
+</head>
+<body>
+{% endif %}
+	<div class="content">
+		<div id="child-tab">
+            <ul>
+                {% for tab in tablist %}
+                <li><a href="{{ tab.href }}">{{ tab.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+	</div>
+{% if not ajax %}
+</body>
+</html>
+{% endif %}

@@ -1,33 +1,103 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 	<title>IR Viewer Online Version</title>
+	<script src="/jquery-1.8.3.min.js"></script>
+	<script src="/jquery-ui-1.9.2.custom.min.js"></script>
 	<link rel="stylesheet" href="/style.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script src="/script.js"></script>
+	<link rel="stylesheet" href="/jquery-ui-1.9.2.custom.min.css" />
+	<script>
+		$(document).ready(function(){
+			// auto hide
+			$('#navigation a').stop().animate({
+				'marginLeft' : '-85px'
+			}, 1000);
+			$('#navigation > li').hover(function() {
+				$('a', $(this)).stop().animate({
+					'marginLeft' : '-15px'
+				}, 200);
+			}, function() {
+				$('a', $(this)).stop().animate({
+					'marginLeft' : '-85px'
+				}, 200);
+			});
+
+			// functions
+			{% for tab in tablist %}
+			$('.{{ tab.icon }}').click(function() {
+				$.ajax({
+					url : '{{ tab.destination }}'
+				}).done(function (data) {
+					$('#topcontent').html(data);
+				});	
+			});
+			{% endfor %}
+			$('.{{ tablist.0.icon }}').click();
+		});
+	</script>
+	<style>
+	ul#navigation {
+		position: fixed;
+		margin: 0px 10px;
+		padding: 0px;
+		top: 20%;
+		left: -5px;
+		list-style: none;
+		z-index:9999;
+	}
+	ul#navigation li {
+		width: 84px;
+	}
+	ul#navigation li a {
+		display: block;
+		margin-top:1px;
+		padding: 10px;
+		width: 75px;
+		height: 82px;
+		background: no-repeat scroll 50% 50% rgba(5, 5, 5, 0.7);
+		border-radius:5px 0 0 5px;
+		border-radius:0px 10px 10px 0px;
+		box-shadow: 0px 4px 3px #000;
+		opacity: 0.9;
+		filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	}
+	.jquery-font {
+		font-size: 100%;
+		font-family: Trebuchet MS,Helvetica,Arial,sans-serif;
+		font-weight: bold;
+		color: rgb(255, 255, 255);
+		text-decoration: none !important;
+		text-align: center;
+		list-style: none outside none;
+		line-height: 1.3;
+	}
+	a {
+		transition: text-shadow 1s;
+		text-decoration:none!important;
+	}
+	a:hover{
+		text-shadow:0px 0px 8px #eee;
+		text-decoration:none;
+	}
+	/**图标自定义
+	ul#navigation .goToTop a{
+		background-image: url();
+	}
+    </style>
 </head>
-<body onLoad="loadInfo({{ Id }})">
-	<center>
-		<table width="90%">
-			<tr>
-				<td id="list" valign="top" align="center">
-					<center>
-						<ul class="list">
-							{% for game in gamelist %}
-							<li>
-								<a href="javascript:void();" onclick="loadInfo({{ game.Id }})" class="link">
-									<img width="64" height="64" src="/data?key={{ game.Icon.key }}"/>
-								</a>
-							</li>
-							{% endfor %}
-						</ul>
-					</center>
-				</td>
-				<td id="detail" valign="top" width=80%>
-				</td>
-			</tr>
-		</table>
-	</center>
+<body>
+	<div id="toptabs">
+		<ul id="navigation">
+			{% for tab in tablist %}
+			<li class="{{ tab.icon }}">
+				<a href=javascript:void(0); title="{{ tab.tooltip }}"><center>
+					<img width="64" height="64" src="/tabs/{{ tab.icon }}.png"/><br/>
+					<span class="jquery-font">{{ tab.tooltip }}</span>
+				</center></a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div id="topcontent"></div>
 </body>
 </html>

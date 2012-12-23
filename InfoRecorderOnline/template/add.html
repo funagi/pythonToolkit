@@ -37,8 +37,16 @@
 		at: "center top",
 		my: "center top"
 	});
+	{% if codelist %}
+	$('div.code').click(function(){ 
+		var rng=document.body.createTextRange(); 
+		rng.moveToElementText($(this).get(0)); 
+		rng.select(); 
+	}); 
+	{% endif %}
 </script>
 
+{% if not codelist %}
 <div class="addcontent">
     <div>{{ hint1 }}</div>
     <textarea rows="20" cols="90" name="text" id="{{ name }}input"></textarea><br/>
@@ -46,3 +54,14 @@
     <div>{{ hint2 }}</div>
     <div id="interact"></div>
 </div>
+{% else %}
+<div class="addcontent">
+    {% for entry in codelist %}
+    <div>
+    	{% for item in entry %}
+    	<div class="code">item</div>
+    	{% endfor %}
+    </div>	
+    {% endfor %}
+</div>
+{% endif %}

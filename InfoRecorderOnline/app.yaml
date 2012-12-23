@@ -6,13 +6,13 @@ threadsafe: false
 
 handlers:
 
+- url: /plugins/(.*\.(js))
+  static_files: ../../AQISpider/static/plugins/\1
+  upload: ../../AQISpider/static/plugins/(.*\.(js))
+
 - url: /(.*\.(js|gif|png|jpg|css|ico))
   static_files: static/\1
   upload: static/(.*\.(js|gif|png|jpg|css|ico))
-
-- url: /plugins/(.*\.(js|gif|png|jpg|css|ico))
-  static_files: ../AQISpider/static/plugins/\1
-  upload: ../AQISpider/static/plugins/(.*\.(js|gif|png|jpg|css|ico))
 
 - url: /
   script: Index.py

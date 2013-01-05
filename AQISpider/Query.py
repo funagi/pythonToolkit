@@ -13,7 +13,7 @@ class Frame(webapp.RequestHandler):
         citylist = {}
         cities = City.all()
         for city in cities:
-            citylist[city.Name] = []
+            citylist[city.Name] = [abs(hash(city.Name)),[]]
             for station in city.station_set:
                 data = {'Name':station.Name}
                 query = Query(AQIData)
@@ -24,7 +24,9 @@ class Frame(webapp.RequestHandler):
                 data['AQI'] = aqi.AQI
                 data['Level'] = aqi.AQILevel
                 data['Assess'] = aqi.AQIAssess
-                citylist[city.Name].append(data)
+                data['Date'] = aqi.Date
+                data['Majority'] = aqi.Majority
+                citylist[city.Name][1].append(data)
         # logging.info(str(citylist))
         #----generate parameter list----------------------------------------------------------------------
         citytemplate_values = {
@@ -59,6 +61,7 @@ class IndexNow(webapp.RequestHandler):
                 data['Level'] = aqi.AQILevel
                 data['Assess'] = aqi.AQIAssess
                 data['Majority'] = aqi.Majority
+                data['Date'] = aqi.Date
                 citylist[city.Name][1].append(data)
         # logging.info(str(citylist))
         #----generate parameter list----------------------------------------------------------------------
@@ -106,7 +109,7 @@ class IndexHistory(webapp.RequestHandler):
                 query.filter('Station =', station.Code)
                 query.order('-Date')
                 query.run()
-                aqi = query.fetch(7)
+                aqi = query.fetch(10)
                 for entry in aqi:
                     data.append("['%s',%d]" % (str(entry.Date),entry.AQI))
                 stationlist[station.Name] = ','.join(data)

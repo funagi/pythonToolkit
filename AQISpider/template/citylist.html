@@ -10,6 +10,7 @@
 				<h3>{{ station.Name }}</h3>
 				<p>AQI: {{ station.AQI }}  &nbsp;&nbsp;等级: {{ station.Level }}  &nbsp;&nbsp;评定: {{ station.Assess}}</p>
 				<p>主要污染物: {{ station.Majority }}</p>
+				<p>日期: {{ station.Date|date:"Y-m-d" }}</p>
 			</li>
 			{% endfor %}
 		</ul>

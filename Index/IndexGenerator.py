@@ -5,6 +5,7 @@ import re,os
 '''os.system('FTP Index Generator')'''
 errors = 0 #错误数目
 counts = 0 #目录数目
+encode = 'utf-8'
 def Path(info):
     if(info[3]==''):
         return 'ftp://'+info[1]+':'+str(info[2])
@@ -13,16 +14,19 @@ def Path(info):
 
 def Walk (path):
     try:
-        print path.decode('utf-8')
-        global counts,errors;counts+=1
+        print path.decode(encode)
+        global counts,errors;
+        counts+=1
         temp=[]
         stage=0
-        #specially for xeochen
-        #if counts >=60: connection.retrlines('RETR "./三牛的五花八门 2011.02.22.txt"'.encode('gb18030'),temp.append);counts=0
+        #specially for xeonchen to avoid being kicked 
+        #if counts >=60: connection.retrlines('RETR "./三牛的五花八门/NTLEA 0.92.rar"'.encode('gb18030'),temp.append);counts=0
+        #if counts >=60: connection.retrlines('RETR "./KING.MDS"'.encode('gb18030'),temp.append);counts=0
+        #if counts >=60: connection.retrlines('RETR "./KING.MDS"'.encode('gb18030'),temp.append);counts=0
         locallist = []
         dirlist = []
         #path = path.decode('gbk')
-        stat = connection.retrlines('MLSD '+path.decode('utf-8').encode('gbk'),locallist.append)
+        stat = connection.retrlines('MLSD '+path.decode(encode).encode('gbk'),locallist.append)
         stage=1
         #path = path.decode('gb18030')
         re_type = re.compile(ur'(?<=type=)\w+(?=;)')
@@ -32,7 +36,7 @@ def Walk (path):
         if stat[:3]=='226':
             for localline in locallist:
                 stage=2
-                localline = localline.decode('utf-8')
+                localline = localline.decode(encode) #'utf-8')
                 stage=3
                 if u'modified' in localline:
                     date = re_date.search(localline).group(0)
@@ -41,17 +45,17 @@ def Walk (path):
                     
                 if u'type=dir' in localline:
                     dirlist.append(localline[localline.rindex('; ')+2:])
-                    fp = path.decode('utf-8')+'/'+localline[localline.rindex('; ')+2:]
+                    fp = path.decode(encode)+'/'+localline[localline.rindex('; ')+2:]
                     c.execute(u'insert into '+site[0]+u' values (?,?,?,?)',(u'd',fp,date,0))
                 elif u'type=file' in localline:
                     size = re_size.search(localline).group(0)
-                    fp = path.decode('utf-8')+'/'+localline[localline.rindex('; ')+2:]
+                    fp = path.decode(encode)+'/'+localline[localline.rindex('; ')+2:]
                     c.execute(u'insert into '+site[0]+u' values (?,?,?,?)',(u'f',fp,date,size))
             for dirs in dirlist:
                 stage=4
-                pathtemp = (path.decode('utf-8')+'/'+dirs)
+                pathtemp = (path.decode(encode)+'/'+dirs)
                 
-                Walk(pathtemp.encode('utf-8'))
+                Walk(pathtemp.encode(encode))
             db.commit()
         else:
             print site,path,stat

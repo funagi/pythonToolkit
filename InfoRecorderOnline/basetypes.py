@@ -16,9 +16,10 @@ class game(db.Model):
     VNDB        = db.IntegerProperty(0)
     VADB        = db.IntegerProperty(0)
     EGS         = db.IntegerProperty(0)
+    Time        = db.IntegerProperty(0)
 
     def getCharacters(self):
-        return Seiyuu
+        return Characters
 
     def getLinks(self):
         return ExtLinks

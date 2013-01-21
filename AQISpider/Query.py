@@ -73,6 +73,55 @@ class IndexNow(webapp.RequestHandler):
         self.response.out.write(template.render(path,template_values))
 
 
+class IndexAll(webapp.RequestHandler):
+    def get(self):
+        # get city id
+        city_id = self.request.get('city','')
+        try:
+            city_id = int(city_id)
+        except:
+            city_id = 0
+
+        if city_id == 0:
+            # no city? --> show city list
+            citylist = {}
+            cities = City.all()
+            for city in cities:
+                citylist[city.Name] = [city.Code,abs(hash(city.Name))]
+            #----generate parameter list----------------------------------------------------------------------
+            template_values = {
+                'citylist' : citylist,
+                'stationlist' : None
+                }
+            path = os.path.join(os.path.dirname(__file__), './/template//citylist_all.html')
+            #----end------------------------------------------------------------------------------------------
+            self.response.out.write(template.render(path,template_values))
+        else:
+            # show station plots
+            stationlist = {}
+            query = Query(City)
+            query.filter('Code =', city_id)
+            query.run()
+            city = query.get()
+            for station in city.station_set:
+                data = []
+                query = Query(AQIData)
+                query.filter('Station =', station.Code)
+                query.order('-Date')
+                query.run()
+                aqi = query.fetch(None)
+                for entry in aqi:
+                    data.append("['%s',%d]" % (str(entry.Date),entry.AQI))
+                stationlist[station.Name] = ','.join(data)
+            #----generate parameter list----------------------------------------------------------------------
+            template_values = {
+                'citylist' : None,
+                'stationlist' : stationlist
+                }
+            path = os.path.join(os.path.dirname(__file__), './/template//citylist_all.html')
+            #----end------------------------------------------------------------------------------------------
+            self.response.out.write(template.render(path,template_values))
+
 class IndexHistory(webapp.RequestHandler):
     def get(self):
         # get city id
@@ -122,8 +171,6 @@ class IndexHistory(webapp.RequestHandler):
             #----end------------------------------------------------------------------------------------------
             self.response.out.write(template.render(path,template_values))
 
-        
-
 class FetchData(webapp.RequestHandler):
     def get(self):
         return
@@ -133,6 +180,11 @@ def main():
         (r'/query/data', FetchData),
         (r'/query/now', IndexNow),
         (r'/query/history', IndexHistory),
+        (r'/query/all', IndexAll),
+        (r'/data', FetchData),
+        (r'/now', IndexNow),
+        (r'/history', IndexHistory),
+        (r'/all', IndexAll),
         (r'/.*', Frame)
         ],debug=True)
     run_wsgi_app(application)

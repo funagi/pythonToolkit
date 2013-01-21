@@ -2,7 +2,7 @@
 <script type="text/javascript">
 	{% for city in citylist.items %}
 	$(".city_{{ city.1.0 }}").click(function() {
-		$.get("/query/history?city={{ city.1.0 }}", function(data){
+		$.get("/query/all?city={{ city.1.0 }}", function(data){
 			$("#aqi-content").html(data);
 			$("#aqi-content").trigger('create');
 		});

@@ -23,3 +23,19 @@ Function ImportMz()
 	Endif
 	WaveStats mz
 End
+
+Function GetFWHM(srcWave)
+	wave srcWave
+	WaveStats/Q srcWave
+	variable length = V_npnts
+	variable i
+	variable mini = WaveMin(srcWave)
+	wave xvalues
+	FindLevels/Q/D=xvalues srcWave, mini/2
+	variable s=0
+	For(i=1;i<V_LevelsFound;i+=2)
+		s+=(xvalues[i]-xvalues[i-1])
+	Endfor
+	s/=(V_LevelsFound/2)
+	return s
+End

@@ -63,6 +63,83 @@ class EditCharacter(webapp.RequestHandler):
         self.redirect('/info?key=%s'%key)
         return
 
+class EditCharacterDetail(webapp.RequestHandler):
+    def get(self):
+        key = self.request.get('key','0')
+        
+        if key=='0':return
+        #Switch with Ajax
+        #----begin----------------------------------------------------------------------------------------
+        try:
+            chara = db.get(key)
+        except BadKeyError:
+            logging.error('BadKeyError : %s'%key)
+            self.response.out.write('Item with specific key does not exist!')
+            return
+        #----end------------------------------------------------------------------------------------------
+        self.response.out.write('''
+<html>
+    <head>
+        <title>%s</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <body>
+        <form method="POST" action="/edit/charadetail">
+            <table>
+                <tr>
+                    <td>CID</td>
+                    <td>%d</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="Name" value="%s"/></td>
+                </tr>
+                <tr>
+                    <td>Romaji</td>
+                    <td><input type="text" name="Romaji" value="%s"/></td>
+                </tr>
+                <tr>
+                    <td>SID</td>
+                    <td><input type="text" name="sid" value="%s"/></td>
+                </tr>
+                <tr>
+                    <td>Image</td>
+                    <td><img src="/data?key=%s" width=50 height=50/></td>
+                </tr>
+            </table>
+            <input type="hidden" value="%s" name="key"/>
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>
+            ''' % ('Character Detail',
+                chara.cid,
+                chara.Name,
+                chara.Romaji,
+                chara.sid,
+                chara.image.key(),
+                chara.key()
+                ))
+
+    def post(self):
+        key = self.request.get('key','0')
+        
+        if key=='0':return
+        #Switch with Ajax
+        #----begin----------------------------------------------------------------------------------------
+        try:
+            chara = db.get(key)
+        except BadKeyError:
+            self.error(500)
+            return
+        #----end------------------------------------------------------------------------------------------
+        chara.Name = self.request.get('Name')
+        chara.Romaji = self.request.get('Romaji')
+        chara.sid = int(self.request.get('sid'))
+        chara.put()
+
+        return
+
 class EditLink(webapp.RequestHandler):
     def get(self):
         Id = self.request.get('Id','0')
@@ -194,6 +271,7 @@ class EditGame(webapp.RequestHandler):
 def main():
     application = webapp.WSGIApplication([
         (r'/edit/character', EditCharacter),
+        (r'/edit/charadetail', EditCharacterDetail),
         (r'/edit/link', EditLink),
         (r'/edit/game', EditGame),
         (r'/edit.*', EditGame)

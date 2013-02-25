@@ -33,7 +33,7 @@ class AddCenter(webapp.RequestHandler):
                 'chara' : {
                     'name' : 'chara',
                     'submit_url' : '/add/character', 
-                    'hint1' : 'Name,sid,imagekey',
+                    'hint1' : 'Name, Romaji, sid, imagekey',
                     'hint2' : 'AMIfv95okg1m9KhvbYhXEHcqEhnOflFSj4paCzbWDq_qDwjvuK-_rYsgveF5ehqMp-rmxZfuYC47x4kXmkrfTcdfJ2u4O3aYAuNaHZoKi8QfhrSLN_xMsd7tjgtGxkdEQkp-JzZjqR0Cd5gMWesygGikVUEljJFCRQ'
                     },
                 'seiyuu' : {
@@ -73,10 +73,11 @@ class AddCharacter(webapp.RequestHandler):
             data = dataline.split(',')
             newchara = Character()
             newchara.Name = data[0]
-            newchara.sid = int(data[1])
+            newchara.Romaji = data[1]
+            newchara.sid = int(data[2])
             
             newchara.cid = new_id
-            newchara.image = data[2]
+            newchara.image = data[3]
             newchara.put()
             new_id += 1
             # else:

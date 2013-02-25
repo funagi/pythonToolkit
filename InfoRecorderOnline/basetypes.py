@@ -16,7 +16,8 @@ class game(db.Model):
     VNDB        = db.IntegerProperty(0)
     VADB        = db.IntegerProperty(0)
     EGS         = db.IntegerProperty(0)
-    Time        = db.IntegerProperty(0)
+    Time        = db.FloatProperty(0.0)
+    Genre       = db.StringProperty("ADV")
 
     def getCharacters(self):
         return Characters
@@ -38,6 +39,7 @@ class Character(db.Model):
     sid         = db.IntegerProperty()
     image       = blobstore.BlobReferenceProperty()
     Games       = db.StringListProperty()
+    Romaji      = db.StringProperty()
     def getSeiyuuName(self):
         syquery = Query(Seiyuu)
         sy = syquery.filter('sid =',self.sid).get()
@@ -45,7 +47,7 @@ class Character(db.Model):
     def getMain(self):
         syquery = Query(Seiyuu)
         syquery.filter('snum =',self.snum)
-        syquery.filter('isMain = True')
+        syquery.filter('isMain =',True)
         sy = syquery.get()
         if sy!=None:
             return sy.Name

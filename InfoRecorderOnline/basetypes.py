@@ -44,9 +44,13 @@ class Character(db.Model):
         syquery = Query(Seiyuu)
         sy = syquery.filter('sid =',self.sid).get()
         if sy!=None:return sy.Name
+    def getSeiyuuNum(self):
+        syquery = Query(Seiyuu)
+        sy = syquery.filter('sid =',self.sid).get()
+        if sy!=None:return sy.snum
     def getMain(self):
         syquery = Query(Seiyuu)
-        syquery.filter('snum =',self.snum)
+        syquery.filter('snum =',self.getSeiyuuNum())
         syquery.filter('isMain =',True)
         sy = syquery.get()
         if sy!=None:

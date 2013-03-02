@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Privoxy Stats on 10.154.13.20</title>
+	<script type="text/javascript" src="/static/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="/static/jquery-ui-1.9.2.custom.min.js"></script>
+	<script type="text/javascript" src="/static/jquery.jqplot.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/jqplot.pieRenderer.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/jqplot.barRenderer.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/jqplot.dateAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/jqplot.canvasTextRenderer.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/jqplot.cursor.min.js"></script>
+	<script type="text/javascript" src="/static/plugins/jqplot.pointLabels.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/jquery.jqplot.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/jquery-ui-1.9.2.custom.min.css">
+	<script type="text/javascript">
+		//--------------------------start bar plot ---------------------------//
+	    function drawbar(id, caption, data, ticks) {
+	        $('#'+id).empty();
+	        plot = $.jqplot(id, [data], {
+	            title : caption,
+	            seriesColors:['rgba(75,178,197,0.9)'],
+	            animate : !$.jqplot.use_excanvas,
+	            seriesDefaults:{
+	                renderer:$.jqplot.BarRenderer,
+	                pointLabels: { show: true }
+	            },
+	            axes: {
+	                xaxis: {
+	                    renderer: $.jqplot.CategoryAxisRenderer,
+	                    tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+	                    ticks: ticks,
+	                    tickOptions: {
+	                        angle: -20
+	                    } 
+	                }
+	            },
+	            highlighter: { show: true }
+	        });
+	    }
+
+	    function drawbarzoom(id, caption, data, ticks) {
+	        $('#'+id).empty();
+	        plot = $.jqplot(id, [data], {
+	            title : caption,
+	            seriesColors:['rgba(75,178,197,0.9)'],
+	            animate : !$.jqplot.use_excanvas,
+	            seriesDefaults:{
+	            	showMarker: false,
+	                pointLabels: { show: false }
+	            },
+	            axes: {
+	                xaxis: {
+	                    renderer: $.jqplot.DateAxisRenderer,
+	                    rendererOptions: {
+		                    tickInset: 0,
+		                    tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+		                },
+		                // ticks: ticks,
+	                    tickOptions: {
+	                        angle: -20
+	                    } 
+	                },
+	                yaxis: {
+	                	min: 0
+	                }
+	            },
+	            
+	            cursor:{
+		            show: true,
+		            zoom: true,
+		            looseZoom: true
+		        } 
+	        });
+	    }
+
+	    function drawpie(id, caption, data) {
+	    	$('#'+id).empty();
+	        var plot = $.jqplot(id, [data], {
+	            title : caption,
+	            animate : !$.jqplot.use_excanvas,
+	            seriesDefaults:{
+	                renderer:$.jqplot.PieRenderer,
+	                pointLabels: { show: true },
+	                rendererOptions: {
+	                	showDataLabels: true
+	                }
+	            },
+	            legend: { show:true, location: 'e' }
+	        });
+	    }
+
+	    function drawline(id, caption, data) {
+	        $('#'+id).empty();
+	        plot = $.jqplot(id, [data], {
+	            title : caption,
+	            // seriesColors:['rgba(75,178,197,0.9)'],
+	            animate : !$.jqplot.use_excanvas,
+	            seriesDefaults:{
+	                pointLabels: { show: true }
+	            },
+	            axes: {
+	                xaxis: {
+	                    // renderer: $.jqplot.CategoryAxisRenderer,
+	                    tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+	                    // ticks: ticks,
+	                    // tickOptions: {
+	                    //     angle: 0
+	                    // } 
+	                    min: -1,
+	                    max: 24,
+	                }
+	            },
+	            highlighter: { show: true }
+	        });
+	    }
+
+		$(function() {
+			$.jqplot.config.enablePlugins = true;
+			$("#tabs").tabs({
+				activate: function( event, ui ) {
+					drawpie('ip-size', 'Quota Distrbution by IP',[ ${','.join(ip_size)} ]);
+					drawpie('ip-request', 'Request Distrbution by IP',[ ${','.join(ip_request)} ]);
+					drawline('hour-request', 'Request Distrbution by hour', [ ${','.join(hour_request)} ]);
+					drawline('hour-size', 'Quota Distrbution by hour', [ ${','.join(hour_size)} ]);
+					drawbar('month-request', 'Request Distrbution by month', [ ${','.join(month_request[1])} ], [ ${','.join(month_request[0])} ]);
+					drawbar('month-size', 'Quota Distrbution by month', [ ${','.join(month_size[1])} ], [ ${','.join(month_size[0])} ]);
+					drawbarzoom('day-request', 'Request Distrbution by day', [ ${','.join(day_request)} ],null);
+					drawbarzoom('day-size', 'Request Distrbution by day', [ ${','.join(day_size)} ],null);
+					// drawbarzoom('day-request', 'Request Distrbution by day', [ ${','.join(day_request[1])} ], [ ${','.join(day_request[0])} ]);
+					// drawbarzoom('day-size', 'Quota Distrbution by day', [ ${','.join(day_size[1])} ], [ ${','.join(day_size[0])} ]);
+					drawbar('site-request', 'Request Distrbution by site', [ ${', '.join(site_request[1])} ], [ '${"', '".join(site_request[0])}' ]);
+					drawbar('site-size', 'Quota Distrbution by site', [ ${', '.join(site_size[1])} ], [ '${"', '".join(site_size[0])}' ]);
+				}
+			});
+			$("#tabs").tabs('load',0);
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="tabs">
+		<ul>
+			<li><a href="#tab-site">Sites</a></li>
+			<li><a href="#tab-ip">IPs</a></li>
+			<li><a href="#tab-month">Months</a></li>
+			<li><a href="#tab-day">Days</a></li>
+			<li><a href="#tab-hour">Hours</a></li>
+		</ul>
+		<div id="tab-site">
+			<table style="width:100%;">
+				<tr>
+					<td><div class="jqplot" id="site-size" style="width:100%;height:300px;"></div></td>
+				</tr>
+				<tr>
+					<td><div class="jqplot" id="site-request" style="width:100%;height:300px;"></div></td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab-ip">
+			<table style="width:100%;">
+				<tr>
+					<td style="width:50%;"><div class="jqplot" id="ip-size" style="width:100%;height:500px;"></div></td>
+					<td style="width:50%;"><div class="jqplot" id="ip-request" style="width:100%;height:500px;"></div></td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab-month">
+			<table style="width:100%;">
+				<tr>
+					<td><div class="jqplot" id="month-size" style="width:100%;height:300px;"></div></td>
+				</tr>
+				<tr>
+					<td><div class="jqplot" id="month-request" style="width:100%;height:300px;"></div></td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab-day">
+			<table style="width:100%;">
+				<tr>
+					<td><div class="jqplot" id="day-size" style="width:100%;height:300px;"></div></td>
+				</tr>
+				<tr>
+					<td><div class="jqplot" id="day-request" style="width:100%;height:300px;"></div></td>
+				</tr>
+			</table>
+		</div>
+		<div id="tab-hour">
+			<table style="width:100%;">
+				<tr>
+					<td><div class="jqplot" id="hour-size" style="width:100%;height:300px;"></div></td>
+				</tr>
+				<tr>
+					<td><div class="jqplot" id="hour-request" style="width:100%;height:300px;"></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

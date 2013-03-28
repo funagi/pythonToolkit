@@ -1,16 +1,28 @@
 cron:
 - description: weekly update game list in Character and Seiyuu
   url: /maintain
-  schedule: every 7 days
+  schedule: every monday 22:00
 
-- description: weekly update fulltext index of seiyuu
+- description: weekly clear fulltext index of seiyuu
+  url: /maintain/clearindex?name=seiyuu
+  schedule: every tuesday 20:00
+
+- description: weekly add fulltext index of seiyuu
   url: /maintain/index?name=seiyuu
-  schedule: every 7 days
+  schedule: every tuesday 22:00
 
-- description: weekly update fulltext index of game
+- description: weekly clear fulltext index of game
   url: /maintain/index?name=game
-  schedule: every 7 days
+  schedule: every wednesday 20:00
 
-- description: weekly update fulltext index of character
+- description: weekly add fulltext index of game
+  url: /maintain/index?name=game
+  schedule: every wednesday 22:00
+
+- description: weekly clear fulltext index of character
   url: /maintain/index?name=character
-  schedule: every 7 days
+  schedule: every thursday 20:00
+
+- description: weekly add fulltext index of character
+  url: /maintain/index?name=character
+  schedule: every thursday 22:00

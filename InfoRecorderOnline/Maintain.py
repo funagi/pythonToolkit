@@ -98,6 +98,7 @@ class IndexBuilder(webapp.RequestHandler):
                             search.TextField(name='Characters', value=' '.join(characters)),
                             search.TextField(name='Seiyuus', value=' '.join(seiyuus)),
                             search.TextField(name='Romajis', value=' '.join(romajis)),
+                            search.TextField(name='Image', value=str(g.Icon.key())),
                     ])
                 try:
                     gmIndex.put(gamedoc)
@@ -146,6 +147,7 @@ class IndexBuilder(webapp.RequestHandler):
                             search.TextField(name='Romaji', value=romaji),
                             search.TextField(name='Seiyuu', value=chara.getSeiyuuName()),
                             search.TextField(name='SeiyuuMain', value=chara.getMain()),
+                            search.TextField(name='Image', value=str(chara.image.key())),
                     ])
                 try:
                     chrIndex.put(charadoc)

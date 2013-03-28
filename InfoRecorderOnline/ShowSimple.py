@@ -34,22 +34,26 @@ class ShowCenterComplete(webapp.RequestHandler):
                 'game' : {
                     'serve_url' : '/show/complete/game', 
                     'columns' : '7', 
-                    'headers': ['图标', '名称', '会社', '发行日期', '开始日期', '结束日期', '编辑']
+                    'headers': ['图标', '名称', '会社', '发行日期', '开始日期', '结束日期', '编辑'],
+                    'serverside' : 'false'
                     },
                 'chara' : {
                     'serve_url' : '/show/complete/chara', 
                     'columns' : '5', 
-                    'headers': ['Image', 'CID', 'Name', 'Romaji', 'Seiyuu', 'SID', 'Action']
+                    'headers': ['Image', 'CID', 'Name', 'Romaji', 'Seiyuu', 'SID', 'Action'],
+                    'serverside' : 'false'
                     },
                 'seiyuu' : {
                     'serve_url' : '/show/complete/seiyuu', 
                     'columns' : '4', 
-                    'headers': ['SID', 'Name', 'isMain', 'VADB Link']
+                    'headers': ['SID', 'Name', 'isMain', 'VADB Link'],
+                    'serverside' : 'false'
                     },
                 'comp' : {
                     'serve_url' : '/show/complete/comp', 
                     'columns' : '2', 
-                    'headers': ['序号', '名称']
+                    'headers': ['序号', '名称'],
+                    'serverside' : 'false'
                     },
                 }
 
@@ -169,24 +173,28 @@ class ShowCenter(webapp.RequestHandler):
         else:
             type_map = {
                 'game' : {
-                    'serve_url' : '/show/game', 
+                    'serve_url' : '/show/search?type=Game', 
                     'columns' : '7', 
-                    'headers': ['图标', '名称', '会社', '发行日期', '开始日期', '结束日期', '编辑']
+                    'headers': ['图标', '名称', '会社', '发行日期', '开始日期', '结束日期', '编辑'],
+                    'serverside' : 'true'
                     },
                 'chara' : {
-                    'serve_url' : '/show/chara', 
+                    'serve_url' : '/show/search?type=Character', 
                     'columns' : '5', 
-                    'headers': ['Image', 'CID', 'Name', 'Romaji', 'Seiyuu', 'SID', 'Action']
+                    'headers': ['Image', 'CID', 'Name', 'Romaji', 'Seiyuu', 'SID', 'Action'],
+                    'serverside' : 'true'
                     },
                 'seiyuu' : {
-                    'serve_url' : '/show/seiyuu', 
+                    'serve_url' : '/show/search?type=Seiyuu', 
                     'columns' : '4', 
-                    'headers': ['SID', 'Name', 'isMain', 'VADB Link']
+                    'headers': ['SID', 'Name', 'isMain', 'VADB Link'],
+                    'serverside' : 'true'
                     },
                 'comp' : {
-                    'serve_url' : '/show/comp', 
+                    'serve_url' : '/show/complete/comp', 
                     'columns' : '2', 
-                    'headers': ['序号', '名称']
+                    'headers': ['序号', '名称'],
+                    'serverside' : 'false'
                     },
                 }
 
@@ -202,20 +210,21 @@ class ShowCenter(webapp.RequestHandler):
 class ShowSearch(webapp.RequestHandler):
     def get(self):
         type_map = {
-            'Character': {
-                'headers':['Games','GamesCount','Name','isMain','sid','snum'],
-                'before':[],
-                'after':[]
+            'Seiyuu': {
+                'headers': ['sid','Name','isMain','snum','GamesCount'],
+                'before' : ['', '', '', '', ''],
+                'after'  : ['', '', '', '', '']
             },
             'Game': {
-                'headers':['Characters','Company','Days','Finish_Date','Genre','Name','Release_Date','Romajis','Seiyuus','Start_Date','Time'],
-                'before':[],
-                'after':[]
+                #'headers':['Characters','Company','Days','Finish_Date','Genre','Name','Release_Date','Romajis','Seiyuus','Start_Date','Time'],
+                'headers': ['Image','Name','Company','Release_Date','Days','Start_Date','Finish_Date','Genre','Time'],
+                'before' : ['<img src="/data?key=', '', '', '', '', '', '', '', ''],
+                'after'  : ['" width=50 height=50/>', '', '', '', '', '', '', '', '']
             },
-            'Seiyuu': {
-                'headers':['Name','cid','sid','Romaji','Seiyuu','SeiyuuMain'],
-                'before':[],
-                'after':[]
+            'Character': {
+                'headers': ['Image','cid','Name','Romaji','Seiyuu','SeiyuuMain','sid'],
+                'before' : ['<img src="/data?key=', '', '', '', '', '', '<a href="/edit/charadetail?key='],
+                'after'  : ['" width=50 height=50/>', '', '', '', '', '', '">Edit</a>']
             },
         }
         sortdir_map = {
@@ -227,7 +236,7 @@ class ShowSearch(webapp.RequestHandler):
         index_name = self.request.get('type','')
         keyword = self.request.get('sSearch','')
         sEcho = self.request.get('sEcho',0)
-        sort = self.request.get('iSortingCols','0')
+        sort = self.request.get('iSortingCols','1')
         sortdir = self.request.get('sSortDir','asc')
         charas = Character.all()
         iTotalRecords = charas.count()
@@ -255,7 +264,11 @@ class ShowSearch(webapp.RequestHandler):
         datalist = []
         logging.info('%s : %d'%(keyword, results.number_found))
         for res in results:
-            datalist.append([unicode(res.fields[x].value) for x in xrange(0,len(res.fields))])
+            entry = []
+            for column in colinfo['headers']:
+                i = colinfo['headers'].index(column)
+                entry.append( colinfo['before'][i] + unicode(res.field(column).value) + colinfo['after'][i] )
+            datalist.append(entry)
 
         #----end------------------------------------------------------------------------------------------
         jsondata = {

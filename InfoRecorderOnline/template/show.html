@@ -6,15 +6,15 @@
 {% endcomment %}
 <script>
 	
-		$("#{{ serve_url|cut:"/" }}maintable").dataTable({
+		$("#{{ serve_url|cut:"/"|cut:"="|cut:"?" }}maintable").dataTable({
 			"bProcessing": true,
-	        "bServerSide": false,
+	        "bServerSide": {{ serverside }},
 	        "sAjaxSource": "{{ serve_url }}"
 			});
 
 </script>
 <div class="showcontent">
-	<table id="{{ serve_url|cut:"/" }}maintable">
+	<table id="{{ serve_url|cut:"/"|cut:"="|cut:"?" }}maintable">
 		<!-- Header /-->
 		<thead>
 			<tr>

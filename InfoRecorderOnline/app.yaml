@@ -39,7 +39,7 @@ handlers:
 - url: /show.*
   script: ShowSimple.py
 
-- url: /search
+- url: /search.*
   script: Search.py
 
 - url: /add.*

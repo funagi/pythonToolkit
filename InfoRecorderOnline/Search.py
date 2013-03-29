@@ -5,10 +5,7 @@ from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 from basetypes import *
-import os,datetime,logging
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-from google.appengine.dist import use_library
-use_library('django', '0.96')
+import os,datetime,logging,json
     
 class Search(webapp.RequestHandler):
     def get(self):
@@ -45,9 +42,29 @@ class Search(webapp.RequestHandler):
         #----end------------------------------------------------------------------------------------------
         self.response.out.write(template.render(path,template_values))
 
+class SearchGameBySeiyuu(webapp.RequestHandler):
+    def get(self):
+        dataid = self.request.get('snum','0')
+        datalist = []
+        if dataid == '0':
+            pass
+        else:
+            syquery = Query(Seiyuu)
+            sys = syquery.filter('snum =',int(dataid)).run()
+            for sy in sys:
+                for gstr in sy.Games:
+                    g = db.get(gstr)
+                    datalist.append({
+                        'icon' : str(g.Icon.key()),
+                        'name' : g.Name
+                        })
+        self.response.out.write(json.dumps(datalist))
 
 def main():
-    application = webapp.WSGIApplication([(r'/.*', Search)],debug=True)
+    application = webapp.WSGIApplication([
+        (r'/search/game.*', SearchGameBySeiyuu),
+        (r'/.*', Search)
+        ],debug=True)
     run_wsgi_app(application)
 
 if __name__ == "__main__":

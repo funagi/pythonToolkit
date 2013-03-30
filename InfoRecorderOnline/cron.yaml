@@ -4,7 +4,7 @@ cron:
   schedule: every monday 22:00
 
 - description: weekly clear fulltext index of seiyuu
-  url: /maintain/clearindex?name=seiyuu
+  url: /maintain/clearindex?name=Seiyuu
   schedule: every tuesday 20:00
 
 - description: weekly add fulltext index of seiyuu
@@ -12,7 +12,7 @@ cron:
   schedule: every tuesday 22:00
 
 - description: weekly clear fulltext index of game
-  url: /maintain/index?name=game
+  url: /maintain/clearindex?name=Game
   schedule: every wednesday 20:00
 
 - description: weekly add fulltext index of game
@@ -20,7 +20,7 @@ cron:
   schedule: every wednesday 22:00
 
 - description: weekly clear fulltext index of character
-  url: /maintain/index?name=character
+  url: /maintain/clearindex?name=Character
   schedule: every thursday 20:00
 
 - description: weekly add fulltext index of character

@@ -15,7 +15,6 @@ class DataServe(blobstore_handlers.BlobstoreDownloadHandler):
                 self.error(404)
             else:
                 self.send_blob(blob)
-                logging.info(blob.size)
         except:
             logging.error(data_key)
 

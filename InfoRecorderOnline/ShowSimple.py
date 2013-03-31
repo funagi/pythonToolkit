@@ -122,7 +122,7 @@ class ShowGameComplete(webapp.RequestHandler):
                 item.rDate.strftime('%Y-%m-%d'),
                 item.pDate1.strftime('%Y-%m-%d'),
                 item.pDate2.strftime('%Y-%m-%d'),
-                '<a href="/edit?key=%s">Edit</a><br/><a href="/edit/character?key=%s">Edit Characters</a>'%(item,item)
+                '<a href="/edit?key=%s">Edit</a><br/><a href="/edit/character?key=%s">Edit Characters</a>'%(item.key(),item.key())
                 ])
 
         jsondata = {

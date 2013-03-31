@@ -252,6 +252,8 @@ class EditGame(webapp.RequestHandler):
         game_temp.VADB = int(data['VADB'])
         game_temp.VNDB = int(data['VNDB'])
         game_temp.EGS = int(data['EGS'])
+        game_temp.Genre = unicode(data['Genre'])
+        game_temp.Time = float(data['Time'])
         #parse dates
         game_temp.rDate = datefromiso(data['rDate'])
         game_temp.pDate1 = datefromiso(data['pDate1'])

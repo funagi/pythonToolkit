@@ -56,15 +56,23 @@
                     </tr>
                     <tr class="row">
                         <td>VADB Number:</td>
-                        <td><input type="text" name="VADB" value="{{ game.VADB.key }}"/></td>
+                        <td><input type="text" name="VADB" value="{{ game.VADB }}"/></td>
                     </tr>
                     <tr class="row">
                         <td>VNDB Number:</td>
-                        <td><input type="text" name="VNDB" value="{{ game.VNDB.key }}"/></td>
+                        <td><input type="text" name="VNDB" value="{{ game.VNDB }}"/></td>
                     </tr>
                     <tr class="row">
                         <td>EGS Number:</td>
-                        <td><input type="text" name="EGS" value="{{ game.EGS.key }}"/></td>
+                        <td><input type="text" name="EGS" value="{{ game.EGS }}"/></td>
+                    </tr>
+                    <tr class="row">
+                        <td>Genre:</td>
+                        <td><input type="text" name="Genre" value="{{ game.Genre }}"/></td>
+                    </tr>
+                    <tr class="row">
+                        <td>Time:</td>
+                        <td><input type="text" name="Time" value="{{ game.Time }}"/></td>
                     </tr>
                     <tr class="row">
                         <td>Hidden:</td>
@@ -77,7 +85,7 @@
                 </table>
                 <div>
                     <input type="hidden" name="key" value="{{ game.key }}"/>
-                    <input type="submit" value="Upload" />
+                    <input type="submit" value="Save Changes" />
                 </div>
             </form>
         </center>

@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    {% if account %} 
+	    {% if not account.isclosed %}
+	     <a href="/account/edit/{{ account.id }}" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Edit" %}</a> 
+	     <a href="/account/delete/{{ account.id }}" class="btn"><span class="icon icon-cancel">&nbsp;</span>{% trans "Delete" %}</a>
+	    {% else %}
+	        <a href="/account/open/{{ account.id }}" class="btn"><span class="icon icon-cancel">&nbsp;</span>{% trans "Open Account" %}</a>
+	        <div class="box box-error">{% trans "This account has been closed" %}</div>
+	    {% endif %}
+     
+	    <ul>
+	        <li>{% trans "Account Name" %}: {{ account.name }} </li>
+	        <li>{% trans "Account Type" %}: {{ account.type }} </li> 
+	        <li>{% trans "Initail Amount" %}: {{ account.initmoney|floatformat:2 }} {{ account.currency }}</li>
+	        <li>{% trans "Total Amount" %}: {{ account.totalmoney|floatformat:2 }} {{ account.currency }}</li>
+	        <li>{% trans "Create Date" %}: {{ account.createtime|date:"Y-m-d H:i:s" }}</li>                
+	    </ul>
+     
+	    {% if account.description %}
+	     <div class="box">{% trans "Description" %}<br>
+	      <p>
+	      {{ account.description }}
+	      </p>
+	     </div>
+	    {% endif %}
+     
+	    <div id="tabs">
+	    <ul>
+	        <li><a class="corner-tl" href="#tabs-1">{% trans "Money Income and Expense" %}</a></li>
+	        <li><a class="" href="#tabs-2">{% trans "Money Transfer" %} ({% trans "From Account" %})</a></li>
+	        <li><a class="" href="#tabs-3">{% trans "Money Transfer" %} ({% trans "To Account" %})</a></li>
+	        <li><a class="corner-tr" href="#tabs-4">{% trans "Money Borrow and Lend" %}</a></li>
+	    </ul>
+	    <div id="tabs-1">
+	        <table class="display stylized" id="moneyiotable">
+	         <thead>
+	             <tr>
+	                 <th>{% trans "Happen Date" %}</th>
+	                 <th>{% trans "Money Input and Expense Type" %}</th>
+	                 <th>{% trans "Ammount" %}</th>
+	                 <th>{% trans "Account Name" %}</th>
+	                 <th>{% trans "Operation" %}</th>
+	             </tr>
+	         </thead>
+	         <tbody>
+	             <tr>
+	                 <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+	             </tr>
+	         </tbody>
+	         <tfoot>
+	             <tr>
+	                 <th>{% trans "Happen Date" %}</th>
+	                 <th>{% trans "Money Input and Expense Type" %}</th>
+	                 <th>{% trans "Ammount" %}</th>
+	                 <th>{% trans "Account Name" %}</th>
+	                 <th>{% trans "Operation" %}</th>
+	             </tr>
+	         </tfoot>
+	        </table>
+	    </div>
+	    
+	    <div id="tabs-2">
+	     <table class="display stylized" id="moneytransferfromtable">
+	         <thead>
+	             <tr>
+	                 <th>{% trans "Happen Date" %}</th>
+	                 <th>{% trans "From Account" %}</th>
+	                 <th>{% trans "To Account" %}</th>
+	                 <th>{% trans "Ammount" %}</th>
+	                 <th>{% trans "Operation" %}</th>
+	             </tr>
+	         </thead>
+	         <tbody>
+	             <tr>
+	                 <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+	             </tr>
+	         </tbody>
+	         <tfoot>
+	             <tr>
+	                 <th>{% trans "Happen Date" %}</th>
+	                 <th>{% trans "From Account" %}</th>
+	                 <th>{% trans "To Account" %}</th>
+	                 <th>{% trans "Ammount" %}</th>
+	                 <th>{% trans "Operation" %}</th>
+	             </tr>
+	         </tfoot>
+	     </table>
+	    </div>
+	    
+	    <div id="tabs-3">
+	     <table class="display stylized" id="moneytransfertotable">
+	         <thead>
+	             <tr>
+	                 <th>{% trans "Happen Date" %}</th>
+	                 <th>{% trans "From Account" %}</th>
+	                 <th>{% trans "To Account" %}</th>
+	                 <th>{% trans "Ammount" %}</th>
+	                 <th>{% trans "Operation" %}</th>
+	             </tr>
+	         </thead>
+	         <tbody>
+	             <tr>
+	                 <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+	             </tr>
+	         </tbody>
+	         <tfoot>
+	             <tr>
+	                 <th>{% trans "Happen Date" %}</th>
+	                 <th>{% trans "From Account" %}</th>
+	                 <th>{% trans "To Account" %}</th>
+	                 <th>{% trans "Ammount" %}</th>
+	                 <th>{% trans "Operation" %}</th>
+	             </tr>
+	         </tfoot>
+	     </table>
+	    </div>
+	    
+	    <div id="tabs-4">
+			<table class="display stylized" id="moneybltable">
+			    <thead>
+			        <tr>
+			            <th>{% trans "Happen Date" %}</th>
+			            <th>{% trans "Account Name" %}</th>
+			            <th>{% trans "Borrow or Lend" %}</th>
+			            <th>{% trans "Ammount" %}</th>
+			            <th>{% trans "Operation" %}</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr>
+			            <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+			        </tr>
+			    </tbody>
+			    <tfoot>
+			        <tr>
+			            <th>{% trans "Happen Date" %}</th>
+			            <th>{% trans "Account Name" %}</th>
+			            <th>{% trans "Borrow or Lend" %}</th>
+			            <th>{% trans "Ammount" %}</th>
+			            <th>{% trans "Operation" %}</th>
+			        </tr>
+			    </tfoot>
+			</table>
+		</div>
+	</div>
+     
+    <script type="text/javascript">
+         jQuery('#moneyiotable').dataTable( {
+             //"oLanguage": {"sUrl": "/static/zh_CN.txt"}
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/moneyio/account/{{ account.id }}/?model_name=moneyio"                                                        
+		} );
+
+         jQuery('#moneytransferfromtable').dataTable( {
+             //"oLanguage": {"sUrl": "/static/zh_CN.txt"}
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/moneytransfer/account/from/{{ account.id }}/?model_name=moneytransfer"
+		} );
+
+         jQuery('#moneytransfertotable').dataTable( {
+             //"oLanguage": {"sUrl": "/static/zh_CN.txt"}
+			"iDisplayLength": {{ pageinfo.page_size }},
+			"bProcessing": true,
+			"bServerSide": true,
+			"bPaginate": true,
+			"bLengthChange": false,
+			"bFilter": false,
+			"bSort": true,
+			"bInfo": true,
+			"bAutoWidth": false,
+			"sAjaxSource": "/moneytransfer/account/to/{{ account.id }}/?model_name=moneytransfer"
+		} );
+
+         jQuery('#moneybltable').dataTable( {
+             //"oLanguage": {"sUrl": "/static/zh_CN.txt"}
+			"iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/moneybl/account/{{ account.id }}/?model_name=moneybl"                                                        
+		} );                        
+	</script>
+    
+	{% else %}
+        <div class="box box-warning">{% trans "The account is not exists, maybe deleted" %}</div>
+    {% endif %}
+{% endblock %}

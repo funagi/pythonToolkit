@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            <a href="/object/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+
+            <table class="display stylized" id="objecttable">
+                <thead>
+                    <tr>
+                        <th>{% trans "Object Name" %}</th>
+                        <th>{% trans "Finish Date" %}</th>
+                        <th>{% trans "Object Amount" %}</th>
+                        <th>{% trans "Object Status" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+	             	<tr>
+	                	<td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+	            	</tr>
+	         	</tbody>
+                <tfoot>
+                    <tr>
+                        <th>{% trans "Object Name" %}</th>
+                        <th>{% trans "Finish Date" %}</th>
+                        <th>{% trans "Object Amount" %}</th>
+                        <th>{% trans "Object Status" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <script type="text/javascript">
+         jQuery('#objecttable').dataTable( {
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/get_json_data/?model_name=object"                                                        
+		} );
+		</script>
+{% endblock %}

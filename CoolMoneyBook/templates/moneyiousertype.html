@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            <a href="/moneyiousertype/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+            <div class="clear">&nbsp;</div>
+            {% if moneyiousertype_list %}
+            <table class="display stylized" id="example">
+                <thead>
+                    <tr>
+                        <th>{% trans "Money Income and Expense Type Name" %}</th>
+                        <th>{% trans "Income or Expense" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for moneyiousertype in moneyiousertype_list %}
+                    <tr>
+                        <td>{{ moneyiousertype.name }}</td>
+                        <td>{% if moneyiousertype.isio == 1 %}Income {% else %}Expense{% endif %}</td>
+                        <td><a href="/moneyiousertype/edit/{{ moneyiousertype.id }}/">{% trans "edit" %}</a> <span>|</span>
+                            <a href="/moneyiousertype/delete/{{ moneyiousertype.id }}/">{% trans "delete" %}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>{% trans "Money Income and Expense Type Name" %}</th>
+                        <th>{% trans "Income or Expense" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            {% else %}
+            <div class="box box-warning">{% trans "No records found" %}</div>
+            {% endif %}
+{% endblock %}

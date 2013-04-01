@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            {% if budget %}
+                <a href="/budget/edit/{{ budget.id }}" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Edit" %}</a> 
+            	<a href="/budget/delete/{{ budget.id }}" class="btn"><span class="icon icon-cancel">&nbsp;</span>{% trans "Delete" %}</a> 
+	            <ul>
+	                <li>{% trans "Budget Name" %}: {{ budget.name }} </li>
+	                <li>{% trans "Begin Date" %}: {{ budget.begindate|date:"Y-m-d" }} </li>
+	                <li>{% trans "End Date" %}: {{ budget.enddate|date:"Y-m-d" }} </li>
+	                <li>{% trans "Income Amount" %}: {{ budget.income|floatformat:2 }} {{ budget.currency }}</li>
+	                <li>{% trans "Expense Amount" %}: {{ budget.expense|floatformat:2 }} {{ budget.currency }}</li>	  
+	                <li>{% trans "Create Date" %}: {{ budget.createtime|date:"Y-m-d H:i:s" }}</li>              
+	            </ul>	            
+	            {% if budget.description %}
+	            <div class="box">{% trans "Description" %}<br>
+		            <p>
+		            {{ budget.description }}
+		            </p>
+	            </div>
+	            {% endif %}
+	            <h5>{% trans "Budget detail list" %}</h5>
+	            <hr>
+	            
+		            <table class="display stylized" id="budgetdetailexample">
+		                <thead>
+		                    <tr>
+		                        <th>{% trans "Money Income and Expense Type" %}</th>
+		                        <th>{% trans "Budget Amount" %}</th>
+		                        <th>{% trans "Actual Amount" %}</th>
+		                        <th>{% trans "Difference" %}</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                    <tr>
+		                    	<td colspan="4" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+		                    </tr>
+		                </tbody>
+		                <tfoot>
+		                    <tr>
+		                        <th>{% trans "Money Income and Expense Type" %}</th>
+		                        <th>{% trans "Budget Amount" %}</th>
+		                        <th>{% trans "Actual Amount" %}</th>
+		                        <th>{% trans "Difference" %}</th>
+		                    </tr>
+		                </tfoot>
+		            </table>
+		            <script type="text/javascript">
+		            jQuery('#budgetdetailexample').dataTable( {   			            
+						"bProcessing": true,
+						"bServerSide": false,
+						"bPaginate": false,
+						"bLengthChange": false,
+						"bFilter": true,
+						"bSort": true,
+						"bInfo": false,
+						"bAutoWidth": false,
+						"sAjaxSource": "/budget/data/{{ budget.id }}"
+					} );			            
+		            </script>
+          
+            {% else %}
+            	<div class="box box-warning">{% trans "The budget is not exists, maybe deleted" %}</div>
+            {% endif %}
+{% endblock %}

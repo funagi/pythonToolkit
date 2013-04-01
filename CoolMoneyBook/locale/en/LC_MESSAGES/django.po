@@ -1,0 +1,1060 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-18 15:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\settings.py:53
+msgid "Chinese"
+msgstr ""
+
+#: .\settings.py:54
+msgid "English"
+msgstr ""
+
+#: .\account\views.py:22 .\templates\account.html.py:10
+#: .\templates\account.html.py:24 .\templates\account_detail.html.py:14
+#: .\templates\account_detail.html.py:43 .\templates\account_detail.html.py:57
+#: .\templates\account_detail.html.py:125
+#: .\templates\account_detail.html.py:139 .\templates\alarm_detail.html.py:38
+#: .\templates\alarm_detail.html.py:52 .\templates\object_detail.html.py:26
+#: .\templates\object_detail.html.py:40
+#, fuzzy
+msgid "Account Name"
+msgstr "Add Account"
+
+#: .\account\views.py:23 .\templates\account.html.py:11
+#: .\templates\account.html.py:25 .\templates\account_detail.html.py:15
+#: .\templates\object_detail.html.py:27 .\templates\object_detail.html.py:41
+#, fuzzy
+msgid "Account Type"
+msgstr "Add Account"
+
+#: .\account\views.py:24 .\alarm\views.py:32 .\budget\views.py:27
+#: .\money\views.py:26 .\money\views.py:72 .\money\views.py:111
+#: .\money\views.py:160 .\money\views.py:177 .\object\views.py:25
+#: .\templates\alarm_detail.html.py:19 .\templates\moneyioanalyze.html.py:12
+#: .\templates\moneyiostat.html.py:12 .\templates\moneyiostat.html.py:78
+msgid "Currency"
+msgstr ""
+
+#: .\account\views.py:25
+#, fuzzy
+msgid "Initial Amount"
+msgstr "Add Account"
+
+#: .\account\views.py:26 .\admin\views.py:32 .\alarm\views.py:33
+#: .\budget\views.py:28 .\money\views.py:27 .\money\views.py:73
+#: .\money\views.py:113 .\object\views.py:26
+#: .\templates\account_detail.html.py:22 .\templates\alarm_detail.html.py:23
+#: .\templates\budget_detail.html.py:16 .\templates\object_detail.html.py:15
+msgid "Description"
+msgstr ""
+
+#: .\account\views.py:44
+msgid "The account name already exists"
+msgstr ""
+
+#: .\account\views.py:95 .\templates\common_add_edit.html.py:32
+#: .\templates\common_add_edit.html.py:33
+#: .\templates\common_add_edit.html.py:34
+#: .\templates\common_add_edit.html.py:35 .\templates\head.html.py:144
+msgid "Add Account"
+msgstr "Add Account"
+
+#: .\account\views.py:143
+#, fuzzy
+msgid "Edit Account"
+msgstr "Add Account"
+
+#: .\admin\views.py:20
+msgid "Help Title"
+msgstr ""
+
+#: .\admin\views.py:21 .\templates\foot.html.py:6 .\templates\foot.html.py:22
+#: .\templates\head.html.py:118
+msgid "Home"
+msgstr ""
+
+#: .\admin\views.py:22 .\templates\account_detail.html.py:31
+#: .\templates\alarm_detail.html.py:30 .\templates\index.html.py:23
+msgid "Money Income and Expense"
+msgstr ""
+
+#: .\admin\views.py:23 .\alarm\views.py:24 .\money\views.py:107
+#: .\money\views.py:154 .\money\views.py:176 .\object\views.py:23
+#: .\templates\alarm.html.py:9 .\templates\alarm.html.py:25
+#: .\templates\alarm_detail.html.py:11 .\templates\foot.html.py:8
+#: .\templates\foot.html.py:24 .\templates\head.html.py:141
+#: .\templates\index.html.py:46 .\templates\moneybl.html.py:10
+#: .\templates\moneybl.html.py:24 .\templates\moneyio.html.py:17
+#: .\templates\moneyio.html.py:33
+#, fuzzy
+msgid "Account"
+msgstr "Add Account"
+
+#: .\admin\views.py:24 .\templates\foot.html.py:9 .\templates\foot.html.py:25
+#: .\templates\head.html.py:148 .\templates\index.html.py:77
+msgid "Object"
+msgstr ""
+
+#: .\admin\views.py:25 .\cooluser\service.py:46 .\templates\foot.html.py:10
+#: .\templates\foot.html.py:26 .\templates\head.html.py:155
+msgid "Alarm"
+msgstr ""
+
+#: .\admin\views.py:26 .\templates\foot.html.py:11 .\templates\foot.html.py:27
+#: .\templates\head.html.py:162 .\templates\index.html.py:104
+msgid "Budget"
+msgstr ""
+
+#: .\admin\views.py:27 .\cooluser\views.py:311 .\templates\head.html.py:169
+#, fuzzy
+msgid "Setting"
+msgstr "Settings"
+
+#: .\admin\views.py:29
+msgid "Page Title"
+msgstr ""
+
+#: .\admin\views.py:31
+msgid "Abstract"
+msgstr ""
+
+#: .\admin\views.py:40
+msgid "Currency Name"
+msgstr ""
+
+#: .\admin\views.py:41
+msgid "Currency Symbol"
+msgstr ""
+
+#: .\admin\views.py:48 .\alarm\views.py:30 .\budget\views.py:47
+#: .\money\views.py:109 .\money\views.py:155 .\money\views.py:701
+#: .\templates\alarm_detail.html.py:17 .\templates\budget_detail.html.py:28
+#: .\templates\budget_detail.html.py:41 .\templates\head.html.py:131
+msgid "Money Income and Expense Type"
+msgstr ""
+
+#: .\admin\views.py:49
+msgid "Money Income and Expense Name"
+msgstr ""
+
+#: .\admin\views.py:67
+msgid "Admin"
+msgstr ""
+
+#: .\admin\views.py:107
+msgid "Add Currency"
+msgstr ""
+
+#: .\admin\views.py:139
+msgid "Edit Currency"
+msgstr ""
+
+#: .\admin\views.py:170
+#, fuzzy
+msgid "Add Account Type"
+msgstr "Add Account"
+
+#: .\admin\views.py:202
+#, fuzzy
+msgid "Edit Account Type"
+msgstr "Add Account"
+
+#: .\admin\views.py:234
+msgid "Add Money Income and Expense System Type"
+msgstr ""
+
+#: .\admin\views.py:266
+msgid "Edit Money Income and Expense System Type"
+msgstr ""
+
+#: .\admin\views.py:300
+msgid "Add Help Text"
+msgstr ""
+
+#: .\admin\views.py:336
+msgid "Edit Help Text"
+msgstr ""
+
+#: .\alarm\views.py:23 .\templates\alarm.html.py:8
+#: .\templates\alarm.html.py:24 .\templates\alarm_detail.html.py:10
+#, fuzzy
+msgid "Alarm Name"
+msgstr "Add Account"
+
+#: .\alarm\views.py:25 .\budget\views.py:25 .\money\views.py:152
+#: .\money\views.py:174 .\templates\alarm.html.py:10
+#: .\templates\alarm.html.py:26 .\templates\alarm_detail.html.py:12
+#: .\templates\budget.html.py:9 .\templates\budget.html.py:24
+#: .\templates\budget_detail.html.py:9
+msgid "Begin Date"
+msgstr ""
+
+#: .\alarm\views.py:26 .\budget\views.py:26 .\money\views.py:153
+#: .\money\views.py:175 .\templates\alarm.html.py:11
+#: .\templates\alarm.html.py:27 .\templates\alarm_detail.html.py:13
+#: .\templates\budget.html.py:10 .\templates\budget.html.py:25
+#: .\templates\budget_detail.html.py:10
+msgid "End Date"
+msgstr ""
+
+#: .\alarm\views.py:27
+msgid "Year"
+msgstr ""
+
+#: .\alarm\views.py:27
+msgid "Month"
+msgstr ""
+
+#: .\alarm\views.py:27
+msgid "Week"
+msgstr ""
+
+#: .\alarm\views.py:27
+msgid "Day"
+msgstr ""
+
+#: .\alarm\views.py:27 .\templates\alarm.html.py:12
+#: .\templates\alarm.html.py:28 .\templates\alarm_detail.html.py:14
+msgid "Cycle Type"
+msgstr ""
+
+#: .\alarm\views.py:28 .\templates\alarm.html.py:13
+#: .\templates\alarm.html.py:29 .\templates\alarm_detail.html.py:15
+msgid "Cycle Value"
+msgstr ""
+
+#: .\alarm\views.py:29 .\templates\alarm_detail.html.py:16
+msgid "Auto Generate Money Income and Expense"
+msgstr ""
+
+#: .\alarm\views.py:31
+#, fuzzy
+msgid "Alarm Amount"
+msgstr "Add Account"
+
+#: .\alarm\views.py:50
+msgid "The alarm name already exists"
+msgstr ""
+
+#: .\alarm\views.py:61 .\budget\views.py:42
+msgid "The begin data should be earlier than end date"
+msgstr ""
+
+#: .\alarm\views.py:66 .\money\views.py:62 .\money\views.py:88
+#: .\money\views.py:130 .\object\views.py:51
+msgid "The amount should be more than zero"
+msgstr ""
+
+#: .\alarm\views.py:80 .\money\views.py:145
+#, python-format
+msgid "The account total amount (%(totalmoney)10.2f) is not enough to expense"
+msgstr ""
+
+#: .\alarm\views.py:135 .\templates\head.html.py:158
+msgid "Add Alarm"
+msgstr ""
+
+#: .\alarm\views.py:191
+msgid "Edit Alarm"
+msgstr ""
+
+#: .\budget\views.py:24 .\templates\budget.html.py:8
+#: .\templates\budget.html.py:23 .\templates\budget_detail.html.py:8
+msgid "Budget Name"
+msgstr ""
+
+#: .\budget\views.py:48 .\money\views.py:25 .\money\views.py:71
+#: .\money\views.py:110 .\templates\alarm_detail.html.py:18
+#: .\templates\index.html.py:129 .\templates\moneyioanalyze.html.py:19
+#: .\templates\moneyioanalyze.html.py:89 .\templates\moneyiostat.html.py:19
+#: .\templates\moneyiostat.html.py:41 .\templates\moneyiostat.html.py:85
+#, fuzzy
+msgid "Amount"
+msgstr "Add Account"
+
+#: .\budget\views.py:60
+msgid "Amount can not be negative"
+msgstr ""
+
+#: .\budget\views.py:113 .\templates\head.html.py:165
+msgid "Add Budget"
+msgstr ""
+
+#: .\budget\views.py:180
+#, fuzzy
+msgid "Edit Budget"
+msgstr "Add Account"
+
+#: .\budget\views.py:208
+#, fuzzy
+msgid "Budget Detail"
+msgstr "Add Account"
+
+#: .\cooluser\service.py:47
+msgid "You have an alarm "
+msgstr ""
+
+#: .\cooluser\service.py:220
+msgid ""
+"Your sina twitter account has been bind to another account, please login "
+"with your sina twitter account directly"
+msgstr ""
+
+#: .\cooluser\service.py:222 .\cooluser\service.py:237
+msgid "Your did not login"
+msgstr ""
+
+#: .\cooluser\service.py:235
+msgid ""
+"Your google account has been bind to another account, please login with your "
+"google account directly"
+msgstr ""
+
+#: .\cooluser\views.py:28
+#, fuzzy
+msgid "User Name"
+msgstr "Add Account"
+
+#: .\cooluser\views.py:29
+msgid "Male"
+msgstr ""
+
+#: .\cooluser\views.py:29
+msgid "Female"
+msgstr ""
+
+#: .\cooluser\views.py:29
+msgid "Gender"
+msgstr ""
+
+#: .\cooluser\views.py:31
+msgid "User Logo"
+msgstr ""
+
+#: .\cooluser\views.py:32
+msgid "Is receive mail"
+msgstr ""
+
+#: .\cooluser\views.py:33
+msgid "How many count in a page(1-50)"
+msgstr ""
+
+#: .\cooluser\views.py:46
+msgid "User name already exists"
+msgstr ""
+
+#: .\cooluser\views.py:55
+msgid "User email already exists"
+msgstr ""
+
+#: .\cooluser\views.py:64
+msgid "The page count should be in 1 to 50"
+msgstr ""
+
+#: .\cooluser\views.py:149
+msgid "Connect sina twitter fail, please retry"
+msgstr ""
+
+#: .\cooluser\views.py:195
+msgid "Auth sina twitter account failed, please retry."
+msgstr ""
+
+#: .\cooluser\views.py:256
+#, fuzzy
+msgid "Message Detail"
+msgstr "Add Account"
+
+#: .\model\models.py:42 .\model\models.py:75 .\model\models.py:131
+#: .\templates\alarm_detail.html.py:16
+msgid "Yes"
+msgstr ""
+
+#: .\model\models.py:44 .\model\models.py:77 .\model\models.py:133
+#: .\templates\alarm_detail.html.py:16
+msgid "No"
+msgstr ""
+
+#: .\model\models.py:136 .\model\models.py:177 .\model\models.py:180
+#: .\model\models.py:267 .\model\models.py:399 .\model\models.py:459
+msgid "View"
+msgstr ""
+
+#: .\model\models.py:136 .\model\models.py:180 .\model\models.py:267
+#: .\model\models.py:291 .\model\models.py:318 .\model\models.py:347
+#: .\model\models.py:399 .\model\models.py:459
+#: .\templates\account_detail.html.py:7 .\templates\alarm_detail.html.py:7
+#: .\templates\budget_detail.html.py:6 .\templates\message_detail.html.py:5
+#: .\templates\object_detail.html.py:6
+msgid "Delete"
+msgstr ""
+
+#: .\model\models.py:177 .\templates\account_detail.html.py:9
+#, fuzzy
+msgid "Open Account"
+msgstr "Add Account"
+
+#: .\model\models.py:180 .\model\models.py:267 .\model\models.py:291
+#: .\model\models.py:318 .\model\models.py:347 .\model\models.py:399
+#: .\model\models.py:459 .\templates\account_detail.html.py:6
+#: .\templates\alarm_detail.html.py:6 .\templates\budget_detail.html.py:5
+#: .\templates\object_detail.html.py:5
+msgid "Edit"
+msgstr ""
+
+#: .\model\models.py:216 .\model\models.py:225 .\money\views.py:191
+#: .\templates\budget.html.py:26 .\templates\index.html.py:143
+#: .\templates\moneyioanalyze.html.py:18 .\templates\moneyiostat.html.py:18
+#: .\templates\moneyiostat.html.py:112
+#, fuzzy
+msgid "Income"
+msgstr "Welcome"
+
+#: .\model\models.py:218 .\model\models.py:227 .\money\views.py:191
+#: .\templates\budget.html.py:27 .\templates\index.html.py:151
+#: .\templates\moneyioanalyze.html.py:88 .\templates\moneyiostat.html.py:40
+#: .\templates\moneyiostat.html.py:116
+msgid "Expense"
+msgstr ""
+
+#: .\model\models.py:313 .\money\views.py:70
+msgid "Borrow"
+msgstr ""
+
+#: .\model\models.py:315 .\money\views.py:70
+msgid "Lend"
+msgstr ""
+
+#: .\money\views.py:22 .\money\views.py:68 .\money\views.py:108
+#: .\templates\account_detail.html.py:40 .\templates\account_detail.html.py:54
+#: .\templates\account_detail.html.py:68 .\templates\account_detail.html.py:82
+#: .\templates\account_detail.html.py:96
+#: .\templates\account_detail.html.py:110
+#: .\templates\account_detail.html.py:124
+#: .\templates\account_detail.html.py:138 .\templates\alarm_detail.html.py:35
+#: .\templates\alarm_detail.html.py:49 .\templates\moneybl.html.py:9
+#: .\templates\moneybl.html.py:23 .\templates\moneyio.html.py:14
+#: .\templates\moneyio.html.py:30 .\templates\moneytransfer.html.py:8
+#: .\templates\moneytransfer.html.py:20
+msgid "Happen Date"
+msgstr ""
+
+#: .\money\views.py:23 .\money\views.py:69
+#: .\templates\account_detail.html.py:32 .\templates\account_detail.html.py:69
+#: .\templates\account_detail.html.py:83 .\templates\account_detail.html.py:97
+#: .\templates\account_detail.html.py:111 .\templates\moneytransfer.html.py:9
+#: .\templates\moneytransfer.html.py:21
+#, fuzzy
+msgid "From Account"
+msgstr "Add Account"
+
+#: .\money\views.py:24 .\templates\account_detail.html.py:33
+#: .\templates\account_detail.html.py:70 .\templates\account_detail.html.py:84
+#: .\templates\account_detail.html.py:98
+#: .\templates\account_detail.html.py:112 .\templates\moneytransfer.html.py:10
+#: .\templates\moneytransfer.html.py:22
+#, fuzzy
+msgid "To Account"
+msgstr "Add Account"
+
+#: .\money\views.py:44
+msgid "The from account should not be same as to account"
+msgstr ""
+
+#: .\money\views.py:52
+#, python-format
+msgid ""
+"The from account total amount (%(totalmoney)10.2f) is not enough to transfer"
+msgstr ""
+
+#: .\money\views.py:101
+#, python-format
+msgid "The account total amount (%(totalmoney)10.2f) is not enough to borrow"
+msgstr ""
+
+#: .\money\views.py:112
+msgid "Is Share"
+msgstr ""
+
+#: .\money\views.py:206
+msgid "The Money Income and Expense name already exists"
+msgstr ""
+
+#: .\money\views.py:215 .\templates\head.html.py:128
+msgid "Money Income and Expense Analyze"
+msgstr ""
+
+#: .\money\views.py:276 .\templates\head.html.py:125
+#: .\templates\moneyiostat.html.py:70
+msgid "Money Income and Expense Statistics"
+msgstr ""
+
+#: .\money\views.py:345 .\templates\account_detail.html.py:34
+#: .\templates\head.html.py:137
+msgid "Money Borrow and Lend"
+msgstr ""
+
+#: .\money\views.py:371
+msgid "Add Money Borrow and Lend"
+msgstr ""
+
+#: .\money\views.py:416
+msgid "Edit Money Borrow and Lend"
+msgstr ""
+
+#: .\money\views.py:440 .\templates\account_detail.html.py:32
+#: .\templates\account_detail.html.py:33 .\templates\head.html.py:134
+msgid "Money Transfer"
+msgstr ""
+
+#: .\money\views.py:466
+msgid "Add Money Transfer"
+msgstr ""
+
+#: .\money\views.py:514
+msgid "Edit Money Transfer"
+msgstr ""
+
+#: .\money\views.py:625 .\templates\head.html.py:122
+msgid "Add Money Income and Expense"
+msgstr ""
+
+#: .\money\views.py:676
+msgid "Edit Money Income and Expense"
+msgstr ""
+
+#: .\money\views.py:727 .\templates\common_add_edit.html.py:30
+#: .\templates\common_add_edit.html.py:31
+msgid "Add Money Income and Expense Type"
+msgstr ""
+
+#: .\money\views.py:759
+msgid "Edit Money Income and Expense Type"
+msgstr ""
+
+#: .\object\views.py:21 .\templates\object.html.py:9
+#: .\templates\object.html.py:23 .\templates\object_detail.html.py:8
+#, fuzzy
+msgid "Object Name"
+msgstr "Add Account"
+
+#: .\object\views.py:22 .\templates\object.html.py:10
+#: .\templates\object.html.py:24 .\templates\object_detail.html.py:9
+msgid "Finish Date"
+msgstr ""
+
+#: .\object\views.py:24 .\templates\object.html.py:11
+#: .\templates\object.html.py:25 .\templates\object_detail.html.py:10
+#, fuzzy
+msgid "Object Amount"
+msgstr "Add Account"
+
+#: .\object\views.py:42
+msgid "The object name already exists"
+msgstr ""
+
+#: .\object\views.py:77
+#, fuzzy
+msgid "Object Detail"
+msgstr "Add Account"
+
+#: .\object\views.py:112 .\templates\head.html.py:151
+msgid "Add Object"
+msgstr ""
+
+#: .\object\views.py:155
+#, fuzzy
+msgid "Edit Object"
+msgstr "Add Account"
+
+#: .\templates\404.html.py:4 .\templates\budget_add_edit.html.py:7
+#: .\templates\budget_add_edit.html.py:19
+#: .\templates\common_add_edit.html.py:7
+#: .\templates\common_add_edit.html.py:19 .\templates\user_setting.html.py:23
+#: .\templates\user_setting.html.py:35
+msgid "Errors"
+msgstr ""
+
+#: .\templates\404.html.py:7
+msgid "You request an error url"
+msgstr ""
+
+#: .\templates\404.html.py:8
+msgid "The page you request does not exists"
+msgstr ""
+
+#: .\templates\404.html.py:9
+msgid "You try to view the data which not belong to you"
+msgstr ""
+
+#: .\templates\500.html.py:4
+msgid "The page does not exists"
+msgstr ""
+
+#: .\templates\account.html.py:5 .\templates\alarm.html.py:4
+#: .\templates\budget.html.py:4 .\templates\index.html.py:39
+#: .\templates\index.html.py:68 .\templates\index.html.py:97
+#: .\templates\index.html.py:163 .\templates\moneybl.html.py:4
+#: .\templates\moneyio.html.py:4 .\templates\moneyiousertype.html.py:4
+#: .\templates\moneytransfer.html.py:4 .\templates\object.html.py:4
+msgid "Add"
+msgstr ""
+
+#: .\templates\account.html.py:12 .\templates\account.html.py:26
+#: .\templates\account_detail.html.py:17 .\templates\object_detail.html.py:28
+#: .\templates\object_detail.html.py:42 .\templates\sinaapp_base.html.py:31
+#: .\templates\sinaapp_base.html.py:35
+#, fuzzy
+msgid "Total Amount"
+msgstr "Add Account"
+
+#: .\templates\account.html.py:13 .\templates\account.html.py:27
+#: .\templates\account_detail.html.py:18 .\templates\alarm_detail.html.py:20
+#: .\templates\budget_detail.html.py:13 .\templates\message.html.py:11
+#: .\templates\message.html.py:25 .\templates\object_detail.html.py:11
+#: .\templates\object_detail.html.py:29 .\templates\object_detail.html.py:43
+msgid "Create Date"
+msgstr ""
+
+#: .\templates\account.html.py:14 .\templates\account.html.py:28
+#: .\templates\account_detail.html.py:44 .\templates\account_detail.html.py:58
+#: .\templates\account_detail.html.py:72 .\templates\account_detail.html.py:86
+#: .\templates\account_detail.html.py:100
+#: .\templates\account_detail.html.py:114
+#: .\templates\account_detail.html.py:128
+#: .\templates\account_detail.html.py:142 .\templates\alarm.html.py:14
+#: .\templates\alarm.html.py:30 .\templates\alarm_detail.html.py:39
+#: .\templates\alarm_detail.html.py:53 .\templates\budget.html.py:13
+#: .\templates\budget.html.py:28 .\templates\message.html.py:12
+#: .\templates\message.html.py:26 .\templates\moneybl.html.py:13
+#: .\templates\moneybl.html.py:27 .\templates\moneyio.html.py:18
+#: .\templates\moneyio.html.py:34 .\templates\moneyiousertype.html.py:12
+#: .\templates\moneyiousertype.html.py:30 .\templates\moneytransfer.html.py:12
+#: .\templates\moneytransfer.html.py:24 .\templates\object.html.py:13
+#: .\templates\object.html.py:27 .\templates\object_detail.html.py:30
+#: .\templates\object_detail.html.py:44
+msgid "Operation"
+msgstr ""
+
+#: .\templates\account.html.py:19 .\templates\account_detail.html.py:49
+#: .\templates\account_detail.html.py:77
+#: .\templates\account_detail.html.py:105
+#: .\templates\account_detail.html.py:133 .\templates\alarm.html.py:19
+#: .\templates\alarm_detail.html.py:44 .\templates\budget.html.py:18
+#: .\templates\budget_detail.html.py:36 .\templates\message.html.py:17
+#: .\templates\moneybl.html.py:18 .\templates\moneyio.html.py:24
+#: .\templates\moneytransfer.html.py:16 .\templates\object.html.py:18
+#: .\templates\object_detail.html.py:35
+msgid "Loading data from server"
+msgstr ""
+
+#: .\templates\account_detail.html.py:10
+msgid "This account has been closed"
+msgstr ""
+
+#: .\templates\account_detail.html.py:16
+#, fuzzy
+msgid "Initail Amount"
+msgstr "Add Account"
+
+#: .\templates\account_detail.html.py:41 .\templates\account_detail.html.py:55
+#: .\templates\alarm_detail.html.py:36 .\templates\alarm_detail.html.py:50
+#: .\templates\moneyio.html.py:15 .\templates\moneyio.html.py:31
+msgid "Money Input and Expense Type"
+msgstr ""
+
+#: .\templates\account_detail.html.py:42 .\templates\account_detail.html.py:56
+#: .\templates\account_detail.html.py:71 .\templates\account_detail.html.py:85
+#: .\templates\account_detail.html.py:99
+#: .\templates\account_detail.html.py:113
+#: .\templates\account_detail.html.py:127
+#: .\templates\account_detail.html.py:141 .\templates\alarm_detail.html.py:37
+#: .\templates\alarm_detail.html.py:51 .\templates\moneybl.html.py:12
+#: .\templates\moneybl.html.py:26 .\templates\moneyio.html.py:16
+#: .\templates\moneyio.html.py:32 .\templates\moneytransfer.html.py:11
+#: .\templates\moneytransfer.html.py:23
+#, fuzzy
+msgid "Ammount"
+msgstr "Add Account"
+
+#: .\templates\account_detail.html.py:126
+#: .\templates\account_detail.html.py:140 .\templates\moneybl.html.py:11
+#: .\templates\moneybl.html.py:25
+msgid "Borrow or Lend"
+msgstr ""
+
+#: .\templates\account_detail.html.py:208
+msgid "The account is not exists, maybe deleted"
+msgstr ""
+
+#: .\templates\admin.html.py:47 .\templates\admin.html.py:80
+#: .\templates\admin.html.py:116 .\templates\admin.html.py:158
+#: .\templates\index.html.py:38 .\templates\index.html.py:67
+#: .\templates\index.html.py:96 .\templates\index.html.py:162
+#: .\templates\moneyioanalyze.html.py:156 .\templates\moneyiostat.html.py:122
+#: .\templates\moneyiousertype.html.py:35 .\templates\sinaapp_index.html.py:52
+#: .\templates\sinaapp_user_index.html.py:60
+#: .\templates\sinaapp_user_view.html.py:53
+msgid "No records found"
+msgstr ""
+
+#: .\templates\alarm_detail.html.py:73
+msgid "The alarm is not exists, maybe deleted"
+msgstr ""
+
+#: .\templates\base.html.py:21
+msgid "help"
+msgstr ""
+
+#: .\templates\budget.html.py:11
+#, fuzzy
+msgid "Budget Income"
+msgstr "Welcome"
+
+#: .\templates\budget.html.py:12
+msgid "Budget Expense"
+msgstr ""
+
+#: .\templates\budget_add_edit.html.py:53
+#: .\templates\common_add_edit.html.py:38 .\templates\moneyio.html.py:59
+#: .\templates\moneyioanalyze.html.py:166 .\templates\moneyiostat.html.py:132
+#: .\templates\user_setting.html.py:48
+msgid "Submit"
+msgstr ""
+
+#: .\templates\budget_detail.html.py:11
+#, fuzzy
+msgid "Income Amount"
+msgstr "Add Account"
+
+#: .\templates\budget_detail.html.py:12
+#, fuzzy
+msgid "Expense Amount"
+msgstr "Add Account"
+
+#: .\templates\budget_detail.html.py:22
+msgid "Budget detail list"
+msgstr ""
+
+#: .\templates\budget_detail.html.py:29 .\templates\budget_detail.html.py:42
+#, fuzzy
+msgid "Budget Amount"
+msgstr "Add Account"
+
+#: .\templates\budget_detail.html.py:30 .\templates\budget_detail.html.py:43
+#, fuzzy
+msgid "Actual Amount"
+msgstr "Add Account"
+
+#: .\templates\budget_detail.html.py:31 .\templates\budget_detail.html.py:44
+msgid "Difference"
+msgstr ""
+
+#: .\templates\budget_detail.html.py:63
+msgid "The budget is not exists, maybe deleted"
+msgstr ""
+
+#: .\templates\foot.html.py:7 .\templates\foot.html.py:23
+#: .\templates\head.html.py:119
+msgid "Money"
+msgstr ""
+
+#: .\templates\foot.html.py:12 .\templates\foot.html.py:28
+#: .\templates\head.html.py:98
+msgid "Settings"
+msgstr "Settings"
+
+#: .\templates\foot.html.py:34
+msgid "scroll to top"
+msgstr ""
+
+#: .\templates\head.html.py:6 .\templates\head.html.py:86
+msgid "Cool Money Book"
+msgstr "Cool Money Book"
+
+#: .\templates\head.html.py:97
+msgid "Welcome"
+msgstr "Welcome"
+
+#: .\templates\head.html.py:99
+msgid "Logout"
+msgstr "Logout"
+
+#: .\templates\head.html.py:101 .\templates\sinaapp_user_index.html.py:28
+msgid "You have bind your account to Google"
+msgstr ""
+
+#: .\templates\head.html.py:105 .\templates\index.html.py:10
+#: .\templates\sinaapp_user_index.html.py:32
+msgid "You have bind your account to Sina Micro Blog"
+msgstr ""
+
+#: .\templates\head.html.py:108
+msgid "You have"
+msgstr ""
+
+#: .\templates\head.html.py:108
+msgid "new message"
+msgstr ""
+
+#: .\templates\head.html.py:111 .\templates\user_login.html.py:52
+msgid "Login"
+msgstr "Login"
+
+#: .\templates\index.html.py:7
+#, fuzzy
+msgid "Welcome back"
+msgstr "Welcome"
+
+#: .\templates\index.html.py:14
+#, fuzzy
+msgid "Last login"
+msgstr "Login"
+
+#: .\templates\index.html.py:117
+msgid "Budget this month"
+msgstr ""
+
+#: .\templates\message.html.py:8 .\templates\message.html.py:22
+msgid "Message Title"
+msgstr ""
+
+#: .\templates\message.html.py:9 .\templates\message.html.py:23
+msgid "Message Content"
+msgstr ""
+
+#: .\templates\message.html.py:10 .\templates\message.html.py:24
+msgid "Is Read"
+msgstr ""
+
+#: .\templates\message_detail.html.py:15
+msgid "The message is not exists, maybe deleted"
+msgstr ""
+
+#: .\templates\moneyio.html.py:53 .\templates\moneyioanalyze.html.py:160
+#: .\templates\moneyiostat.html.py:126
+msgid "Search Condition"
+msgstr ""
+
+#: .\templates\moneyioanalyze.html.py:32
+#: .\templates\moneyioanalyze.html.py:102 .\templates\moneyiostat.html.py:32
+#: .\templates\moneyiostat.html.py:54
+msgid "Total"
+msgstr ""
+
+#: .\templates\moneyioanalyze.html.py:46
+msgid "Income Analyze Chart"
+msgstr ""
+
+#: .\templates\moneyioanalyze.html.py:74
+#: .\templates\moneyioanalyze.html.py:144
+#, fuzzy
+msgid "Income Analyze"
+msgstr "Welcome"
+
+#: .\templates\moneyioanalyze.html.py:116
+msgid "Expense Analyze Chart"
+msgstr ""
+
+#: .\templates\moneyiousertype.html.py:10
+#: .\templates\moneyiousertype.html.py:28
+msgid "Money Income and Expense Type Name"
+msgstr ""
+
+#: .\templates\moneyiousertype.html.py:11
+#: .\templates\moneyiousertype.html.py:29
+msgid "Income or Expense"
+msgstr ""
+
+#: .\templates\moneyiousertype.html.py:20
+msgid "edit"
+msgstr ""
+
+#: .\templates\moneyiousertype.html.py:21
+msgid "delete"
+msgstr ""
+
+#: .\templates\object.html.py:12 .\templates\object.html.py:26
+#: .\templates\object_detail.html.py:13
+#, fuzzy
+msgid "Object Status"
+msgstr "Add Account"
+
+#: .\templates\object_detail.html.py:21
+#, fuzzy
+msgid "Account List"
+msgstr "Add Account"
+
+#: .\templates\object_detail.html.py:64
+msgid "The object is not exists, maybe deleted"
+msgstr ""
+
+#: .\templates\sinaapp_base.html.py:20 .\templates\user_login.html.py:57
+#: .\templates\user_setting.html.py:8
+msgid "Login with Sina micro blog account"
+msgstr ""
+
+#: .\templates\sinaapp_base.html.py:27
+#, fuzzy
+msgid "User Summary"
+msgstr "Add Account"
+
+#: .\templates\sinaapp_base.html.py:41
+msgid "Users"
+msgstr ""
+
+#: .\templates\sinaapp_base.html.py:60
+msgid "No user"
+msgstr ""
+
+#: .\templates\sinaapp_base.html.py:63
+msgid "More"
+msgstr ""
+
+#: .\templates\sinaapp_index.html.py:45
+#: .\templates\sinaapp_user_index.html.py:53
+#: .\templates\sinaapp_user_view.html.py:46
+msgid "Showing"
+msgstr ""
+
+#: .\templates\sinaapp_index.html.py:45
+#: .\templates\sinaapp_user_index.html.py:53
+#: .\templates\sinaapp_user_view.html.py:46
+msgid "of total"
+msgstr ""
+
+#: .\templates\sinaapp_index.html.py:45
+#: .\templates\sinaapp_user_index.html.py:53
+#: .\templates\sinaapp_user_view.html.py:46
+msgid "results"
+msgstr ""
+
+#: .\templates\sinaapp_user_index.html.py:22
+msgid "male"
+msgstr ""
+
+#: .\templates\sinaapp_user_index.html.py:24
+msgid "female"
+msgstr ""
+
+#: .\templates\sinaapp_user_index.html.py:35
+#, fuzzy
+msgid "User Join Time"
+msgstr "Add Account"
+
+#: .\templates\user_login.html.py:14
+#, fuzzy
+msgid "Welcome to Cool Money Book"
+msgstr "Cool Money Book"
+
+#: .\templates\user_login.html.py:16
+msgid ""
+"Cool Money Book is a free, online record money income and expense tool. It "
+"can help you to record your income and expense easy and you can do this job "
+"online."
+msgstr ""
+
+#: .\templates\user_login.html.py:18
+msgid ""
+"Now the Cool Money Book is just Beta. We'll develop it more better. If you "
+"like the cool money book, please save it to favorite. And please continue to "
+"see us. We will make the tool more better with your help."
+msgstr ""
+
+#: .\templates\user_login.html.py:27
+msgid "Create, manage your money account"
+msgstr ""
+
+#: .\templates\user_login.html.py:28
+msgid "Record the money income and expense"
+msgstr ""
+
+#: .\templates\user_login.html.py:29
+msgid "Help you to stat your money income and expense in your setting time"
+msgstr ""
+
+#: .\templates\user_login.html.py:30
+msgid "Help you to analyze your money income and expense"
+msgstr ""
+
+#: .\templates\user_login.html.py:31
+msgid "Manage your money income and expense type"
+msgstr ""
+
+#: .\templates\user_login.html.py:36
+msgid ""
+"Record the money borrow and lend, and the money transfer between your "
+"accounts"
+msgstr ""
+
+#: .\templates\user_login.html.py:37
+msgid "Setting your money object and view the status"
+msgstr ""
+
+#: .\templates\user_login.html.py:38
+msgid ""
+"Setting your alarm and help you to create the money income and expense "
+"automatically"
+msgstr ""
+
+#: .\templates\user_login.html.py:39
+msgid "Setting your budget and view the result"
+msgstr ""
+
+#: .\templates\user_login.html.py:55
+msgid "Login with Google account"
+msgstr ""
+
+#: .\templates\user_setting.html.py:6
+msgid ""
+"You can bind your account to sina twitter, than you can login cool money "
+"book with your sina twitter account directly."
+msgstr ""
+
+#: .\templates\user_setting.html.py:14
+msgid ""
+"You can bind your account to google, than you can login cool money book with "
+"your google account directly."
+msgstr ""
+
+#: .\templates\user_setting.html.py:16
+msgid "Login with your google account"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Account Detail"
+#~ msgstr "Add Account"
+
+#, fuzzy
+#~ msgid "Alarm Detail"
+#~ msgstr "Add Account"
+
+#, fuzzy
+#~ msgid "Min Amount"
+#~ msgstr "Add Account"
+
+#, fuzzy
+#~ msgid "budget Name"
+#~ msgstr "Add Account"
+
+#, fuzzy
+#~ msgid "object Name"
+#~ msgstr "Add Account"
+
+#, fuzzy
+#~ msgid "Alarm Money"
+#~ msgstr "Add Account"

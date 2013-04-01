@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            <a href="/moneybl/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+
+            <table class="display stylized" id="moneybltable">
+                <thead>
+                    <tr>
+                        <th>{% trans "Happen Date" %}</th>
+                        <th>{% trans "Account" %}</th>
+                        <th>{% trans "Borrow or Lend" %}</th>
+                        <th>{% trans "Ammount" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>{% trans "Happen Date" %}</th>
+                        <th>{% trans "Account" %}</th>
+                        <th>{% trans "Borrow or Lend" %}</th>
+                        <th>{% trans "Ammount" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <script type="text/javascript">
+         jQuery('#moneybltable').dataTable( {
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/get_json_data/?model_name=moneybl"                                                        
+		} );
+		</script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}            
+            <table class="display stylized" id="messagetable">
+                <thead>
+                    <tr>
+                        <th width="20%">{% trans "Message Title" %}</th>
+                        <th width="35%">{% trans "Message Content" %}</th>
+                        <th width="10%">{% trans "Is Read" %}</th>
+                        <th width="20%">{% trans "Create Date" %}</th>
+                        <th width="15%">{% trans "Operation" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>{% trans "Message Title" %}</th>
+                        <th>{% trans "Message Content" %}</th>
+                        <th>{% trans "Is Read" %}</th>
+                        <th>{% trans "Create Date" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <script type="text/javascript">
+         jQuery('#messagetable').dataTable( {
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/get_json_data/?model_name=usermessage" 
+		    } );
+		</script>
+{% endblock %}

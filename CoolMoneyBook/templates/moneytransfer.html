@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            <a href="/moneytransfer/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>            
+            <table class="display stylized" id="moneytransfertable">
+                <thead>
+                    <tr>
+                        <th>{% trans "Happen Date" %}</th>
+                        <th>{% trans "From Account" %}</th>
+                        <th>{% trans "To Account" %}</th>
+                        <th>{% trans "Ammount" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>{% trans "Happen Date" %}</th>
+                        <th>{% trans "From Account" %}</th>
+                        <th>{% trans "To Account" %}</th>
+                        <th>{% trans "Ammount" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <script type="text/javascript">
+         jQuery('#moneytransfertable').dataTable( {
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/get_json_data/?model_name=moneytransfer"                                                        
+		} );
+		</script>
+{% endblock %}

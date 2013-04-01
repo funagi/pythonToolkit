@@ -1,0 +1,1035 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-18 15:53+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\settings.py:53
+msgid "Chinese"
+msgstr "简体中文"
+
+#: .\settings.py:54
+msgid "English"
+msgstr "英语"
+
+#: .\account\views.py:22 .\templates\account.html.py:10
+#: .\templates\account.html.py:24 .\templates\account_detail.html.py:14
+#: .\templates\account_detail.html.py:43 .\templates\account_detail.html.py:57
+#: .\templates\account_detail.html.py:125
+#: .\templates\account_detail.html.py:139 .\templates\alarm_detail.html.py:38
+#: .\templates\alarm_detail.html.py:52 .\templates\object_detail.html.py:26
+#: .\templates\object_detail.html.py:40
+msgid "Account Name"
+msgstr "账户名称"
+
+#: .\account\views.py:23 .\templates\account.html.py:11
+#: .\templates\account.html.py:25 .\templates\account_detail.html.py:15
+#: .\templates\object_detail.html.py:27 .\templates\object_detail.html.py:41
+msgid "Account Type"
+msgstr "账户类型"
+
+#: .\account\views.py:24 .\alarm\views.py:32 .\budget\views.py:27
+#: .\money\views.py:26 .\money\views.py:72 .\money\views.py:111
+#: .\money\views.py:160 .\money\views.py:177 .\object\views.py:25
+#: .\templates\alarm_detail.html.py:19 .\templates\moneyioanalyze.html.py:12
+#: .\templates\moneyiostat.html.py:12 .\templates\moneyiostat.html.py:78
+msgid "Currency"
+msgstr "币种"
+
+#: .\account\views.py:25
+msgid "Initial Amount"
+msgstr "初始金额"
+
+#: .\account\views.py:26 .\admin\views.py:32 .\alarm\views.py:33
+#: .\budget\views.py:28 .\money\views.py:27 .\money\views.py:73
+#: .\money\views.py:113 .\object\views.py:26
+#: .\templates\account_detail.html.py:22 .\templates\alarm_detail.html.py:23
+#: .\templates\budget_detail.html.py:16 .\templates\object_detail.html.py:15
+msgid "Description"
+msgstr "详情"
+
+#: .\account\views.py:44
+msgid "The account name already exists"
+msgstr "账户名称已经存在"
+
+#: .\account\views.py:95 .\templates\common_add_edit.html.py:32
+#: .\templates\common_add_edit.html.py:33
+#: .\templates\common_add_edit.html.py:34
+#: .\templates\common_add_edit.html.py:35 .\templates\head.html.py:144
+msgid "Add Account"
+msgstr "增加账户"
+
+#: .\account\views.py:143
+msgid "Edit Account"
+msgstr "编辑账户"
+
+#: .\admin\views.py:20
+msgid "Help Title"
+msgstr "帮助主题"
+
+#: .\admin\views.py:21 .\templates\foot.html.py:6 .\templates\foot.html.py:22
+#: .\templates\head.html.py:118
+msgid "Home"
+msgstr "主页"
+
+#: .\admin\views.py:22 .\templates\account_detail.html.py:31
+#: .\templates\alarm_detail.html.py:30 .\templates\index.html.py:23
+msgid "Money Income and Expense"
+msgstr "收支"
+
+#: .\admin\views.py:23 .\alarm\views.py:24 .\money\views.py:107
+#: .\money\views.py:154 .\money\views.py:176 .\object\views.py:23
+#: .\templates\alarm.html.py:9 .\templates\alarm.html.py:25
+#: .\templates\alarm_detail.html.py:11 .\templates\foot.html.py:8
+#: .\templates\foot.html.py:24 .\templates\head.html.py:141
+#: .\templates\index.html.py:46 .\templates\moneybl.html.py:10
+#: .\templates\moneybl.html.py:24 .\templates\moneyio.html.py:17
+#: .\templates\moneyio.html.py:33
+msgid "Account"
+msgstr "账户"
+
+#: .\admin\views.py:24 .\templates\foot.html.py:9 .\templates\foot.html.py:25
+#: .\templates\head.html.py:148 .\templates\index.html.py:77
+msgid "Object"
+msgstr "目标"
+
+#: .\admin\views.py:25 .\cooluser\service.py:46 .\templates\foot.html.py:10
+#: .\templates\foot.html.py:26 .\templates\head.html.py:155
+msgid "Alarm"
+msgstr "提醒"
+
+#: .\admin\views.py:26 .\templates\foot.html.py:11 .\templates\foot.html.py:27
+#: .\templates\head.html.py:162 .\templates\index.html.py:104
+msgid "Budget"
+msgstr "预算"
+
+#: .\admin\views.py:27 .\cooluser\views.py:311 .\templates\head.html.py:169
+msgid "Setting"
+msgstr "设置"
+
+#: .\admin\views.py:29
+msgid "Page Title"
+msgstr "页标题"
+
+#: .\admin\views.py:31
+msgid "Abstract"
+msgstr "摘要"
+
+#: .\admin\views.py:40
+msgid "Currency Name"
+msgstr "币种名称"
+
+#: .\admin\views.py:41
+msgid "Currency Symbol"
+msgstr "币种符号"
+
+#: .\admin\views.py:48 .\alarm\views.py:30 .\budget\views.py:47
+#: .\money\views.py:109 .\money\views.py:155 .\money\views.py:701
+#: .\templates\alarm_detail.html.py:17 .\templates\budget_detail.html.py:28
+#: .\templates\budget_detail.html.py:41 .\templates\head.html.py:131
+msgid "Money Income and Expense Type"
+msgstr "收支类型"
+
+#: .\admin\views.py:49
+msgid "Money Income and Expense Name"
+msgstr "收支名称"
+
+#: .\admin\views.py:67
+msgid "Admin"
+msgstr "管理"
+
+#: .\admin\views.py:107
+msgid "Add Currency"
+msgstr "增加币种"
+
+#: .\admin\views.py:139
+msgid "Edit Currency"
+msgstr "编辑币种"
+
+#: .\admin\views.py:170
+msgid "Add Account Type"
+msgstr "增加账户类型"
+
+#: .\admin\views.py:202
+msgid "Edit Account Type"
+msgstr "编辑账户类型"
+
+#: .\admin\views.py:234
+msgid "Add Money Income and Expense System Type"
+msgstr "增加系统收支类型"
+
+#: .\admin\views.py:266
+msgid "Edit Money Income and Expense System Type"
+msgstr "编辑系统收支类型"
+
+#: .\admin\views.py:300
+msgid "Add Help Text"
+msgstr "增加帮助文档"
+
+#: .\admin\views.py:336
+msgid "Edit Help Text"
+msgstr "编辑帮助文档"
+
+#: .\alarm\views.py:23 .\templates\alarm.html.py:8
+#: .\templates\alarm.html.py:24 .\templates\alarm_detail.html.py:10
+msgid "Alarm Name"
+msgstr "提醒名称"
+
+#: .\alarm\views.py:25 .\budget\views.py:25 .\money\views.py:152
+#: .\money\views.py:174 .\templates\alarm.html.py:10
+#: .\templates\alarm.html.py:26 .\templates\alarm_detail.html.py:12
+#: .\templates\budget.html.py:9 .\templates\budget.html.py:24
+#: .\templates\budget_detail.html.py:9
+msgid "Begin Date"
+msgstr "开始日期"
+
+#: .\alarm\views.py:26 .\budget\views.py:26 .\money\views.py:153
+#: .\money\views.py:175 .\templates\alarm.html.py:11
+#: .\templates\alarm.html.py:27 .\templates\alarm_detail.html.py:13
+#: .\templates\budget.html.py:10 .\templates\budget.html.py:25
+#: .\templates\budget_detail.html.py:10
+msgid "End Date"
+msgstr "结束日期"
+
+#: .\alarm\views.py:27
+msgid "Year"
+msgstr "年"
+
+#: .\alarm\views.py:27
+msgid "Month"
+msgstr "月"
+
+#: .\alarm\views.py:27
+msgid "Week"
+msgstr "周"
+
+#: .\alarm\views.py:27
+msgid "Day"
+msgstr "日"
+
+#: .\alarm\views.py:27 .\templates\alarm.html.py:12
+#: .\templates\alarm.html.py:28 .\templates\alarm_detail.html.py:14
+msgid "Cycle Type"
+msgstr "循环方式"
+
+#: .\alarm\views.py:28 .\templates\alarm.html.py:13
+#: .\templates\alarm.html.py:29 .\templates\alarm_detail.html.py:15
+msgid "Cycle Value"
+msgstr "循环数值"
+
+#: .\alarm\views.py:29 .\templates\alarm_detail.html.py:16
+msgid "Auto Generate Money Income and Expense"
+msgstr "自动生成收支记录"
+
+#: .\alarm\views.py:31
+msgid "Alarm Amount"
+msgstr "提醒金额"
+
+#: .\alarm\views.py:50
+msgid "The alarm name already exists"
+msgstr "提醒名称已经存在"
+
+#: .\alarm\views.py:61 .\budget\views.py:42
+msgid "The begin data should be earlier than end date"
+msgstr "开始日期必须早于结束日期"
+
+#: .\alarm\views.py:66 .\money\views.py:62 .\money\views.py:88
+#: .\money\views.py:130 .\object\views.py:51
+msgid "The amount should be more than zero"
+msgstr "金额必须大于0"
+
+#: .\alarm\views.py:80 .\money\views.py:145
+#, python-format
+msgid "The account total amount (%(totalmoney)10.2f) is not enough to expense"
+msgstr "账户金额(%(totalmoney)10.2f)不足,不能支出"
+
+#: .\alarm\views.py:135 .\templates\head.html.py:158
+msgid "Add Alarm"
+msgstr "增加提醒"
+
+#: .\alarm\views.py:191
+msgid "Edit Alarm"
+msgstr "编辑提醒"
+
+#: .\budget\views.py:24 .\templates\budget.html.py:8
+#: .\templates\budget.html.py:23 .\templates\budget_detail.html.py:8
+msgid "Budget Name"
+msgstr "预算名称"
+
+#: .\budget\views.py:48 .\money\views.py:25 .\money\views.py:71
+#: .\money\views.py:110 .\templates\alarm_detail.html.py:18
+#: .\templates\index.html.py:129 .\templates\moneyioanalyze.html.py:19
+#: .\templates\moneyioanalyze.html.py:89 .\templates\moneyiostat.html.py:19
+#: .\templates\moneyiostat.html.py:41 .\templates\moneyiostat.html.py:85
+msgid "Amount"
+msgstr "金额"
+
+#: .\budget\views.py:60
+msgid "Amount can not be negative"
+msgstr "金额不能为负数"
+
+#: .\budget\views.py:113 .\templates\head.html.py:165
+msgid "Add Budget"
+msgstr "增加预算"
+
+#: .\budget\views.py:180
+msgid "Edit Budget"
+msgstr "编辑预算"
+
+#: .\budget\views.py:208
+msgid "Budget Detail"
+msgstr "预算详情"
+
+#: .\cooluser\service.py:47
+msgid "You have an alarm "
+msgstr "您有一条提醒"
+
+#: .\cooluser\service.py:220
+msgid ""
+"Your sina twitter account has been bind to another account, please login "
+"with your sina twitter account directly"
+msgstr "您的新浪微博帐户已经被绑定，请直接使用您的新浪微博帐户登录"
+
+#: .\cooluser\service.py:222 .\cooluser\service.py:237
+msgid "Your did not login"
+msgstr "您没有登录，请登录"
+
+#: .\cooluser\service.py:235
+msgid ""
+"Your google account has been bind to another account, please login with your "
+"google account directly"
+msgstr "您的Google帐户已经被绑定，请直接使用您的Google帐户登录"
+
+#: .\cooluser\views.py:28
+msgid "User Name"
+msgstr "用户昵称"
+
+#: .\cooluser\views.py:29
+msgid "Male"
+msgstr "男"
+
+#: .\cooluser\views.py:29
+msgid "Female"
+msgstr "女"
+
+#: .\cooluser\views.py:29
+msgid "Gender"
+msgstr "性别"
+
+#: .\cooluser\views.py:31
+msgid "User Logo"
+msgstr "头像(url)"
+
+#: .\cooluser\views.py:32
+msgid "Is receive mail"
+msgstr "是否接收邮件(包括提醒信息)"
+
+#: .\cooluser\views.py:33
+msgid "How many count in a page(1-50)"
+msgstr "每页数据条数(1-50)"
+
+#: .\cooluser\views.py:46
+msgid "User name already exists"
+msgstr "用户昵称已经存在"
+
+#: .\cooluser\views.py:55
+msgid "User email already exists"
+msgstr "邮件地址已经存在"
+
+#: .\cooluser\views.py:64
+msgid "The page count should be in 1 to 50"
+msgstr "每页数据条数必须在1到50之间"
+
+#: .\cooluser\views.py:149
+msgid "Connect sina twitter fail, please retry"
+msgstr "验证新浪微博用户失败，请重试"
+
+#: .\cooluser\views.py:195
+msgid "Auth sina twitter account failed, please retry."
+msgstr "验证新浪微博用户失败，请重试"
+
+#: .\cooluser\views.py:256
+msgid "Message Detail"
+msgstr "消息详情"
+
+#: .\model\models.py:42 .\model\models.py:75 .\model\models.py:131
+#: .\templates\alarm_detail.html.py:16
+msgid "Yes"
+msgstr "是"
+
+#: .\model\models.py:44 .\model\models.py:77 .\model\models.py:133
+#: .\templates\alarm_detail.html.py:16
+msgid "No"
+msgstr "否"
+
+#: .\model\models.py:136 .\model\models.py:177 .\model\models.py:180
+#: .\model\models.py:267 .\model\models.py:399 .\model\models.py:459
+msgid "View"
+msgstr "查看"
+
+#: .\model\models.py:136 .\model\models.py:180 .\model\models.py:267
+#: .\model\models.py:291 .\model\models.py:318 .\model\models.py:347
+#: .\model\models.py:399 .\model\models.py:459
+#: .\templates\account_detail.html.py:7 .\templates\alarm_detail.html.py:7
+#: .\templates\budget_detail.html.py:6 .\templates\message_detail.html.py:5
+#: .\templates\object_detail.html.py:6
+msgid "Delete"
+msgstr "删除"
+
+#: .\model\models.py:177 .\templates\account_detail.html.py:9
+msgid "Open Account"
+msgstr "重启账户"
+
+#: .\model\models.py:180 .\model\models.py:267 .\model\models.py:291
+#: .\model\models.py:318 .\model\models.py:347 .\model\models.py:399
+#: .\model\models.py:459 .\templates\account_detail.html.py:6
+#: .\templates\alarm_detail.html.py:6 .\templates\budget_detail.html.py:5
+#: .\templates\object_detail.html.py:5
+msgid "Edit"
+msgstr "编辑"
+
+#: .\model\models.py:216 .\model\models.py:225 .\money\views.py:191
+#: .\templates\budget.html.py:26 .\templates\index.html.py:143
+#: .\templates\moneyioanalyze.html.py:18 .\templates\moneyiostat.html.py:18
+#: .\templates\moneyiostat.html.py:112
+msgid "Income"
+msgstr "收入"
+
+#: .\model\models.py:218 .\model\models.py:227 .\money\views.py:191
+#: .\templates\budget.html.py:27 .\templates\index.html.py:151
+#: .\templates\moneyioanalyze.html.py:88 .\templates\moneyiostat.html.py:40
+#: .\templates\moneyiostat.html.py:116
+msgid "Expense"
+msgstr "支出"
+
+#: .\model\models.py:313 .\money\views.py:70
+msgid "Borrow"
+msgstr "借入"
+
+#: .\model\models.py:315 .\money\views.py:70
+msgid "Lend"
+msgstr "借出"
+
+#: .\money\views.py:22 .\money\views.py:68 .\money\views.py:108
+#: .\templates\account_detail.html.py:40 .\templates\account_detail.html.py:54
+#: .\templates\account_detail.html.py:68 .\templates\account_detail.html.py:82
+#: .\templates\account_detail.html.py:96
+#: .\templates\account_detail.html.py:110
+#: .\templates\account_detail.html.py:124
+#: .\templates\account_detail.html.py:138 .\templates\alarm_detail.html.py:35
+#: .\templates\alarm_detail.html.py:49 .\templates\moneybl.html.py:9
+#: .\templates\moneybl.html.py:23 .\templates\moneyio.html.py:14
+#: .\templates\moneyio.html.py:30 .\templates\moneytransfer.html.py:8
+#: .\templates\moneytransfer.html.py:20
+msgid "Happen Date"
+msgstr "发生日期"
+
+#: .\money\views.py:23 .\money\views.py:69
+#: .\templates\account_detail.html.py:32 .\templates\account_detail.html.py:69
+#: .\templates\account_detail.html.py:83 .\templates\account_detail.html.py:97
+#: .\templates\account_detail.html.py:111 .\templates\moneytransfer.html.py:9
+#: .\templates\moneytransfer.html.py:21
+msgid "From Account"
+msgstr "转出账户"
+
+#: .\money\views.py:24 .\templates\account_detail.html.py:33
+#: .\templates\account_detail.html.py:70 .\templates\account_detail.html.py:84
+#: .\templates\account_detail.html.py:98
+#: .\templates\account_detail.html.py:112 .\templates\moneytransfer.html.py:10
+#: .\templates\moneytransfer.html.py:22
+msgid "To Account"
+msgstr "转入账户"
+
+#: .\money\views.py:44
+msgid "The from account should not be same as to account"
+msgstr "转入转出账户不能相同"
+
+#: .\money\views.py:52
+#, python-format
+msgid ""
+"The from account total amount (%(totalmoney)10.2f) is not enough to transfer"
+msgstr "账户金额(%(totalmoney)10.2f)不足,不能转出"
+
+#: .\money\views.py:101
+#, python-format
+msgid "The account total amount (%(totalmoney)10.2f) is not enough to borrow"
+msgstr "账户金额(%(totalmoney)10.2f)不足,不能借出"
+
+#: .\money\views.py:112
+msgid "Is Share"
+msgstr "共享"
+
+#: .\money\views.py:206
+msgid "The Money Income and Expense name already exists"
+msgstr "收支名称已经存在"
+
+#: .\money\views.py:215 .\templates\head.html.py:128
+msgid "Money Income and Expense Analyze"
+msgstr "收支分析"
+
+#: .\money\views.py:276 .\templates\head.html.py:125
+#: .\templates\moneyiostat.html.py:70
+msgid "Money Income and Expense Statistics"
+msgstr "收支统计"
+
+#: .\money\views.py:345 .\templates\account_detail.html.py:34
+#: .\templates\head.html.py:137
+msgid "Money Borrow and Lend"
+msgstr "借入借出"
+
+#: .\money\views.py:371
+msgid "Add Money Borrow and Lend"
+msgstr "增加借入借出"
+
+#: .\money\views.py:416
+msgid "Edit Money Borrow and Lend"
+msgstr "编辑借入借出"
+
+#: .\money\views.py:440 .\templates\account_detail.html.py:32
+#: .\templates\account_detail.html.py:33 .\templates\head.html.py:134
+msgid "Money Transfer"
+msgstr "转帐"
+
+#: .\money\views.py:466
+msgid "Add Money Transfer"
+msgstr "增加转帐"
+
+#: .\money\views.py:514
+msgid "Edit Money Transfer"
+msgstr "编辑转帐"
+
+#: .\money\views.py:625 .\templates\head.html.py:122
+msgid "Add Money Income and Expense"
+msgstr "增加收支"
+
+#: .\money\views.py:676
+msgid "Edit Money Income and Expense"
+msgstr "编辑收支"
+
+#: .\money\views.py:727 .\templates\common_add_edit.html.py:30
+#: .\templates\common_add_edit.html.py:31
+msgid "Add Money Income and Expense Type"
+msgstr "增加收支类型"
+
+#: .\money\views.py:759
+msgid "Edit Money Income and Expense Type"
+msgstr "编辑收支类型"
+
+#: .\object\views.py:21 .\templates\object.html.py:9
+#: .\templates\object.html.py:23 .\templates\object_detail.html.py:8
+msgid "Object Name"
+msgstr "目标名称"
+
+#: .\object\views.py:22 .\templates\object.html.py:10
+#: .\templates\object.html.py:24 .\templates\object_detail.html.py:9
+msgid "Finish Date"
+msgstr "终止日期"
+
+#: .\object\views.py:24 .\templates\object.html.py:11
+#: .\templates\object.html.py:25 .\templates\object_detail.html.py:10
+msgid "Object Amount"
+msgstr "目标金额"
+
+#: .\object\views.py:42
+msgid "The object name already exists"
+msgstr "目标名称已经存在"
+
+#: .\object\views.py:77
+msgid "Object Detail"
+msgstr "目标详情"
+
+#: .\object\views.py:112 .\templates\head.html.py:151
+msgid "Add Object"
+msgstr "增加目标"
+
+#: .\object\views.py:155
+msgid "Edit Object"
+msgstr "编辑目标"
+
+#: .\templates\404.html.py:4 .\templates\budget_add_edit.html.py:7
+#: .\templates\budget_add_edit.html.py:19
+#: .\templates\common_add_edit.html.py:7
+#: .\templates\common_add_edit.html.py:19 .\templates\user_setting.html.py:23
+#: .\templates\user_setting.html.py:35
+msgid "Errors"
+msgstr "错误"
+
+#: .\templates\404.html.py:7
+msgid "You request an error url"
+msgstr "您请求了错误的网址"
+
+#: .\templates\404.html.py:8
+msgid "The page you request does not exists"
+msgstr "您访问的页面不存在"
+
+#: .\templates\404.html.py:9
+msgid "You try to view the data which not belong to you"
+msgstr "您访问的数据不属于您"
+
+#: .\templates\500.html.py:4
+msgid "The page does not exists"
+msgstr "此页面不存在"
+
+#: .\templates\account.html.py:5 .\templates\alarm.html.py:4
+#: .\templates\budget.html.py:4 .\templates\index.html.py:39
+#: .\templates\index.html.py:68 .\templates\index.html.py:97
+#: .\templates\index.html.py:163 .\templates\moneybl.html.py:4
+#: .\templates\moneyio.html.py:4 .\templates\moneyiousertype.html.py:4
+#: .\templates\moneytransfer.html.py:4 .\templates\object.html.py:4
+msgid "Add"
+msgstr "增加"
+
+#: .\templates\account.html.py:12 .\templates\account.html.py:26
+#: .\templates\account_detail.html.py:17 .\templates\object_detail.html.py:28
+#: .\templates\object_detail.html.py:42 .\templates\sinaapp_base.html.py:31
+#: .\templates\sinaapp_base.html.py:35
+msgid "Total Amount"
+msgstr "合计金额"
+
+#: .\templates\account.html.py:13 .\templates\account.html.py:27
+#: .\templates\account_detail.html.py:18 .\templates\alarm_detail.html.py:20
+#: .\templates\budget_detail.html.py:13 .\templates\message.html.py:11
+#: .\templates\message.html.py:25 .\templates\object_detail.html.py:11
+#: .\templates\object_detail.html.py:29 .\templates\object_detail.html.py:43
+msgid "Create Date"
+msgstr "创建日期"
+
+#: .\templates\account.html.py:14 .\templates\account.html.py:28
+#: .\templates\account_detail.html.py:44 .\templates\account_detail.html.py:58
+#: .\templates\account_detail.html.py:72 .\templates\account_detail.html.py:86
+#: .\templates\account_detail.html.py:100
+#: .\templates\account_detail.html.py:114
+#: .\templates\account_detail.html.py:128
+#: .\templates\account_detail.html.py:142 .\templates\alarm.html.py:14
+#: .\templates\alarm.html.py:30 .\templates\alarm_detail.html.py:39
+#: .\templates\alarm_detail.html.py:53 .\templates\budget.html.py:13
+#: .\templates\budget.html.py:28 .\templates\message.html.py:12
+#: .\templates\message.html.py:26 .\templates\moneybl.html.py:13
+#: .\templates\moneybl.html.py:27 .\templates\moneyio.html.py:18
+#: .\templates\moneyio.html.py:34 .\templates\moneyiousertype.html.py:12
+#: .\templates\moneyiousertype.html.py:30 .\templates\moneytransfer.html.py:12
+#: .\templates\moneytransfer.html.py:24 .\templates\object.html.py:13
+#: .\templates\object.html.py:27 .\templates\object_detail.html.py:30
+#: .\templates\object_detail.html.py:44
+msgid "Operation"
+msgstr "操作"
+
+#: .\templates\account.html.py:19 .\templates\account_detail.html.py:49
+#: .\templates\account_detail.html.py:77
+#: .\templates\account_detail.html.py:105
+#: .\templates\account_detail.html.py:133 .\templates\alarm.html.py:19
+#: .\templates\alarm_detail.html.py:44 .\templates\budget.html.py:18
+#: .\templates\budget_detail.html.py:36 .\templates\message.html.py:17
+#: .\templates\moneybl.html.py:18 .\templates\moneyio.html.py:24
+#: .\templates\moneytransfer.html.py:16 .\templates\object.html.py:18
+#: .\templates\object_detail.html.py:35
+msgid "Loading data from server"
+msgstr "正在从服务器传输数据"
+
+#: .\templates\account_detail.html.py:10
+msgid "This account has been closed"
+msgstr "此账户已经被关闭"
+
+#: .\templates\account_detail.html.py:16
+msgid "Initail Amount"
+msgstr "初始金额"
+
+#: .\templates\account_detail.html.py:41 .\templates\account_detail.html.py:55
+#: .\templates\alarm_detail.html.py:36 .\templates\alarm_detail.html.py:50
+#: .\templates\moneyio.html.py:15 .\templates\moneyio.html.py:31
+msgid "Money Input and Expense Type"
+msgstr "收支类型"
+
+#: .\templates\account_detail.html.py:42 .\templates\account_detail.html.py:56
+#: .\templates\account_detail.html.py:71 .\templates\account_detail.html.py:85
+#: .\templates\account_detail.html.py:99
+#: .\templates\account_detail.html.py:113
+#: .\templates\account_detail.html.py:127
+#: .\templates\account_detail.html.py:141 .\templates\alarm_detail.html.py:37
+#: .\templates\alarm_detail.html.py:51 .\templates\moneybl.html.py:12
+#: .\templates\moneybl.html.py:26 .\templates\moneyio.html.py:16
+#: .\templates\moneyio.html.py:32 .\templates\moneytransfer.html.py:11
+#: .\templates\moneytransfer.html.py:23
+msgid "Ammount"
+msgstr "金额"
+
+#: .\templates\account_detail.html.py:126
+#: .\templates\account_detail.html.py:140 .\templates\moneybl.html.py:11
+#: .\templates\moneybl.html.py:25
+msgid "Borrow or Lend"
+msgstr "借入借出"
+
+#: .\templates\account_detail.html.py:208
+msgid "The account is not exists, maybe deleted"
+msgstr "账户详情不存在,可能已经被删除"
+
+#: .\templates\admin.html.py:47 .\templates\admin.html.py:80
+#: .\templates\admin.html.py:116 .\templates\admin.html.py:158
+#: .\templates\index.html.py:38 .\templates\index.html.py:67
+#: .\templates\index.html.py:96 .\templates\index.html.py:162
+#: .\templates\moneyioanalyze.html.py:156 .\templates\moneyiostat.html.py:122
+#: .\templates\moneyiousertype.html.py:35 .\templates\sinaapp_index.html.py:52
+#: .\templates\sinaapp_user_index.html.py:60
+#: .\templates\sinaapp_user_view.html.py:53
+msgid "No records found"
+msgstr "没有记录"
+
+#: .\templates\alarm_detail.html.py:73
+msgid "The alarm is not exists, maybe deleted"
+msgstr "提醒详细不存在,可能已经被删除"
+
+#: .\templates\base.html.py:21
+msgid "help"
+msgstr "帮助"
+
+#: .\templates\budget.html.py:11
+msgid "Budget Income"
+msgstr "预算收入"
+
+#: .\templates\budget.html.py:12
+msgid "Budget Expense"
+msgstr "预算支出"
+
+#: .\templates\budget_add_edit.html.py:53
+#: .\templates\common_add_edit.html.py:38 .\templates\moneyio.html.py:59
+#: .\templates\moneyioanalyze.html.py:166 .\templates\moneyiostat.html.py:132
+#: .\templates\user_setting.html.py:48
+msgid "Submit"
+msgstr "提交"
+
+#: .\templates\budget_detail.html.py:11
+msgid "Income Amount"
+msgstr "收入金额"
+
+#: .\templates\budget_detail.html.py:12
+msgid "Expense Amount"
+msgstr "支出金额"
+
+#: .\templates\budget_detail.html.py:22
+msgid "Budget detail list"
+msgstr "预算明细列表"
+
+#: .\templates\budget_detail.html.py:29 .\templates\budget_detail.html.py:42
+msgid "Budget Amount"
+msgstr "预算金额"
+
+#: .\templates\budget_detail.html.py:30 .\templates\budget_detail.html.py:43
+msgid "Actual Amount"
+msgstr "实际金额"
+
+#: .\templates\budget_detail.html.py:31 .\templates\budget_detail.html.py:44
+msgid "Difference"
+msgstr "差额"
+
+#: .\templates\budget_detail.html.py:63
+msgid "The budget is not exists, maybe deleted"
+msgstr "预算详情不存在,可能已经被删除"
+
+#: .\templates\foot.html.py:7 .\templates\foot.html.py:23
+#: .\templates\head.html.py:119
+msgid "Money"
+msgstr "收支"
+
+#: .\templates\foot.html.py:12 .\templates\foot.html.py:28
+#: .\templates\head.html.py:98
+msgid "Settings"
+msgstr "设置"
+
+#: .\templates\foot.html.py:34
+msgid "scroll to top"
+msgstr "回到页顶"
+
+#: .\templates\head.html.py:6 .\templates\head.html.py:86
+msgid "Cool Money Book"
+msgstr "酷账本"
+
+#: .\templates\head.html.py:97
+msgid "Welcome"
+msgstr "欢迎"
+
+#: .\templates\head.html.py:99
+msgid "Logout"
+msgstr "退出"
+
+#: .\templates\head.html.py:101 .\templates\sinaapp_user_index.html.py:28
+msgid "You have bind your account to Google"
+msgstr "您已经绑定了您的Google帐号，您可以直接使用Google帐号登录"
+
+#: .\templates\head.html.py:105 .\templates\index.html.py:10
+#: .\templates\sinaapp_user_index.html.py:32
+msgid "You have bind your account to Sina Micro Blog"
+msgstr "您已经绑定了您的新浪微博帐号，您可以直接使用新浪帐号登录"
+
+#: .\templates\head.html.py:108
+msgid "You have"
+msgstr "您有"
+
+#: .\templates\head.html.py:108
+msgid "new message"
+msgstr "条新消息"
+
+#: .\templates\head.html.py:111 .\templates\user_login.html.py:52
+msgid "Login"
+msgstr "登录"
+
+#: .\templates\index.html.py:7
+msgid "Welcome back"
+msgstr "欢迎"
+
+#: .\templates\index.html.py:14
+msgid "Last login"
+msgstr "上次登录"
+
+#: .\templates\index.html.py:117
+msgid "Budget this month"
+msgstr "月度预算"
+
+#: .\templates\message.html.py:8 .\templates\message.html.py:22
+msgid "Message Title"
+msgstr "消息标题"
+
+#: .\templates\message.html.py:9 .\templates\message.html.py:23
+msgid "Message Content"
+msgstr "消息内容"
+
+#: .\templates\message.html.py:10 .\templates\message.html.py:24
+msgid "Is Read"
+msgstr "已读"
+
+#: .\templates\message_detail.html.py:15
+msgid "The message is not exists, maybe deleted"
+msgstr "消息不存在,可能已经被删除"
+
+#: .\templates\moneyio.html.py:53 .\templates\moneyioanalyze.html.py:160
+#: .\templates\moneyiostat.html.py:126
+msgid "Search Condition"
+msgstr "查询条件"
+
+#: .\templates\moneyioanalyze.html.py:32
+#: .\templates\moneyioanalyze.html.py:102 .\templates\moneyiostat.html.py:32
+#: .\templates\moneyiostat.html.py:54
+msgid "Total"
+msgstr "共计"
+
+#: .\templates\moneyioanalyze.html.py:46
+msgid "Income Analyze Chart"
+msgstr "收入分析图"
+
+#: .\templates\moneyioanalyze.html.py:74
+#: .\templates\moneyioanalyze.html.py:144
+msgid "Income Analyze"
+msgstr "收入分析"
+
+#: .\templates\moneyioanalyze.html.py:116
+msgid "Expense Analyze Chart"
+msgstr "支出分析图"
+
+#: .\templates\moneyiousertype.html.py:10
+#: .\templates\moneyiousertype.html.py:28
+msgid "Money Income and Expense Type Name"
+msgstr "收支类型"
+
+#: .\templates\moneyiousertype.html.py:11
+#: .\templates\moneyiousertype.html.py:29
+msgid "Income or Expense"
+msgstr "收支"
+
+#: .\templates\moneyiousertype.html.py:20
+msgid "edit"
+msgstr "编辑"
+
+#: .\templates\moneyiousertype.html.py:21
+msgid "delete"
+msgstr "删除"
+
+#: .\templates\object.html.py:12 .\templates\object.html.py:26
+#: .\templates\object_detail.html.py:13
+msgid "Object Status"
+msgstr "目标状态"
+
+#: .\templates\object_detail.html.py:21
+msgid "Account List"
+msgstr "账户列表"
+
+#: .\templates\object_detail.html.py:64
+msgid "The object is not exists, maybe deleted"
+msgstr "目标详情不存在,可能已经被删除"
+
+#: .\templates\sinaapp_base.html.py:20 .\templates\user_login.html.py:57
+#: .\templates\user_setting.html.py:8
+msgid "Login with Sina micro blog account"
+msgstr "使用新浪微博帐号登录"
+
+#: .\templates\sinaapp_base.html.py:27
+msgid "User Summary"
+msgstr "用户详情"
+
+#: .\templates\sinaapp_base.html.py:41
+msgid "Users"
+msgstr "用户"
+
+#: .\templates\sinaapp_base.html.py:60
+msgid "No user"
+msgstr "没有用户"
+
+#: .\templates\sinaapp_base.html.py:63
+msgid "More"
+msgstr "更多"
+
+#: .\templates\sinaapp_index.html.py:45
+#: .\templates\sinaapp_user_index.html.py:53
+#: .\templates\sinaapp_user_view.html.py:46
+msgid "Showing"
+msgstr "显示"
+
+#: .\templates\sinaapp_index.html.py:45
+#: .\templates\sinaapp_user_index.html.py:53
+#: .\templates\sinaapp_user_view.html.py:46
+msgid "of total"
+msgstr "共计"
+
+#: .\templates\sinaapp_index.html.py:45
+#: .\templates\sinaapp_user_index.html.py:53
+#: .\templates\sinaapp_user_view.html.py:46
+msgid "results"
+msgstr "记录"
+
+#: .\templates\sinaapp_user_index.html.py:22
+msgid "male"
+msgstr "男"
+
+#: .\templates\sinaapp_user_index.html.py:24
+msgid "female"
+msgstr "女"
+
+#: .\templates\sinaapp_user_index.html.py:35
+msgid "User Join Time"
+msgstr "注册时间"
+
+#: .\templates\user_login.html.py:14
+msgid "Welcome to Cool Money Book"
+msgstr "欢迎来到酷账本"
+
+#: .\templates\user_login.html.py:16
+msgid ""
+"Cool Money Book is a free, online record money income and expense tool. It "
+"can help you to record your income and expense easy and you can do this job "
+"online."
+msgstr ""
+"酷账本是一个免费的，在线的记账小工具，目前所提供的功能包括管理账户、收支、目"
+"标、提醒和预算等，酷账本所遵循的原则就是简单易用，它可以帮助您在线的记录您的"
+"收入与支出情况，您可以通过它进行在线理财。"
+
+#: .\templates\user_login.html.py:18
+msgid ""
+"Now the Cool Money Book is just Beta. We'll develop it more better. If you "
+"like the cool money book, please save it to favorite. And please continue to "
+"see us. We will make the tool more better with your help."
+msgstr ""
+"目前酷账本正在开发过程中，所提供的功能仅为测试版本。我会持续不断的完善酷账本"
+"的功能。如果您对这个工具感兴趣，请持续关注酷账本并提出您的宝贵意见，在您的帮"
+"助和关注下，酷账本一定会越做越好。更多功能我们会不断的推出。"
+
+#: .\templates\user_login.html.py:27
+msgid "Create, manage your money account"
+msgstr "创建并管理您的账户"
+
+#: .\templates\user_login.html.py:28
+msgid "Record the money income and expense"
+msgstr "随时记录您的收入与支出"
+
+#: .\templates\user_login.html.py:29
+msgid "Help you to stat your money income and expense in your setting time"
+msgstr "帮助您统计您在设置时间范围内的收支情况"
+
+#: .\templates\user_login.html.py:30
+msgid "Help you to analyze your money income and expense"
+msgstr "帮助您分析您的收支组成"
+
+#: .\templates\user_login.html.py:31
+msgid "Manage your money income and expense type"
+msgstr "自定义您的收支类型"
+
+#: .\templates\user_login.html.py:36
+msgid ""
+"Record the money borrow and lend, and the money transfer between your "
+"accounts"
+msgstr "记录借入借出和账户间转账"
+
+#: .\templates\user_login.html.py:37
+msgid "Setting your money object and view the status"
+msgstr "设置您的理财目标并实时查看状态"
+
+#: .\templates\user_login.html.py:38
+msgid ""
+"Setting your alarm and help you to create the money income and expense "
+"automatically"
+msgstr "设置提醒功能，并可以自动生成收支记录"
+
+#: .\templates\user_login.html.py:39
+msgid "Setting your budget and view the result"
+msgstr "设置您的预算，并和实际收支进行对比"
+
+#: .\templates\user_login.html.py:55
+msgid "Login with Google account"
+msgstr "使用Google帐号登录"
+
+#: .\templates\user_setting.html.py:6
+msgid ""
+"You can bind your account to sina twitter, than you can login cool money "
+"book with your sina twitter account directly."
+msgstr "您可以绑定您的新浪微博帐户，您可以直接使用新浪微博帐户登录"
+
+#: .\templates\user_setting.html.py:14
+msgid ""
+"You can bind your account to google, than you can login cool money book with "
+"your google account directly."
+msgstr "您可以绑定您的Google帐户，您可以直接使用Google帐户登录"
+
+#: .\templates\user_setting.html.py:16
+msgid "Login with your google account"
+msgstr "使用Google帐号登录"
+
+#~ msgid "Message"
+#~ msgstr "消息"
+
+#, fuzzy
+#~ msgid "view"
+#~ msgstr "查看"
+
+#~ msgid "Account Detail"
+#~ msgstr "账户详情"
+
+#~ msgid "Alarm Detail"
+#~ msgstr "提醒详情"
+
+#~ msgid "Min Amount"
+#~ msgstr "最小金额"
+
+#~ msgid "Max Amount"
+#~ msgstr "最大金额"
+
+#~ msgid "alarm"
+#~ msgstr "提醒"
+
+#~ msgid "Remove Sina Micro Blog Relationship"
+#~ msgstr "解除绑定新浪微博帐号"
+
+#~ msgid "closed"
+#~ msgstr "已关闭"
+
+#~ msgid "Money Income and Expense Detail"
+#~ msgstr "收支详情"

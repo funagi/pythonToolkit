@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            {% if yearmonthlist %}
+            {% for yearmonth in yearmonthlist %}
+            <a href="/moneyio/analyze/?yearmonth={{ yearmonth }}">{{ yearmonth }}</a>
+            {% endfor %}
+            {% endif %}
+
+            {% if moneystat_list %}
+            {% for moneystat in moneystat_list %}
+                <h4>{% trans "Currency" %} : {{ moneystat.currency }}</h4>
+                <span class="subtitle"> {{ begindate}} - {{ enddate }}</span>
+                <hr/>
+	            <table class="display stylized" id="example">
+	                <thead>
+	                <tr>
+	                    <th width="60%">{% trans "Income" %}</th>
+	                    <th width="40%">{% trans "Amount" %}</th>
+	                </tr>
+	                </thead>
+	                <tbody>
+	                {% for key, value in moneystat.income_dict.items %}
+	                <tr>
+	                    <td>{{ key }}</td>
+	                    <td>{{ value|floatformat:2 }} {{ moneystat.currency }}</td>
+	                </tr>	                
+	                {% endfor %}	                
+	                </tbody>
+	                <tfoot>
+	                <tr>
+	                    <td>{% trans "Total" %}</td>
+	                    <td>{{ moneystat.total_income|floatformat:2 }} {{ moneystat.currency }}</td>
+	                </tr>
+	                </tfoot>
+	            </table>
+	            {% if moneystat.income_dict %}
+	            <div id="incomechart{{moneystat.currency.id}}"></div>
+                <script type="text/javascript">
+	            var chart;
+	            chart = new Highcharts.Chart({
+	        		chart: {
+	        			renderTo: 'incomechart{{moneystat.currency.id}}'
+	        		},
+	        		title: {
+	        			text: '{% trans "Income Analyze Chart" %}'
+	        		},
+	        		plotArea: {
+	        			shadow: null,
+	        			borderWidth: null,
+	        			backgroundColor: null
+	        		},
+	        		tooltip: {
+	        			formatter: function() {
+	        				return '<b>'+ this.point.name +'</b>: '+ this.y + '{{moneystat.currency}}';
+	        			}
+	        		},
+	        		plotOptions: {
+	        			pie: {
+	        				allowPointSelect: true,
+	        				cursor: 'pointer',
+	        				dataLabels: {
+	        					enabled: true,
+	        					color: '#000000',
+	        					connectorColor: '#000000',
+	        					formatter: function() {
+	        						return '<b>'+ this.point.name +'</b>: '+ this.y + '{{moneystat.currency}}';
+	        					}
+	        				}
+	        			}
+	        		},
+	        	    series: [{
+	        			type: 'pie',
+	        			name: '{% trans "Income Analyze" %}',
+	        			data: [
+	        				{% for key, value in moneystat.income_dict.items %}
+	        				['{{key}}',   {{value|floatformat:2}}],
+	    	                {% endfor %}
+	        			]
+	        		}]
+	        	});
+	        	</script>
+	        	{% endif %}
+	            
+	            <table class="stylized full" id="example">
+	                <thead>
+	                <tr>
+	                    <th width="60%">{% trans "Expense" %}</th>
+	                    <th width="40%">{% trans "Amount" %}</th>
+	                </tr>
+	                </thead>
+	                <tbody>
+	                {% for key, value in moneystat.expense_dict.items %}
+	                <tr>
+	                    <td>{{ key }}</td>
+	                    <td>{{ value|floatformat:2 }} {{ moneystat.currency }}</td>
+	                </tr>
+	                {% endfor %}	                
+	                </tbody>
+	                <tfoot>
+	                <tr>
+	                    <td>{% trans "Total" %}</td>
+	                    <td>{{ moneystat.total_expense|floatformat:2 }} {{ moneystat.currency }}</td>
+	                </tr>
+	                </tfoot>
+	            </table>
+	            {% if moneystat.expense_dict %}
+	            <div id="expensechart{{moneystat.currency.id}}" ></div>
+                <script type="text/javascript">
+	            var chart;
+	            chart = new Highcharts.Chart({
+	        		chart: {
+	        			renderTo: 'expensechart{{moneystat.currency.id}}'
+	        		},
+	        		title: {
+	        			text: '{% trans "Expense Analyze Chart" %}'
+	        		},
+	        		plotArea: {
+	        			shadow: null,
+	        			borderWidth: null,
+	        			backgroundColor: null
+	        		},
+	        		tooltip: {
+	        			formatter: function() {
+	        				return '<b>'+ this.point.name +'</b>: '+ this.y + '{{moneystat.currency}}';
+	        			}
+	        		},
+	        		plotOptions: {
+	        			pie: {
+	        				allowPointSelect: true,
+	        				cursor: 'pointer',
+	        				dataLabels: {
+	        					enabled: true,
+	        					color: '#000000',
+	        					connectorColor: '#000000',
+	        					formatter: function() {
+	        						return '<b>'+ this.point.name +'</b>: '+ this.y + '{{moneystat.currency}}';
+	        					}
+	        				}
+	        			}
+	        		},
+	        	    series: [{
+	        			type: 'pie',
+	        			name: '{% trans "Income Analyze" %}',
+	        			data: [	        				
+	        				{% for key, value in moneystat.expense_dict.items %}
+	        				['{{key}}',   {{value|floatformat:2}}],
+	    	                {% endfor %}
+	        			]
+	        		}]
+	        	});
+				</script>
+				{% endif %}
+            {% endfor %}
+            {% else %}
+                <div class="box box-warning">{% trans "No records found" %}</div>            
+            {% endif %}
+
+		    <!-- Search Form -->
+            <h5>{% trans "Search Condition" %}</h5>
+            <form action="/moneyio/analyze/" method="post">
+                <fieldset>
+                    <table class="no-style">
+                        {{ form.as_table }}
+                    </table>
+                    <p class=""><input type="submit" class="btn btn-green big" value="{% trans 'Submit' %}"/></p>
+                </fieldset>
+            </form>
+            
+            
+{% endblock %}

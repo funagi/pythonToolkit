@@ -1,0 +1,21 @@
+application: kmgnote
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /cronjob/.*
+  script: cronjob.py
+  login: admin
+
+- url: /.*
+  script: main.py
+
+- url: /googleda50408ca16dea61.html
+  static_files: googleda50408ca16dea61.html
+  upload: googleda50408ca16dea61.html
+
+

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            <a href="/moneyio/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+            <div class="clear">&nbsp;</div>
+            {% if yearmonthlist %}
+            {% for yearmonth in yearmonthlist %}
+            <a href="/moneyio/?yearmonth={{ yearmonth }}">{{ yearmonth }}</a>
+            {% endfor %}
+            {% endif %}
+            <table class="display stylized" id="moneyiotable">
+                <thead>
+                    <tr>
+                        <th>{% trans "Happen Date" %}</th>
+                        <th>{% trans "Money Input and Expense Type" %}</th>
+                        <th>{% trans "Ammount" %}</th>
+                        <th>{% trans "Account" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for moneyio in moneyio_list %}
+                    <tr>
+                        <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>{% trans "Happen Date" %}</th>
+                        <th>{% trans "Money Input and Expense Type" %}</th>
+                        <th>{% trans "Ammount" %}</th>
+                        <th>{% trans "Account" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <script type="text/javascript">
+         jQuery('#moneyiotable').dataTable( {
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": true,
+		    "sAjaxSource": "/get_json_data/?model_name=moneyio"                                                        
+		} );
+		</script>
+            <!-- Search Form -->
+            <h5>{% trans "Search Condition" %}</h5>
+            <form action="/moneyio/" method="post">
+                <fieldset>
+                    <table class="no-style">
+                        {{ form.as_table }}
+                    </table>
+                    <p class=""><input type="submit" class="btn btn-green big" value="{% trans 'Submit' %}"/></p>
+                </fieldset>
+            </form>
+            
+{% endblock %}

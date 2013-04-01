@@ -1,0 +1,189 @@
+{% load i18n %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>{% trans "Cool Money Book" %}</title>
+<meta name="description" content="Cool Money Book - A online money tool" />
+<meta name="keywords" content="Cool Money Book" />
+<!-- Favicons --> 
+<link rel="shortcut icon" type="image/png" HREF="/static/img/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="/static/img/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="/static/img/favicons/apple.png" />
+<!-- Main Stylesheet --> 
+<link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+<!-- jQuery pager css -->
+<link rel="stylesheet" href="/static/css/jquery.pager.css" type="text/css" />
+<!-- Your Custom Stylesheet --> 
+<link rel="stylesheet" href="/static/css/custom.css" type="text/css" />
+<!--swfobject - needed only if you require <video> tag support for older browsers -->
+<!--<script type="text/javascript" SRC="/static/js/swfobject.js"></script>-->
+<!-- jQuery with plugins -->
+<script type="text/javascript" SRC="/static/js/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" SRC="/static/js/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="/static/js/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="/static/js/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" SRC="/static/js/highcharts.js"></script>
+<!-- jQuery tooltips 
+<script type="text/javascript" SRC="/static/js/jquery.tipTip.min.js"></script>
+-->
+<!-- Superfish navigation -->
+<script type="text/javascript" SRC="/static/js/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="/static/js/jquery.supersubs.min.js"></script>
+<!-- jQuery form validation 
+<script type="text/javascript" SRC="/static/js/jquery.validate_pack.js"></script>
+-->
+<!-- jQuery popup box 
+<script type="text/javascript" SRC="/static/js/jquery.nyroModal.pack.js"></script>
+-->
+<!-- jQuery data tables-->
+<script type="text/javascript" SRC="/static/js/jquery.dataTables.min.js"></script>
+
+<!-- jQuery pager -->
+<script type="text/javascript" SRC="/static/js/jquery.pager.js"></script>
+<!--<script type="text/javascript" src="/static/js/swfobject.js"></script>-->
+<!-- Internet Explorer Fixes --> 
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" media="all" href="/static/css/ie.css"/>
+<script SRC="/static/js/html5.js"></script>
+<![endif]-->
+<!--Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js -->
+<!--[if lt IE 8]>
+<script SRC="/static/js/IE8.js"></script>
+<![endif]-->
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    /* setup navigation, content boxes, etc... */
+    Administry.setup();
+
+    $("#tabs").tabs();
+    
+    /* progress bar animations - setting initial values */
+	{% if object_list %}
+	{% for object in object_list %}
+	if ({{ object.status }} >= 80) {
+	    jQuery("#progress{{ object.id }}").addClass("progress full progress-green")
+	} else if ({{ object.status }} >= 60 && {{ object.status }} < 80) {
+	    jQuery("#progress{{ object.id }}").addClass("progress full progress-blue")
+	} else {
+	    jQuery("#progress{{ object.id }}").addClass("progress full progress-red")
+	}
+    Administry.progress("#progress{{ object.id }}", {{ object.status }}, 100);    
+	{% endfor %}
+	{% endif %}
+	{% if errormessage %}
+	alert("{{ errormessage }}");
+	{% endif %}
+});
+</script>
+</head>
+<body>
+    <!-- Header -->
+    <header id="top">
+        <div class="wrapper">
+            <!-- Title/Logo - can use text instead of image -->
+            <div id="title"><!--<img SRC="/static/img/logo.png" alt="Cool Money Book" />--><span>{% trans "Cool Money Book" %}</span> beta</div>
+            <!-- Top navigation -->
+            <div id="topnav">
+                {% if user %}
+	                <a href="/setting">
+	                {% if user.logo  == None %}
+	                    <img class="avatar" src="/static/img/nologo.gif" alt="" />
+	                {% else %}
+	                    <img class="avatar" src="{{ user.logo }}" alt="" />
+	                {% endif %}
+	                </a>
+	                {% trans "Welcome" %} <b>{{ user.name }}</b>
+	                <span>|</span> <a href="/setting">{% trans "Settings" %}</a>
+	                <span>|</span> <a href="/logout/">{% trans "Logout" %}</a><br />
+	                {% if user.googleid %}
+						<img src="/static/img/google16x16.jpg" title='{% trans "You have bind your account to Google" %}'></img>
+					{% endif %}
+					<span> </span>
+	                {% if user.sinaid %}
+						<img src="/static/img/tsina16x16.png" title='{% trans "You have bind your account to Sina Micro Blog" %}'></img>
+					{% endif %}
+	                {% if user.newmessagecount > 0 %}
+	                    <br><small>{% trans "You have" %}<a href="/message" class="high"><b> {{ user.newmessagecount }} </b>{% trans "new message" %}</a></small>
+	                {% endif %}
+                {% else %}
+               		<a href="/login/">{% trans "Login" %}</a>
+                {% endif %}
+            </div>
+            <!-- End of Top navigation -->
+            <!-- Main navigation -->
+            <nav id="menu">
+                <ul class="sf-menu">                   
+                    <li {% if pageinfo.page_menu_name == "Home" %}class="current"{% endif %}><a HREF="/">{% trans "Home" %}</a></li>                    
+                    <li {% if pageinfo.page_menu_name == "Money" %}class="current"{% endif %}><a HREF="/moneyio">{% trans "Money" %}</a>
+                        <ul>
+                            <li>
+                                <a HREF="/moneyio/add">{% trans "Add Money Income and Expense" %}</a>
+                            </li>  
+                            <li>
+                                <a HREF="/moneyio/stat">{% trans "Money Income and Expense Statistics" %}</a>
+                            </li>
+                            <li>
+                                <a HREF="/moneyio/analyze">{% trans "Money Income and Expense Analyze" %}</a>
+                            </li>
+                            <li>
+                                <a HREF="/moneyiousertype">{% trans "Money Income and Expense Type" %}</a>
+                            </li>
+                            <li>
+                                <a HREF="/moneytransfer">{% trans "Money Transfer" %}</a>
+                            </li>
+                            <li>
+                                <a HREF="/moneybl">{% trans "Money Borrow and Lend" %}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li {% if pageinfo.page_menu_name == "Account" %}class="current"{% endif %}><a HREF="/account">{% trans "Account" %}</a>
+                        <ul>
+                            <li>
+                                <a HREF="/account/add">{% trans "Add Account" %}</a>
+                            </li>                            
+                        </ul>
+                    </li>
+                    <li {% if pageinfo.page_menu_name == "Object" %}class="current"{% endif %}><a HREF="/object">{% trans "Object" %}</a>
+                        <ul>
+                            <li>
+                                <a HREF="/object/add">{% trans "Add Object" %}</a>
+                            </li>                            
+                        </ul>
+                    </li>    
+                    <li {% if pageinfo.page_menu_name == "Alarm" %}class="current"{% endif %}><a HREF="/alarm">{% trans "Alarm" %}</a>
+                        <ul>
+                            <li>
+                                <a HREF="/alarm/add">{% trans "Add Alarm" %}</a>
+                            </li>                            
+                        </ul>
+                    </li>
+                    <li {% if pageinfo.page_menu_name == "Budget" %}class="current"{% endif %}><a HREF="/budget">{% trans "Budget" %}</a>
+                        <ul>
+                            <li>
+                                <a HREF="/budget/add">{% trans "Add Budget" %}</a>
+                            </li>                            
+                        </ul>
+                    </li>
+                    <li {% if pageinfo.page_menu_name == "Setting" %}class="current"{% endif %}><a HREF="/setting">{% trans "Setting" %}</a>                        
+                    </li>
+                </ul>
+            </nav>
+            <!-- End of Main navigation -->
+            <!-- Aside links -->
+            <!--<aside><b><a href="/i18n/setlang/?language=en">English</a></b> &middot; <a href="/i18n/setlang/?language=zh-cn">Chinese</a></aside>-->
+            <!-- End of Aside links -->
+        </div>
+    </header>
+    <!-- End of Header -->
+    
+<!-- Page title -->
+<div id="pagetitle">
+    <div class="wrapper">
+        <h1>{{ pageinfo.page_title }}</h1>
+        <!-- Quick search box -->
+        <!--<form action="" method="get"><input class="" type="text" id="q" name="q" /></form>-->
+    </div>
+</div>
+<!-- End of Page title -->

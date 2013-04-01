@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            {% if yearmonthlist %}
+            {% for yearmonth in yearmonthlist %}
+            <a href="/moneyio/stat/?yearmonth={{ yearmonth }}">{{ yearmonth }}</a>
+            {% endfor %}
+            {% endif %}
+
+            {% if moneystat_list %}
+            {% for moneystat in moneystat_list %}
+                <h4>{% trans "Currency" %} : {{ moneystat.currency }}</h4>
+                <span class="subtitle"> {{ begindate}} - {{ enddate }}</span>
+                <hr/>
+                <table class="display stylized" id="example">                    
+                    <thead>
+                    <tr>
+                        <th width="60%">{% trans "Income" %}</th>
+                        <th width="40%">{% trans "Amount" %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for key, value in moneystat.income_dict.items %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value|floatformat:2 }} {{ moneystat.currency }}</td>
+                    </tr>                    
+                    {% endfor %}                    
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td>{% trans "Total" %}</td>
+                        <td>{{ moneystat.total_income|floatformat:2 }} {{ moneystat.currency }}</td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <table class="stylized full" id="example">
+                    <thead>
+                    <tr>
+                        <th width="60%">{% trans "Expense" %}</th>
+                        <th width="40%">{% trans "Amount" %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for key, value in moneystat.expense_dict.items %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value|floatformat:2 }} {{ moneystat.currency }}</td>
+                    </tr>
+                    {% endfor %}                    
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td>{% trans "Total" %}</td>
+                        <td>{{ moneystat.total_expense|floatformat:2 }} {{ moneystat.currency }}</td>
+                    </tr>
+                    </tfoot>
+                </table>                
+            {% endfor %}
+            <div id="chart-container" style="width: 100%; height: 300px"></div>
+                
+                <script type="text/javascript">
+                var chart;
+                chart = new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'chart-container',
+                        defaultSeriesType: 'column'
+                    },
+                    title: {
+                        text: '{% trans "Money Income and Expense Statistics" %}'
+                    },
+                    subtitle: {
+                        text: '{{ begindate}} - {{ enddate }}'
+                    },
+                    xAxis: {
+                        categories: [
+                            {% for moneystat in moneystat_list%}
+                            '{% trans "Currency" %} {{ moneystat.currency }}',
+                            {% endfor %}
+                        ]
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: '{% trans "Amount" %}'
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        backgroundColor: '#FFFFFF',
+                        align: 'left',
+                        verticalAlign: 'top',
+                        x: 100,
+                        y: 70,
+                        floating: true,
+                        shadow: true
+                    },
+                    tooltip: {
+                        formatter: function() {
+                            return ''+
+                                this.x +': '+ this.y;
+                        }
+                    },
+                    plotOptions: {
+                        column: {
+                            pointPadding: 0.2,
+                            borderWidth: 0
+                        }
+                    },
+                    series: [
+                    {
+                        name: '{% trans "Income" %}',
+                        data: [{% for moneystat in moneystat_list%}{{ moneystat.total_income|floatformat:2 }},{% endfor %}
+                        ]            
+                    },{
+                        name: '{% trans "Expense" %}',
+                        data: [{% for moneystat in moneystat_list%}{{ moneystat.total_expense|floatformat:2 }},{% endfor %}]            
+                    }]            
+                });
+                </script>
+            {% else %}
+                <div class="box box-warning">{% trans "No records found" %}</div>            
+            {% endif %}
+            
+            <!-- Search Form -->
+            <h5>{% trans "Search Condition" %}</h5>
+            <form action="/moneyio/stat/" method="post">
+                <fieldset>
+                    <table class="no-style">
+                        {{ form.as_table }}
+                    </table>
+                    <p class=""><input type="submit" class="btn btn-green big" value="{% trans 'Submit' %}"/></p>
+                </fieldset>
+            </form>
+{% endblock %}

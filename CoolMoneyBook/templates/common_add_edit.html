@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}            
+            <form action="{{ form_action_url }}" method="post">
+                <fieldset>
+                {% if form.non_field_errors %}
+                <div class="box box-error">{% trans "Errors" %}</div>
+                <div class="box box-error-msg">					
+                    <ol>
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ol>
+                </div>                    
+                {% endif %}
+                {% for field in form %}
+                <p>
+                {% if field.errors %}
+                <div class="box box-error">{% trans "Errors" %}</div>
+                <div class="box box-error-msg">					
+                    <ol>
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ol>
+                </div>                    
+                {% endif %}
+                {{ field.label_tag }}:<br>
+                {{ field }}
+                {% if field.name == "moneyiotype" %}<a href="/moneyiousertype/add">{% trans "Add Money Income and Expense Type" %}</a>{% endif %}
+                {% if field.name == "moneyiousertype" %}<a href="/moneyiousertype/add">{% trans "Add Money Income and Expense Type" %}</a>{% endif %}
+                {% if field.name == "account" %}<a href="/account/add">{% trans "Add Account" %}</a>{% endif %}
+                {% if field.name == "fromaccount" %}<a href="/account/add">{% trans "Add Account" %}</a>{% endif %}
+                {% if field.name == "toaccount" %}<a href="/account/add">{% trans "Add Account" %}</a>{% endif %}
+                {% if field.name == "accountlist" %}<a href="/account/add">{% trans "Add Account" %}</a>{% endif %}
+                </p>
+                {% endfor %}
+                <p class=""><input type="submit" class="btn btn-green big" value="{% trans 'Submit' %}"/></p>
+                </fieldset>
+            </form>
+{% endblock %}

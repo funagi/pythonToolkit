@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+			<p>
+			{% if not user.sinaid %}
+			    {% trans "You can bind your account to sina twitter, than you can login cool money book with your sina twitter account directly." %}
+				<a href="/login_with_sinaid">
+				<img src="/static/img/tsina32.png" title="{% trans 'Login with Sina micro blog account' %}" class="no-style"></img>
+				</a>
+			{% endif %}
+			</p>
+			<p>
+			{% if not user.googleid %}
+			    {% trans "You can bind your account to google, than you can login cool money book with your google account directly." %}
+				<a href="{{ google_login_url }}">
+				<img src="/static/img/google_logo.png" title="{% trans 'Login with your google account' %}" class="no-style"></img>
+				</a>
+			{% endif %}
+			</p>
+            <form action="{{ form_action_url }}" method="post">                
+                <fieldset>
+                {% if form.non_field_errors %}
+                <div class="box box-error">{% trans "Errors" %}</div>
+                <div class="box box-error-msg">					
+                    <ol>
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ol>
+                </div>                    
+                {% endif %}
+                {% for field in form %}
+                <p>
+                {% if field.errors %}
+                <div class="box box-error">{% trans "Errors" %}</div>
+                <div class="box box-error-msg">					
+                    <ol>
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ol>
+                </div>                    
+                {% endif %}
+                {{ field.label_tag }}:<br>
+                {{ field }}
+                </p>
+                {% endfor %}
+                <p class=""><input type="submit" class="btn btn-green big" value="{% trans 'Submit' %}"/></p>
+                </fieldset>
+            </form>
+{% endblock %}

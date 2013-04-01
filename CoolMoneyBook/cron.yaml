@@ -1,0 +1,4 @@
+cron:
+- description: for alarm auto execute
+  url: /cronjob/alarm
+  schedule: every 1 hours

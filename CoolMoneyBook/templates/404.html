@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+	<div class="box box-error">{% trans "Errors" %}</div>
+	<div class="box box-error-msg">		
+		<ol>
+			<li>{% trans "You request an error url" %}</li>
+			<li>{% trans "The page you request does not exists" %}</li>
+			<li>{% trans "You try to view the data which not belong to you" %}</li>
+		</ol>
+	</div>
+{% endblock %}

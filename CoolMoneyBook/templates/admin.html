@@ -1,0 +1,167 @@
+{% load i18n %} 
+{% include "head.html" %}
+
+<!-- Page content -->
+<div id="page">
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <div id="tabs">
+            <ul>
+                <li><a class="corner-tl" href="#tabs-1">Currency</a></li>
+                <li><a class="" href="#tabs-2">Account Type</a></li>
+                <li><a class="" href="#tabs-3">Money Income and Expense System Type</a></li>
+                <li><a class="corner-tr" href="#tabs-4">Help Text</a></li>
+            </ul>
+            <div id="tabs-1">
+                <a href="/admin/currency/add" class="btn"><span class="icon icon-ok">&nbsp;</span>Add</a> 
+            {% if currency_list %}            
+            <table class="display stylized" id="example">
+                <thead>
+                    <tr>
+                        <th>Currency Name</th>
+                        <th>Currency Symbol</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for currency in currency_list %}
+                    <tr>
+                        <td>{{ currency.name }}</td>
+                        <td>{{ currency.symbol }}</td>
+                        <td><a href="/admin/currency/edit/{{ currency.id }}/">edit</a> <span>|</span>
+                            <a href="/admin/currency/delete/{{ currency.id }}/">delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Currency Name</th>
+                        <th>Currency Symbol</th>
+                        <th>Operation</th>
+                    </tr>
+                </tfoot>
+            </table> 
+            {% else %}
+            <div class="clear">&nbsp;</div>
+            <div class="box box-warning">{% trans "No records found" %}</div>
+            {% endif %}
+            </div>
+            
+            <div id="tabs-2">
+                <a href="/admin/accounttype/add" class="btn"><span class="icon icon-ok">&nbsp;</span>Add</a> 
+            {% if accounttype_list %}         
+            <table class="display stylized" id="example">
+                <thead>
+                    <tr>
+                        <th>Account Type Name</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for accounttype in accounttype_list %}
+                    <tr>
+                        <td>{{ accounttype.name }}</td>
+                        <td><a href="/admin/accounttype/edit/{{ accounttype.id }}/">edit</a> <span>|</span>
+                            <a href="/admin/accounttype/delete/{{ accounttype.id }}/">delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Account Type Name</th>
+                        <th>Operation</th>
+                    </tr>
+                </tfoot>
+            </table> 
+            {% else %}
+            <div class="clear">&nbsp;</div>
+            <div class="box box-warning">{% trans "No records found" %}</div>      
+            {% endif %}
+            </div>
+            
+            <div id="tabs-3">
+                <a href="/admin/moneyiosystype/add" class="btn"><span class="icon icon-ok">&nbsp;</span>Add</a> 
+            {% if moneyiosystype_list %}            
+            <table class="display stylized" id="example">
+                <thead>
+                    <tr>
+                        <th>Type Name</th>
+                        <th>Income or Expense</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for moneyiosystype in moneyiosystype_list %}
+                    <tr>
+                        <td>{{ moneyiosystype.name }}</td>
+                        <td>{% if moneyiosystype.isio == 1 %}Income {% else %}Expense{% endif %}</td>
+                        <td><a href="/admin/moneyiosystype/edit/{{ moneyiosystype.id }}/">edit</a> <span>|</span>
+                            <a href="/admin/moneyiosystype/delete/{{ moneyiosystype.id }}/">delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Type Name</th>
+                        <th>Income or Expense</th>
+                        <th>Operation</th>
+                    </tr>
+                </tfoot>
+            </table> 
+            {% else %}
+            <div class="clear">&nbsp;</div>
+            <div class="box box-warning">{% trans "No records found" %}</div>         
+            {% endif %}
+            </div>
+            
+            <div id="tabs-4">
+                <a href="/admin/helptext/add" class="btn"><span class="icon icon-ok">&nbsp;</span>Add</a> 
+            {% if helptext_list %}            
+            <table class="display stylized" id="example">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Page Title</th>
+                        <th>Abstract</th>
+                        <th>Create Date</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for helptext in helptext_list %}
+                    <tr>
+                        <td>{{ helptext.title }}</td>
+                        <td>{{ helptext.category }}</td>
+                        <td>{{ helptext.abstract }}</td>
+                        <td>{{ helptext.createtime|date:"Y-m-d H:i:s" }}</td>
+                        <td><a href="/admin/helptext/edit/{{ helptext.id }}/">edit</a> <span>|</span>
+                            <a href="/admin/helptext/delete/{{ helptext.id }}/">delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>Page Title</th>
+                        <th>Abstract</th>
+                        <th>Create Date</th>
+                        <th>Operation</th>
+                    </tr>
+                </tfoot>
+            </table> 
+            {% else %}
+            <div class="clear">&nbsp;</div>
+            <div class="box box-warning">{% trans "No records found" %}</div>         
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- End of Wrapper -->
+</div>
+<!-- End of Page content -->
+
+{% include "foot.html" %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            <a href="/budget/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+            <table class="display stylized" id="budgettable">
+                <thead>
+                    <tr>
+                        <th>{% trans "Budget Name" %}</th>
+                        <th>{% trans "Begin Date" %}</th>
+                        <th>{% trans "End Date" %}</th>
+                        <th>{% trans "Budget Income" %}</th>
+                        <th>{% trans "Budget Expense" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+	             <tr>
+	                 <td colspan="6" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+	             </tr>
+	         </tbody>
+                <tfoot>
+                    <tr>
+                        <th>{% trans "Budget Name" %}</th>
+                        <th>{% trans "Begin Date" %}</th>
+                        <th>{% trans "End Date" %}</th>
+                        <th>{% trans "Income" %}</th>
+                        <th>{% trans "Expense" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <script type="text/javascript">
+         jQuery('#budgettable').dataTable( {
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/get_json_data/?model_name=budget"                                                        
+		} );
+		</script>
+
+{% endblock %}

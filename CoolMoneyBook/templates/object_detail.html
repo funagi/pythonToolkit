@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            {% if object %}
+                <a href="/object/edit/{{ object.id }}" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Edit" %}</a> 
+            	<a href="/object/delete/{{ object.id }}" class="btn"><span class="icon icon-cancel">&nbsp;</span>{% trans "Delete" %}</a> 
+	            <ul>
+	                <li>{% trans "Object Name" %}: {{ object.name }} </li>
+	                <li>{% trans "Finish Date" %}: {{ object.finishdate|date:"Y-m-d" }} </li> 
+	                <li>{% trans "Object Amount" %}: {{ object.money|floatformat:2 }} {{ object.currency }}</li>	  
+	                <li>{% trans "Create Date" %}: {{ object.createtime|date:"Y-m-d H:i:s" }}</li>              
+	            </ul>
+	            {% trans "Object Status" %}:<div id="progress{{ object.id }}" ><span><b></b></span></div>
+	            {% if object.description %}
+	            <div class="box">{% trans "Description" %}<br>
+		            <p>
+		            {{ object.description }}
+		            </p>
+	            </div>
+	            {% endif %}
+	            <h5>{% trans "Account List" %}</h5>
+	            <hr>
+	            <table class="display stylized" id="accounttable">
+	         <thead>
+	             <tr>
+                        <th>{% trans "Account Name" %}</th>
+                        <th>{% trans "Account Type" %}</th>
+                        <th>{% trans "Total Amount" %}</th>
+                        <th>{% trans "Create Date" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+	         </thead>
+	         <tbody>
+	             <tr>
+	                 <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+	             </tr>
+	         </tbody>
+	         <tfoot>
+	             <tr>
+                        <th>{% trans "Account Name" %}</th>
+                        <th>{% trans "Account Type" %}</th>
+                        <th>{% trans "Total Amount" %}</th>
+                        <th>{% trans "Create Date" %}</th>
+                        <th>{% trans "Operation" %}</th>
+                    </tr>
+	         </tfoot>
+	        </table>
+	        
+	        <script type="text/javascript">
+         jQuery('#accounttable').dataTable( {
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/get_json_data/?model_name=account"                                                        
+		} );
+		</script>            
+            {% else %}
+            	<div class="box box-warning">{% trans "The object is not exists, maybe deleted" %}</div>
+            {% endif %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "sinaapp_base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="clear">&nbsp;</div> 
+            {% if moneyiosharelist %}
+            <ul class="MIB_feed">
+            	{% for moneyio in moneyiosharelist %}
+            	<li class="MIB_linedot_l">
+            		<div class="head_pic">
+            			<a href="/sinaapp/user/{{moneyio.user.id}}">
+            			    {% if moneyio.user.logo %}
+            				<img title="{{moneyio.user.name}}" src="{{moneyio.user.logo}}" />
+            				{% else %}
+            				<img title="{{moneyio.user.name}}" src="/static/img/nologo.gif" />
+            				{% endif %}
+            			</a>
+            		</div>
+            		<div class="MIB_feed_c">
+            			<p class="sms">{{moneyio.user.name}}:<a href="/moneyio/view/{{moneyio.id}}">{{moneyio.description}}</a></p>
+            			<div class="feed_preview">
+            				<div class="feed_img"><a href="#"><img class="imgicon" src="http://ww1.sinaimg.cn/thumbnail/64354652jw6dc62u2hr0bj.jpg"></a></div>
+            				<div class="clear"></div>
+            			</div>
+            			<div class="feed_att MIB_linkbl MIB_txtbl">
+            				<div class="lf">{{moneyio.createtime}}</div>
+            				<div class="rt">abc <span> | </span> def <span> | </span> aer</div>
+            			</div>
+            		</div>
+            	</li>
+            	{% endfor %}
+            </ul>
+            <script type="text/javascript" language="javascript">
+                var current_page={{ current_page }}
+                var total_page={{ total_page }}
+                jQuery(document).ready(function() {
+                    jQuery("#pager").pager({ pagenumber: current_page, pagecount: total_page, buttonClickCallback: PageClick });
+                });
+
+                PageClick = function(pageclickednumber) {
+                    window.location.href="/sinaapp/page/"+pageclickednumber;
+                }
+            </script>
+            <div class="colgroup">
+                <div class="width3 column first">
+                    <p>{% trans "Showing" %} <b>{{ page_begin_num }}-{{ page_end_num }}</b> {% trans "of total" %} <b>{{ total_records }}</b> {% trans "results" %}</p>
+                </div>
+                <div class="width3 column">
+                <div id="pager"></div>
+                </div>
+            </div>
+            {% else %}
+            <div class="box box-warning">{% trans "No records found" %}</div>
+            {% endif %}
+            <div class="clear">&nbsp;</div>
+{% endblock %}

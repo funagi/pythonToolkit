@@ -1,0 +1,39 @@
+{% load i18n %} 
+<!-- Page footer -->
+	<footer id="bottom">
+		<div class="wrapper">
+			<nav>
+				<a href="/">{% trans "Home" %}</a> &middot;
+				<a href="/moneyio">{% trans "Money" %}</a> &middot;
+				<a href="/account">{% trans "Account" %}</a> &middot;
+				<a href="/object">{% trans "Object" %}</a> &middot;
+				<a href="/alarm">{% trans "Alarm" %}</a> &middot;
+				<a href="/budget">{% trans "Budget" %}</a> &middot;
+				<a href="/setting">{% trans "Settings" %}</a>
+			</nav>
+			<p>Copyright &copy; 2010 <b><a HREF="http://CoolMoneyBook.appspot.com" title="CoolMoneyBook.appspot.com">CoolMoneyBook.appspot.com</a></b> | Icons by <a HREF="http://CoolMoneyBook.appspot.com">CoolMoneyBook.appspot.com</a></p>
+		</div>
+	</footer>
+	<!-- End of Page footer -->
+	
+	<!-- Animated footer -->
+	<footer id="animated">
+		<ul>
+			<li><a href="/">{% trans "Home" %}</a></li>
+			<li><a href="/moneyio">{% trans "Money" %}</a></li>
+			<li><a href="/account">{% trans "Account" %}</a></li>
+			<li><a href="object">{% trans "Object" %}</a></li>
+			<li><a href="/alarm">{% trans "Alarm" %}</a></li>
+			<li><a href="/budget">{% trans "Budget" %}</a></li>
+			<li><a href="/setting">{% trans "Settings" %}</a></li>
+		</ul>
+	</footer>
+	<!-- End of Animated footer -->
+	
+	<!-- Scroll to top link -->
+	<a href="#" id="totop">^ {% trans "scroll to top" %}</a>
+
+<!-- User interface javascript load -->
+<script type="text/javascript" SRC="/static/js/administry.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* 
+
+CUSTOM STYLESHEET
+
+Add your custom styles here instead of style.css so it is easier to 
+update the template. Simply copy an existing style from style.css to 
+this file, and modify it to your liking. 
+
+*/
+
+.f_pro ul.user_recom{zoom:1;overflow:auto;list-style-type:none}
+.f_pro ul.user_recom li{float:left;width:52px;padding:3px 3px 5px 4px;text-align:center;line-height:14px;}
+.f_pro ul.user_recom li .picborder_r{width:50px;height:50px;vertical-align:bottom;}
+.f_pro ul.user_recom li .name{width:50px;height:15px;line-height:15px;padding-top:3px;padding-top:5px\9;overflow:hidden;}
+
+.txt_right{text-align: right;}
+
+.MIB_feed {
+  padding-top: 10px;
+}
+
+.MIB_feed, .MIB_feed li {
+  clear: both;
+  overflow: hidden;
+  width: 100%;
+}
+
+.MIB_feed li {
+  margin: 0 0 12px;
+  padding: 0 0 14px;
+}
+
+.MIB_linedot_l {
+  background: url("/static/img/linedotl.gif") repeat-x scroll left bottom transparent;
+}
+
+.MIB_feed .head_pic {
+  float: left;
+  width: 56px;
+}
+
+.MIB_feed .head_pic img {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #CCCCCC;
+  display: block;
+  height: 50px;
+  padding: 2px;
+  width: 50px;
+}
+
+.MIB_feed .MIB_feed_c {
+  float: right;
+  width: 660px;
+}
+
+.MIB_feed_c .sms {
+  margin-top:0.125em;
+  line-height: 22px;
+  padding-bottom: 6px;
+}
+
+.MIB_feed_c .feed_preview {
+  clear: both;
+  width: 100%;
+}
+
+.MIB_feed .feed_img {
+  float: left;
+  margin: 0 8px 10px 0;
+  position: relative;
+}
+
+.MIB_feed_c .feed_att {
+  clear: both;
+  overflow: hidden;
+  padding: 5px 0 0;
+  width: 98%;
+}
+
+.lf {
+  float: left;
+}
+
+.rt {
+  float: right;
+}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            {% if alarm %} 
+            {% if not alarm.isclosed %}
+            <a href="/alarm/edit/{{ alarm.id }}" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Edit" %}</a> 
+            <a href="/alarm/delete/{{ alarm.id }}" class="btn"><span class="icon icon-cancel">&nbsp;</span>{% trans "Delete" %}</a>			
+            {% endif %}
+            <ul>
+                <li>{% trans "Alarm Name" %}: {{ alarm.name }} </li>
+                <li>{% trans "Account" %}: {{ alarm.account }} </li> 
+                <li>{% trans "Begin Date" %}: {{ alarm.begindate|date:"Y-m-d" }} </li>
+                <li>{% trans "End Date" %}: {{ alarm.enddate|date:"Y-m-d" }} </li>
+                <li>{% trans "Cycle Type" %}: {{ alarm.cycletype }}</li>
+                <li>{% trans "Cycle Value" %}: {{ alarm.cyclevalue }}</li>
+                <li>{% trans "Auto Generate Money Income and Expense" %}: {% if alarm.isautogenmoneyio %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}</li>
+                <li>{% trans "Money Income and Expense Type" %}: {{ alarm.moneyiousertype }} </li>
+                <li>{% trans "Amount" %}: {{ alarm.money|floatformat:2 }} </li>
+                <li>{% trans "Currency" %}: {{ alarm.currency }} </li>                
+                <li>{% trans "Create Date" %}: {{ alarm.createtime|date:"Y-m-d H:i:s" }}</li>                
+            </ul>
+            {% if alarm.description %}
+	            <div class="box">{% trans "Description" %}<br>
+		            <p>
+		            {{ alarm.description }}
+		            </p>
+	            </div>
+	        {% endif %}
+            
+            <h5>{% trans "Money Income and Expense" %}</h5>
+            <hr>
+            <table class="display stylized" id="moneyiotable">
+	         <thead>
+	             <tr>
+	                 <th>{% trans "Happen Date" %}</th>
+	                 <th>{% trans "Money Input and Expense Type" %}</th>
+	                 <th>{% trans "Ammount" %}</th>
+	                 <th>{% trans "Account Name" %}</th>
+	                 <th>{% trans "Operation" %}</th>
+	             </tr>
+	         </thead>
+	         <tbody>
+	             <tr>
+	                 <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+	             </tr>
+	         </tbody>
+	         <tfoot>
+	             <tr>
+	                 <th>{% trans "Happen Date" %}</th>
+	                 <th>{% trans "Money Input and Expense Type" %}</th>
+	                 <th>{% trans "Ammount" %}</th>
+	                 <th>{% trans "Account Name" %}</th>
+	                 <th>{% trans "Operation" %}</th>
+	             </tr>
+	         </tfoot>
+	        </table>
+	        <script type="text/javascript">
+         jQuery('#moneyiotable').dataTable( {
+             "iDisplayLength": {{ pageinfo.page_size }},
+		    "bProcessing": true,
+		    "bServerSide": true,
+		    "bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false,
+		    "sAjaxSource": "/moneyio/alarm/{{ alarm.id }}/?model_name=moneyio"                                                        
+		} );
+		</script>
+            
+            {% else %}
+            <div class="box box-warning">{% trans "The alarm is not exists, maybe deleted" %}</div>
+            {% endif %}
+{% endblock %}

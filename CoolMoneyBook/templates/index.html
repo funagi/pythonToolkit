@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+					<!--
+					<div class="colgroup leading">
+						<div class="column width6 first">
+							<h3>{% trans "Welcome back" %}, <a href="/setting">{{ user.name }}</a></h3>
+							<p>
+							{% if user.sinaid %}
+								<img src="/static/img/tsina16x16.png" title='{% trans "You have bind your account to Sina Micro Blog" %}'></img>
+							{% endif %}
+							</p>
+							<p>
+								{% trans "Last login" %}: {{ user.lastlogtime|date:"Y-m-d G:i:s" }}<br />
+							</p>
+						</div>
+					</div>
+					-->
+					
+					<div class="colgroup leading">
+						<!-- Money Income and Expense -->
+						<div class="column width3 first">							
+							<h4><a href="/moneyio/">{% trans "Money Income and Expense" %}</a></h4>
+							<hr/>
+							{% if moneyio_list %}
+							<table class="no-style full">
+								<tbody>
+									{% for moneyio in moneyio_list %}
+									<tr>
+                                        <td>{{ moneyio.happentime|date:"Y-m-d" }}</td>
+                                        <td>{{ moneyio.moneyiotype }}</td>
+                                        <td><a href="/moneyio/edit/{{ moneyio.id }}">{{ moneyio.money|floatformat:2 }} {{ moneyio.currency }}</a></td>
+									</tr>
+									{% endfor %}									
+								</tbody>
+							</table>
+							{% else %}
+							<div class="box box-warning">{% trans "No records found" %}</div>
+							<a href="/moneyio/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+							{% endif %}
+						</div>
+						<!-- End Money Income and Expense -->
+						
+						<!-- Account -->
+						<div class="column width3">
+							<h4><a href="/account/">{% trans "Account" %}</a></h4>
+							<hr/>
+							{% if account_list %}
+							<table class="no-style full">
+								<tbody>
+									{% for account in account_list %}
+									<tr>
+										{% if account.isclosed %}
+										<td><del><a href="/account/{{ account.id }}">{{ account.name }}</a></del></td>
+                                        <td><del>{{ account.type }}</del></td>
+                                        <td><del>{{ account.totalmoney|floatformat:2 }} {{ account.currency }}</del></td>
+                                        {% else %}
+                                        <td><a href="/account/{{ account.id }}">{{ account.name }}</a></td>
+                                        <td>{{ account.type }}</td>
+                                        <td>{{ account.totalmoney|floatformat:2 }} {{ account.currency }}</td>
+                                        {% endif %}                        
+									</tr>
+									{% endfor %}									
+								</tbody>
+							</table>
+							{% else %}
+							<div class="box box-warning">{% trans "No records found" %}</div>
+							<a href="/account/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+							{% endif %}
+						</div>
+						<!-- End Account -->						
+					</div>
+				
+					<div class="colgroup leading">
+						<!-- Ojbect -->
+						<div class="column width3 first">
+							<h4><a href="/object/">{% trans "Object" %}</a></h4>
+							<hr/>
+							{% if object_list %}
+							<table class="no-style full">								
+								<tbody>
+								    {% for object in object_list %}
+									<tr>
+										<td width="15%"><a href="/object/{{ object.id }}">{{ object.name }}</a></td>
+										<td width="25%" class="ta-right">{{ object.money|floatformat:2 }} {{ object.currency }}</td>
+										<td  width="60%"><div id="progress{{ object.id }}" ><span><b></b></span></div></td>
+										<!--
+										<td><div id="progress2" class="progress full progress-blue"><span><b></b></span></div></td>
+										<td><div id="progress3" class="progress full progress-red"><span><b></b></span></div></td>
+										-->
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+							{% else %}
+							<div class="box box-warning">{% trans "No records found" %}</div>
+							<a href="/object/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+							{% endif %}
+						</div>
+						<!-- End Ojbect -->
+						
+						<!-- Budget -->
+						<div class="column width3">
+							<h4><a href="/budget/">{% trans "Budget" %}</a></h4>
+							<hr/>
+							{% if budget_list %}
+							<div id="placeholder" style="height:250px"></div>
+							<script type="text/javascript">
+						    var chart;
+    
+    						chart = new Highcharts.Chart({
+    						      chart: {
+    						         renderTo: 'placeholder',
+    						         defaultSeriesType: 'column'
+    						      },
+    						      title: {
+    						         text: '{% trans "Budget this month" %}'
+    						      },
+    						      xAxis: {
+    						    	  categories: [
+    												{% for budget in budget_list%}
+    												'{{budget.name}}',	
+    												{% endfor %}
+    											]
+    						      },
+    						      yAxis: {
+    									min: 0,
+    									title: {
+    										text: '{% trans "Amount" %}'
+    									}
+    								},
+    						      tooltip: {
+    						         formatter: function() {
+    						            return ''+
+    						                this.series.name +': '+ this.y +'';
+    						         }
+    						      },
+    						      credits: {
+    						         enabled: false
+    						      },
+    						      series: [
+    										{
+    											name: '{% trans "Income" %}',
+    											data: [
+    													{% for budget in budget_list%}
+    													{{budget.income|floatformat:2}},
+    													{% endfor %}
+    												]
+    					
+    										},{
+    											name: '{% trans "Expense" %}',
+    											data: [
+    													{% for budget in budget_list%}
+    													{{budget.expense|floatformat:2}},
+    													{% endfor %}
+    												]
+    						
+    										}]
+    						   });
+    						</script>
+							{% else %}
+							<div class="box box-warning">{% trans "No records found" %}</div>
+							<a href="/budget/add" class="btn"><span class="icon icon-ok">&nbsp;</span>{% trans "Add" %}</a>
+							{% endif %}
+						</div>
+						<!-- End Budget -->
+					</div>
+
+{% endblock %}

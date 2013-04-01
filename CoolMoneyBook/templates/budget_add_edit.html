@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            <form action="{{ form_action_url }}" method="post">
+                <fieldset>
+                {% if budgetform.non_field_errors %}
+                <div class="box box-error">{% trans "Errors" %}</div>
+                <div class="box box-error-msg">					
+                    <ol>
+                    {% for error in budgetform.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ol>
+                </div>                    
+                {% endif %}
+                {% for field in budgetform %}
+                <p>
+                {% if field.errors %}
+                <div class="box box-error">{% trans "Errors" %}</div>
+                <div class="box box-error-msg">					
+                    <ol>
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    </ol>
+                </div>                    
+                {% endif %}
+                {{ field.label_tag }}:<br>
+                {{ field }}
+                {% if field.name == "moneyiotype" %}<a href="/moneyiousertype/add">Add Money Income and Expense Type</a>{% endif %}
+                </p>
+                {% endfor %}
+                
+                {{ budgetdetailformset.management_form }}
+                <table>
+                {% for form in budgetdetailformset.forms %}
+	                <tr>
+		                {% for field in form %}
+		                <td>		                
+		                {{ field }}
+		                {% if field.errors %}
+		                    {% for error in field.errors %}
+		                        {{ error }}
+		                    {% endfor %}
+		                {% endif %}
+		                </td>		                
+		                {% endfor %}
+	                </tr>
+                {% endfor %}
+                </table>
+                
+                <p class="">
+                <input type="submit" class="btn btn-green big" value="{% trans 'Submit' %}"/>
+                </p>
+                </fieldset>
+            </form>
+{% endblock %}

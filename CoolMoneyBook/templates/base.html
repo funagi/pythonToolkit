@@ -1,0 +1,44 @@
+{% load i18n %}
+{% include "head.html" %}
+
+<!-- Page content -->
+<div id="page">
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <!-- Left column/section -->
+        <section class="column width6 first">
+            <div class="clear">&nbsp;</div>
+            {% block content %}
+            {% endblock %}
+            <div class="clear">&nbsp;</div>
+        </section>
+        <!-- End of Left column/section -->
+
+        <!-- Right column/section -->
+        <aside class="column width2">
+            <div id="rightmenu">
+                <header>
+                    <h3>{% trans "help" %}</h3>
+                </header>
+                <dl class="first">
+                    {% if helptext_list %}
+                    {% for helptext in helptext_list %}
+                    <dt><img width="16" height="16" SRC="/static/img/help.png"></dt>
+                    <dd><a HREF="#">{{ helptext.title }}</a></dd>
+                    <dd class="last">{{ helptext.abstract|capfirst|slice:":50" }}</dd>
+                    {% endfor %}
+                    {% else %}
+                    <dt><img width="16" height="16" alt="" SRC="/static/img/help.png"></dt>
+                    <dd><a HREF="#">No Help</a></dd>
+                    <dd class="last">No Help</dd>
+                    {% endif %}
+                </dl>
+            </div>
+        </aside>
+        <!-- End of Right column/section -->
+        <div class="clear">&nbsp;</div>
+    </div>
+    <!-- End of Wrapper -->
+</div>
+<!-- End of Page content -->
+{% include "foot.html" %}

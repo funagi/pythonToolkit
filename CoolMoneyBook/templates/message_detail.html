@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+            {% if message %} 
+            <a href="/message/delete/{{ message.id }}" class="btn"><span class="icon icon-cancel">&nbsp;</span>{% trans "Delete" %}</a>			
+            
+            <h4>{{ message.title }}</h4>
+            <span class="subtitle">{{ message.createtime|date:"Y-m-d H:i:s" }}</span>
+            <hr/>
+            <p>
+            {{ message.content|safe }}
+            </p>
+            
+            {% else %}
+            <div class="box box-warning">{% trans "The message is not exists, maybe deleted" %}</div>
+            {% endif %}
+{% endblock %}

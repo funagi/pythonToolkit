@@ -1,0 +1,67 @@
+{% load i18n %}
+{% include "head.html" %}
+
+<!-- Page content -->
+<div id="page">
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <!-- Left column/section -->
+        <section class="column width6 first">
+            <div class="clear">&nbsp;</div>
+            {% block content %}
+            <div class="colgroup leading">
+				<div class="column width6 first">
+					<h3>{% trans "Welcome to Cool Money Book" %}</h3>
+					<p>
+					{% trans "Cool Money Book is a free, online record money income and expense tool. It can help you to record your income and expense easy and you can do this job online." %}
+					<br>
+					{% trans "Now the Cool Money Book is just Beta. We'll develop it more better. If you like the cool money book, please save it to favorite. And please continue to see us. We will make the tool more better with your help." %}
+					</p>
+				</div>
+			</div>			
+			<div class="colgroup leading">
+			<hr>
+			<h3>Function</h3>
+				<div class="column width3 first">
+					<ul class="list_01">
+			            <li>{% trans "Create, manage your money account" %}</li>
+			            <li>{% trans "Record the money income and expense" %}</li>
+			            <li>{% trans "Help you to stat your money income and expense in your setting time" %}</li>
+			            <li>{% trans "Help you to analyze your money income and expense" %}</li>
+			            <li>{% trans "Manage your money income and expense type" %}</li>			            
+			        </ul>
+				</div>
+				<div class="column width3">
+					<ul class="list_01">
+			            <li>{% trans "Record the money borrow and lend, and the money transfer between your accounts" %}</li>			
+			            <li>{% trans "Setting your money object and view the status" %}</li>
+			            <li>{% trans "Setting your alarm and help you to create the money income and expense automatically" %}</li>
+			            <li>{% trans "Setting your budget and view the result" %}</li>
+			        </ul>
+				</div>
+			</div>
+            {% endblock %}
+            <div class="clear">&nbsp;</div>
+        </section>
+        <!-- End of Left column/section -->
+
+        <!-- Right column/section -->
+        <aside class="column width2">
+            <div id="rightmenu">
+                <header>
+                    <h3>{% trans "Login" %}</h3>
+                </header>
+                <dl class="first">
+                    <a href="{{ google_login_url }}" class="no-style"><img src="/static/img/google_logo.png" title="{% trans 'Login with Google account' %}"></img></a>
+            		<p>
+            		<a href="/login_with_sinaid" class="no-style"><img src="/static/img/tsina32.png" title="{% trans 'Login with Sina micro blog account' %}"></img></a>
+                </dl>
+            </div>
+        </aside>
+        <!-- End of Right column/section -->
+        <div class="clear">&nbsp;</div>
+    </div>
+    <!-- End of Wrapper -->
+</div>
+<!-- End of Page content -->
+{% include "foot.html" %}

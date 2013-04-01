@@ -1,0 +1,28 @@
+application: ertuers
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: false
+
+handlers:
+
+- url: /plugins/(.*\.(js))
+  static_files: ../../AQISpider/static/plugins/\1
+  upload: ../../AQISpider/static/plugins/(.*\.(js))
+
+- url: /(.*\.(js|gif|png|jpg|css|ico))
+  static_files: static/\1
+  upload: static/(.*\.(js|gif|png|jpg|css|ico))
+
+- url: /
+  script: Index.py
+
+- url: /add.*
+  script: Add.py
+
+- url: /main
+  script: Main.py
+
+libraries:
+- name: django
+  version: latest

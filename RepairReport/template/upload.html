@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>upload test</title>
+        <script src="/jquery-1.8.3.min.js"></script>
+        <script src="/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="/jquery.dataTables.css" />
+        <link rel="stylesheet" href="/jquery-ui-1.9.2.custom.min.css" />
+        <script type="text/javascript">
+            function checkData(){
+                data = {};
+                // gather information
+                data['name'] = $('#name').val();
+                data['date'] = $('#date').val();
+                itemlist = [];
+                for (var i = 0; i < $('#itemlist').children().length; i++) {
+                    properties = $($('#itemlist').children()[i]).children();
+                    list = {};
+                    for (var j = 0; j < properties.length; j++) {
+                        property = $($(properties[j]).children().first());
+                        if (property.attr('tagName')=='span') {
+                            list[property.attr('name')] = property.html();
+                        } else{
+                            list[property.attr('name')] = property.val();
+                        };
+                    };
+                    itemlist.push(list);
+                };
+                data['items'] = itemlist;
+                // convert into JSON
+                jsondata = JSON.stringify(data);
+                // POST the data to server
+                $.ajax({
+                    type: "POST",
+                    url : "/add",
+                    data: {"jsondata": jsondata}
+                });
+            }
+
+            // calculate prices
+            function calculateprice() {
+                if ($(this).attr('class')=='unitprice') {
+                    var unit = $(this).val();
+                    var num = $(this).parent().next().children().first().val();
+                } else if ($(this).attr('class')=='num') {
+                    var unit = $(this).parent().prev().children().first().val();
+                    var num = $(this).val();
+                };
+                // calculate price
+                unit = parseFloat(unit);
+                num = parseFloat(num);
+                if (isNaN(unit) || isNaN(num)) {
+                    $(this).parent().siblings().last().children().first().html('');
+                } else{
+                    $(this).parent().siblings().last().children().first().html(unit*num);
+                };
+            }
+            $(document).delegate('.unitprice', 'input', calculateprice);
+            $(document).delegate('.num', 'input', calculateprice);
+            // textbox focus
+            $(document).delegate(":text","focus",function(){
+                $(this).val($(this).val()).select();
+            });
+            // html for every new line
+            var html_line = '<tr class="entry">\
+                <td><span class="item_id" name="item_id"></span></td>\
+                <td><input type="text" class="name" name="name"/></td>\
+                <td>￥<input type="text" class="unitprice" name="unitprice"/></td>\
+                <td><input type="text" class="num" name="num"/></td>\
+                <td><input type="text" class="unit" name="unit"/></td>\
+                <td>￥<span class="totalprice" name="totalprice"></span></td>\
+            </tr>';
+            var item_namelist = ["aaa", "bbb"];
+            $(document).ready(function(){
+                $('#additem').button({
+                    icons: {
+                        primary: "ui-icon-plusthick"
+                    }
+                }).click( function(event) {
+                    event.preventDefault();
+                    $('#itemlist').html($('#itemlist').html() + html_line);
+                    $('.name').autocomplete({"source": item_namelist});
+                });
+                $('#date').datepicker({"showAnim": "slideDown", "dateFormat": "yy/mm/dd"});
+
+                // upload button
+                $('#upload').button({
+                    icons: {
+                        primary: "ui-icon-plusthick"
+                    }
+                }).click( function(event) {
+                    event.preventDefault();
+                    checkData();
+                });
+            });
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <body>
+        <center>
+            
+            <h2>Data Upload</h2>
+            <table>
+                <tr class="row">
+                    <td>Name:</td>
+                    <td><input type="text" name="Name" id="name"/></td>
+                </tr>
+                <tr class="row">
+                    <td>Date:</td>
+                    <td><input type="text" id="date" name="rDate" value="{% now "Y/m/d" %}"/></td>
+                </tr>
+                <tr class="row">
+                    <td>List:</td>
+                    <td><button id="additem">添加</button></td>
+                </tr>
+                <tr class="row">
+                    <td></td>
+                    <td>
+                        <table>
+                            <thead>
+                                <!--tr><td>序号</td><td>名称</td><td>单价</td><td>数量</td><td>单位</td><td>总价</td></tr-->
+                            </thead>
+                            <tbody id="itemlist"></tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <button id="upload">Upload</button>
+            </div>
+        </center>
+    </body>
+</html>

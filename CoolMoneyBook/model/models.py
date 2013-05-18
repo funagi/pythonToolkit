@@ -341,6 +341,7 @@ class MoneyIO(MyBaseModel):
         result = []
         result.append(datetime.datetime.strftime(self.happentime, '%Y-%m-%d'))
         result.append(self.moneyiotype.name)
+        result.append(self.description.replace('\n',' '))
         result.append("%10.2f %s" %(self.money, self.currency.symbol))
         result.append('<a href="/account/%s">%s</a>' % (self.account.id, self.account.name))
         result.append('<a href="/moneyio/edit/%s/">%s</a> <span> |</span><a href="/moneyio/delete/%s/">%s</a>' 

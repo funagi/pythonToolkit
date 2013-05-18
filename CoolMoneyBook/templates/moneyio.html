@@ -13,6 +13,7 @@
                     <tr>
                         <th>{% trans "Happen Date" %}</th>
                         <th>{% trans "Money Input and Expense Type" %}</th>
+                        <th>收支详情</th>
                         <th>{% trans "Ammount" %}</th>
                         <th>{% trans "Account" %}</th>
                         <th>{% trans "Operation" %}</th>
@@ -21,7 +22,7 @@
                 <tbody>
                     {% for moneyio in moneyio_list %}
                     <tr>
-                        <td colspan="5" class="dataTables_empty">{% trans "Loading data from server" %}</td>
+                        <td colspan="6" class="dataTables_empty">{% trans "Loading data from server" %}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -29,6 +30,7 @@
                     <tr>
                         <th>{% trans "Happen Date" %}</th>
                         <th>{% trans "Money Input and Expense Type" %}</th>
+                        <th>收支详情</th>
                         <th>{% trans "Ammount" %}</th>
                         <th>{% trans "Account" %}</th>
                         <th>{% trans "Operation" %}</th>

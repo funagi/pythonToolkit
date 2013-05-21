@@ -10,3 +10,5 @@ syntax: glob
 Index/desktop.ini
 AQISpider/DAYNOW.htm
 *.sublime-workspace
+.gitignore
+.hgignore
